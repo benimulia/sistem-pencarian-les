@@ -8,6 +8,7 @@ use App\Http\Controllers\UserController;
 use App\Http\Controllers\UtamaController;
 use App\Http\Controllers\KategoriController;
 use App\Http\Controllers\TempatKursusController;
+use App\Http\Controllers\ProgramController;
 use Illuminate\Support\Facades\Route;
 
 
@@ -41,12 +42,20 @@ Route::group(['middleware' => ['auth']], function () {
     Route::post('/admin/kategori/update/{id}', [KategoriController::class, 'update'])->name('kategori.update');
     Route::get('/admin/kategori/delete/{id}', [KategoriController::class, 'destroy'])->name('kategori.destroy');
 
-        // ================== TEMPAT KURSUS ==================
-        Route::get('/admin/tempatkursus', [TempatKursusController::class, 'index'])->name('tempatkursus.index');
-        Route::get('/admin/tempatkursus/create', [TempatKursusController::class, 'create'])->name('tempatkursus.create');
-        Route::post('/admin/tempatkursus/store', [TempatKursusController::class, 'store'])->name('tempatkursus.store');
-        Route::get('/admin/tempatkursus/edit/{id}', [TempatKursusController::class, 'edit'])->name('tempatkursus.edit');
-        Route::post('/admin/tempatkursus/update/{id}', [TempatKursusController::class, 'update'])->name('tempatkursus.update');
-        Route::get('/admin/tempatkursus/delete/{id}', [TempatKursusController::class, 'destroy'])->name('tempatkursus.destroy');
+    // ================== TEMPAT KURSUS ==================
+    Route::get('/admin/tempatkursus', [TempatKursusController::class, 'index'])->name('tempatkursus.index');
+    Route::get('/admin/tempatkursus/create', [TempatKursusController::class, 'create'])->name('tempatkursus.create');
+    Route::post('/admin/tempatkursus/store', [TempatKursusController::class, 'store'])->name('tempatkursus.store');
+    Route::get('/admin/tempatkursus/edit/{id}', [TempatKursusController::class, 'edit'])->name('tempatkursus.edit');
+    Route::post('/admin/tempatkursus/update/{id}', [TempatKursusController::class, 'update'])->name('tempatkursus.update');
+    Route::get('/admin/tempatkursus/delete/{id}', [TempatKursusController::class, 'destroy'])->name('tempatkursus.destroy');
+
+    // ================== PROGRAM ==================
+    Route::get('/admin/program', [ProgramController::class, 'index'])->name('program.index');
+    Route::get('/admin/program/create', [ProgramController::class, 'create'])->name('program.create');
+    Route::post('/admin/program/store', [ProgramController::class, 'store'])->name('program.store');
+    Route::get('/admin/program/edit/{id}', [ProgramController::class, 'edit'])->name('program.edit');
+    Route::post('/admin/program/update/{id}', [ProgramController::class, 'update'])->name('program.update');
+    Route::get('/admin/program/delete/{id}', [ProgramController::class, 'destroy'])->name('program.destroy');
 
 });

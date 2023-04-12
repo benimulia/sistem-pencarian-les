@@ -81,9 +81,9 @@
                 </div>
 
                 <div class="form-group">
-                    <label for="nama_kategori">Nama Tempat Kursus :</label>
-                    <input type="text" class="form-control" id="nama_kategori" placeholder="Masukkan nama.."
-                        name="nama_kategori" required>
+                    <label for="nama_tempat_kursus">Nama Tempat Kursus :</label>
+                    <input type="text" class="form-control" id="nama_tempat_kursus" placeholder="Masukkan nama.."
+                        name="nama_tempat_kursus" required>
                     <div class="valid-feedback">
                         Looks good!
                     </div>
@@ -106,7 +106,7 @@
 
                 <div class="form-group">
                     <label for="no_telp">Nomor Telp :</label>
-                    <input type="text" class="form-control" id="no_telp" placeholder="Masukkan no hp.." name="no_telp"
+                    <input type="text" class="form-control" id="no_telp" placeholder="Masukkan no telp.." name="no_telp"
                         maxlength="13" required>
                     <div class="valid-feedback">
                         Looks good!

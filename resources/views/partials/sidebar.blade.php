@@ -38,8 +38,8 @@
         </a>
     </li>
 
-    <li class="nav-item {{ request()->is('kategori*') ? 'active' : '' }}">
-        <a class="nav-link" href="{{ route('kategori.index') }}">
+    <li class="nav-item {{ request()->is('admin/program*') ? 'active' : '' }}">
+        <a class="nav-link" href="{{ route('program.index') }}">
             <i class="fas fa-fw fa-cogs"></i>
             <span>Program Kursus</span>
         </a>

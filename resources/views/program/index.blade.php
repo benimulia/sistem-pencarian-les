@@ -38,22 +38,22 @@
 
 <!-- Content Row -->
 <!-- Page Heading -->
-<h1 class="h3 mb-2 text-gray-800">Tempat Kursus</h1>
-<p class="mb-4">Halaman ini digunakan untuk menampilkan dan mengelola daftar tempat kursus.</p>
+<h1 class="h3 mb-2 text-gray-800">Program</h1>
+<p class="mb-4">Halaman ini digunakan untuk menampilkan dan mengelola daftar program.</p>
 
 <!-- DataTales Example -->
 <div class="card shadow mb-4">
     <div class="card-header py-3">
-        <h6 class="m-0 font-weight-bold text-primary">Data Tempat Kursus</h6>
+        <h6 class="m-0 font-weight-bold text-primary">Data Program</h6>
     </div>
     <div class="card-body">
-        @can('tempat-kursus-create')
+        @can('program-create')
         <div class="row ml-0">
-            <a href="{{route('tempatkursus.create')}}" class="btn btn-primary btn-icon-split">
+            <a href="{{route('program.create')}}" class="btn btn-primary btn-icon-split">
                 <span class="icon text-white-50">
                     <i class="fas fa-plus"></i>
                 </span>
-                <span class="text">Tambah Tempat Kursus</span>
+                <span class="text">Tambah Program</span>
             </a>
         </div>
         @endcan
@@ -63,50 +63,47 @@
                 <thead class="thead-dark">
                     <tr>
                         <th class="text-center">No</th>
-                        <th class="text-center">Kategori</th>
-                        <th class="text-center">Nama Kursus</th>
-                        <th class="text-center">Alamat</th>
-                        <th class="text-center">Telp</th>
-                        <th class="text-center" style="width: 10px">Jumlah Pengunjung</th>
+                        <th class="text-center">Tempat Kursus</th>
+                        <th class="text-center">Nama Program</th>
+                        <th class="text-center">Deskripsi</th>
+                        <th class="text-center">Foto</th>
 
-                        @can('tempat-kursus-edit')
+                        @can('program-edit')
                         <th data-orderable="false"></th>
                         @endcan
-                        @can('tempat-kursus-delete')
+                        @can('program-delete')
                         <th data-orderable="false"></th>
                         @endcan
                     </tr>
                 </thead>
 
                 <tbody>
-                    @foreach ($tempatkursus as $index => $result)
+                    @foreach ($program as $index => $result)
                     <tr>
                         <td class="text-center">{{$index + 1}}</td>
-                        <td>{{\Illuminate\Support\Str::limit( html_entity_decode(strip_tags($result->kategori->nama_kategori)), 50 )}}
-                        <td>{{\Illuminate\Support\Str::limit( html_entity_decode(strip_tags($result->nama_tempat_kursus)), 50 )}}
-                        <td>{{\Illuminate\Support\Str::limit( html_entity_decode(strip_tags($result->alamat)), 100 )}}
-                        <td>{{$result->no_telp}}
-                        <td>{{$result->jumlah_pengunjung}}
-                        </td>
-                        @can('tempat-kursus-edit')
+                        <td>{{\Illuminate\Support\Str::limit( html_entity_decode(strip_tags($result->tempatkursus->nama_tempat_kursus)), 50 )}}</td>
+                        <td>{{\Illuminate\Support\Str::limit( html_entity_decode(strip_tags($result->nama_program)), 50 )}}</td>
+                        <td>{{\Illuminate\Support\Str::limit( html_entity_decode(strip_tags($result->deskripsi)), 100 )}}</td>
+                        <td>{{$result->foto_program}}</td>
+                        @can('program-edit')
                         <td class="text-center">
-                            <a href="{{ route('tempatkursus.edit',['id' => $result->id_tempat_kursus]) }}"
-                                class="btn btn-success text-light btb-circle" id="edit-tempat-kursus">
+                            <a href="{{ route('program.edit',['id' => $result->id_program]) }}"
+                                class="btn btn-success text-light btb-circle" id="edit-program">
                                 <i class="fas fa-eye"></i>
                             </a>
                         </td>
                         @endcan
-                        @can('tempat-kursus-delete')
+                        @can('program-delete')
                         <td class="text-center">
-                            <a data-id="{!! $result->id_tempat_kursus !!}"
-                                data-target="#previewModal-{{ $result->id_tempat_kursus }}" data-toggle="modal"
+                            <a data-id="{!! $result->id_program !!}"
+                                data-target="#previewModal-{{ $result->id_program }}" data-toggle="modal"
                                 class="btn btn-danger btn-circle">
                                 <i class="fas fa-trash"></i>
                             </a>
                         </td>
                         @endcan
                         <!-- Modal HTML -->
-                        <div class="modal fade" tabindex="-1" id="previewModal-{{ $result->id_tempat_kursus }}">
+                        <div class="modal fade" tabindex="-1" id="previewModal-{{ $result->id_program }}">
                             <div class="modal-dialog">
                                 <div class="modal-content">
                                     <div class="modal-header bg-warning dark">
@@ -123,7 +120,7 @@
                                     <div class="modal-footer">
                                         <button type="button" class="btn btn-secondary"
                                             data-dismiss="modal">Batal</button>
-                                        <a href="{{ route('tempatkursus.destroy',['id' => $result->id_tempat_kursus]) }}"
+                                        <a href="{{ route('program.destroy',['id' => $result->id_program]) }}"
                                             class="btn btn-danger text-light">
                                             Hapus
                                         </a>

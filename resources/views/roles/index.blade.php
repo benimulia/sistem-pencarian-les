@@ -3,11 +3,11 @@
 <div class="row">
     <div class="col-lg-12 margin-tb">
         <div class="pull-left mb-4">
-            <h2>Users Management</h2>
+            <h2>Role Management</h2>
         </div>
         <div class="pull-right mb-2">
-            @can('user-create')
-            <a class="btn btn-success" href="{{ route('users.create') }}"> Create New User</a>
+            @can('role-create')
+            <a class="btn btn-success" href="{{ route('roles.create') }}"> Create New Role</a>
             @endcan
         </div>
     </div>
@@ -28,33 +28,32 @@
     <tr>
         <th>No</th>
         <th>Name</th>
-        <th>Email</th>
-        <th>Roles</th>
         <th width="280px">Action</th>
     </tr>
-    @foreach ($data as $key => $user)
+
+    @foreach ($roles as $key => $role)
     <tr>
         <td>{{ ++$i }}</td>
-        <td>{{ $user->name }}</td>
-        <td>{{ $user->email }}</td>
+        <td>{{ $role->name }}</td>
         <td>
-            @if(!empty($user->getRoleNames()))
-            @foreach($user->getRoleNames() as $v)
-            <span class="badge rounded-pill bg-warning">{{ $v }}</span>
-            @endforeach
+            <a class="btn btn-info" href="{{ route('roles.show',$role->id) }}">Show</a>
+            @can('role-edit')
+            @if($role->name != 'Super Admin')
+            <a class="btn btn-primary" href="{{ route('roles.edit',$role->id) }}">Edit</a>
             @endif
-        </td>
-        <td>
-            <a class="btn btn-info" href="{{ route('users.show',$user->id) }}">Show</a>
-            <a class="btn btn-primary" href="{{ route('users.edit',$user->id) }}">Edit</a>
-            {!! Form::open(['method' => 'DELETE','route' => ['users.destroy', $user->id],'style'=>'display:inline','onsubmit' => "return ConfirmDelete()"]) !!}
+            @endcan
+            @can('role-delete')
+            @if($role->name != 'Super Admin')
+            {!! Form::open(['method' => 'DELETE','route' => ['roles.destroy', $role->id],'style'=>'display:inline','onsubmit' => "return ConfirmDelete()"]) !!}
             {!! Form::submit('Delete', ['class' => 'btn btn-danger']) !!}
             {!! Form::close() !!}
+            @endif
+            @endcan
         </td>
     </tr>
     @endforeach
 </table>
-{!! $data->render() !!}
+{!! $roles->render() !!}
 @endsection
 
 @section('footer-script')

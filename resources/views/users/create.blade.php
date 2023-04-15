@@ -61,17 +61,6 @@
                 {!! Form::select('roles[]', $roles, [], ['class' => 'form-control', 'multiple']) !!}
             </div>
         </div>
-        <div class="col-xs-12 col-sm-12 col-md-12">
-            <div class="form-group">
-                <strong>Cabang:</strong>
-                <select class="form-control" id="id_cabang" name="id_cabang" required>
-                    <option value="">Pilih Cabang</option>
-                    @foreach ($cabang as $result)
-                        <option value="{{ $result->id_cabang }}">{{ $result->nama_cabang }}</option>
-                    @endforeach
-                </select>
-            </div>
-        </div>
         <div class="col-xs-12 col-sm-12 col-md-12 text-center">
             <button type="submit" class="btn btn-primary">Submit</button>
         </div>

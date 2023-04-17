@@ -27,6 +27,26 @@ class UserController extends Controller
          $this->middleware('permission:user-delete', ['only' => ['destroy']]);
     }
 
+    public function userAll()
+    {
+        return User::orderBy('name', 'ASC')->get();
+    }
+
+    public function getUserRole()
+    {
+        if (!auth()->check()) {
+            return null;
+        }
+        
+        $user_id = auth()->user()->id;
+        $userrole = DB::table('model_has_roles')
+            ->select('model_has_roles.*')
+            ->where('model_id', $user_id)
+            ->first();
+        
+        return $userrole;
+    }
+
     public function index(Request $request)
     {
         $data = User::orderBy('name','ASC')->paginate(5);

@@ -7,6 +7,8 @@ use App\Models\Kategori;
 use App\Models\TempatKursus;
 use App\Models\Program;
 
+use App\Http\Controllers\UserController;
+
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Models\Cabang;
@@ -19,12 +21,16 @@ use Carbon\Carbon;
 
 class TempatKursusController extends Controller
 {
-    public function __construct()
+    private $userController;
+
+    public function __construct(UserController $userController)
     {
         $this->middleware('permission:tempat-kursus-list|tempat-kursus-create|tempat-kursus-edit|tempat-kursus-delete', ['only' => ['index', 'store']]);
         $this->middleware('permission:tempat-kursus-create', ['only' => ['create', 'store']]);
         $this->middleware('permission:tempat-kursus-edit', ['only' => ['edit', 'update']]);
         $this->middleware('permission:tempat-kursus-delete', ['only' => ['destroy']]);
+
+        $this->userController = $userController;
     }
 
 
@@ -33,38 +39,18 @@ class TempatKursusController extends Controller
         return Kategori::orderBy('nama_kategori', 'ASC')->get();
     }
 
-    public function userAll()
-    {
-        return User::orderBy('name', 'ASC')->get();
-    }
-
-    public function getUserRole()
-    {
-        if (!auth()->check()) {
-            return null;
-        }
-        
-        $user_id = auth()->user()->id;
-        $userrole = DB::table('model_has_roles')
-            ->select('model_has_roles.*')
-            ->where('model_id', $user_id)
-            ->first();
-        
-        return $userrole;
-    }
-
     public function index()
     {
-        $userrole = $this->getUserRole()->role_id;
-        $userid = $this->getUserRole()->model_id;
-
+        $userrole = $this->userController->getUserRole()->role_id;
+        $userid = $this->userController->getUserRole()->model_id;
+        
         //check superadmin atau bukan
-        if($userrole == 0){
-            $tempatkursus = TempatKursus::with('kategori')->latest()->get();
-        }else{
+        if($userrole != 1){            
             $tempatkursus = TempatKursus::with('kategori')->where('id_user','=',$userid)->latest()->get();
+        }else{
+            $tempatkursus = TempatKursus::with('kategori')->latest()->get();
         }
-
+                
         return view('tempatkursus.index', compact('tempatkursus'), [
             "title" => "List Tempat Kursus"
         ]);
@@ -76,10 +62,10 @@ class TempatKursusController extends Controller
         $kategori = $this->kategoriAll();
 
         //get user
-        $users = $this->userAll();
+        $users = $this->userController->userAll();
 
         //get userrole
-        $userrole = $this->getUserRole()->role_id;
+        $userrole = $this->userController->getUserRole()->role_id;
 
         return view('tempatkursus.create', compact('kategori', 'userrole', 'users'), [
             "title" => "Tambah Tempat Kursus"

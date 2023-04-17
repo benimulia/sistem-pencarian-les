@@ -64,6 +64,27 @@
                 method="POST" enctype="multipart/form-data">
                 @csrf
 
+                @if($userrole == 1)
+                <div class="form-group">
+                    <label for="id_user">Owner :</label>
+                    <select class="form-control select2" id="id_user" name="id_user">
+                        <option value="">Owner</option>
+                        @foreach ($users as $index => $result)
+                            <option value="{{ $result->id }}">{{ $result->name }}</option>
+                        @endforeach
+                    </select>
+                    <div class="valid-feedback">
+                        Looks good!
+                    </div>
+                    <div class="invalid-feedback">
+                        Please fill out this field.
+                    </div>
+                </div>
+                @else
+                <input type="hidden" id="id_user" name="id_user" value="{{ auth()->user()->id }}">
+                @endif
+
+
                 <div class="form-group">
                     <label for="id_kategori">Kategori :</label>
                     <select class="form-control select2" id="id_kategori" name="id_kategori">

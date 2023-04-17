@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\User;
 use App\Models\Kategori;
 use App\Models\TempatKursus;
 use App\Models\Program;
@@ -32,13 +33,41 @@ class TempatKursusController extends Controller
         return Kategori::orderBy('nama_kategori', 'ASC')->get();
     }
 
+    public function userAll()
+    {
+        return User::orderBy('name', 'ASC')->get();
+    }
+
+    public function getUserRole()
+    {
+        if (!auth()->check()) {
+            return null;
+        }
+        
+        $user_id = auth()->user()->id;
+        $userrole = DB::table('model_has_roles')
+            ->select('model_has_roles.*')
+            ->where('model_id', $user_id)
+            ->first();
+        
+        return $userrole;
+    }
+
     public function index()
     {
-        $tempatkursus = TempatKursus::with('kategori')->latest()->get();
+        $userrole = $this->getUserRole()->role_id;
+        $userid = $this->getUserRole()->model_id;
+
+        //check superadmin atau bukan
+        if($userrole == 0){
+            $tempatkursus = TempatKursus::with('kategori')->latest()->get();
+        }else{
+            $tempatkursus = TempatKursus::with('kategori')->where('id_user','=',$userid)->latest()->get();
+        }
+
         return view('tempatkursus.index', compact('tempatkursus'), [
             "title" => "List Tempat Kursus"
         ]);
-
     }
 
     public function create()
@@ -46,7 +75,13 @@ class TempatKursusController extends Controller
         //get kategori
         $kategori = $this->kategoriAll();
 
-        return view('tempatkursus.create', compact('kategori'), [
+        //get user
+        $users = $this->userAll();
+
+        //get userrole
+        $userrole = $this->getUserRole()->role_id;
+
+        return view('tempatkursus.create', compact('kategori', 'userrole', 'users'), [
             "title" => "Tambah Tempat Kursus"
         ]);
     }
@@ -77,6 +112,7 @@ class TempatKursusController extends Controller
 
         try {
             TempatKursus::create([
+                'id_user' => $request->id_user,
                 'id_kategori' => $request->id_kategori,
                 'nama_tempat_kursus' => $request->nama_tempat_kursus,
                 'no_telp' => $request->no_telp,

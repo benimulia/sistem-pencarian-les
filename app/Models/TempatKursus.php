@@ -13,6 +13,7 @@ class TempatKursus extends Model
 
     protected $fillable = [
             'id_tempat_kursus',
+            'id_user',
             'id_kategori',
             'nama_tempat_kursus',
             'alamat',

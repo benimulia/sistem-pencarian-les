@@ -13,6 +13,7 @@ class Program extends Model
 
     protected $fillable = [
             'id_program',
+            'id_user',
             'id_tempat_kursus',
             'nama_program',
             'deskripsi_program',
@@ -21,7 +22,7 @@ class Program extends Model
 
     public function tempatkursus()
     {
-        return $this->hasOne(Kategori::class, 'id_tempat_kursus', 'id_tempat_kursus');
+        return $this->belongsTo(TempatKursus::class, 'id_tempat_kursus', 'id_tempat_kursus');
     }
 }
 

@@ -66,7 +66,6 @@
                         <th class="text-center">Tempat Kursus</th>
                         <th class="text-center">Nama Program</th>
                         <th class="text-center">Deskripsi</th>
-                        <th class="text-center">Foto</th>
 
                         @can('program-edit')
                         <th data-orderable="false"></th>
@@ -83,8 +82,7 @@
                         <td class="text-center">{{$index + 1}}</td>
                         <td>{{\Illuminate\Support\Str::limit( html_entity_decode(strip_tags($result->tempatkursus->nama_tempat_kursus)), 50 )}}</td>
                         <td>{{\Illuminate\Support\Str::limit( html_entity_decode(strip_tags($result->nama_program)), 50 )}}</td>
-                        <td>{{\Illuminate\Support\Str::limit( html_entity_decode(strip_tags($result->deskripsi)), 100 )}}</td>
-                        <td>{{$result->foto_program}}</td>
+                        <td>{{\Illuminate\Support\Str::limit( html_entity_decode(strip_tags($result->deskripsi_program)), 100 )}}</td>
                         @can('program-edit')
                         <td class="text-center">
                             <a href="{{ route('program.edit',['id' => $result->id_program]) }}"

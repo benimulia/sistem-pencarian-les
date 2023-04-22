@@ -17,6 +17,8 @@ class TempatKursus extends Model
             'id_kategori',
             'nama_tempat_kursus',
             'alamat',
+            'latitude',
+            'longitude',
             'no_telp',
             'foto_utama',
             'jumlah_pengunjung',

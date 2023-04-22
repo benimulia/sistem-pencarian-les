@@ -7,6 +7,57 @@
     <link rel="stylesheet" href="{{ asset('assets/css/select2-bootstrap-5-theme.min.css') }}" />
 @endsection
 
+@section('head-script')
+<script src="http://maps.googleapis.com/maps/api/js?key=AIzaSyD-vdSB4GHjLFmlr5HNHvOhHU1UrmDs7Js"></script>
+<script>
+// variabel global marker
+var marker;
+  
+function taruhMarker(peta, posisiTitik){
+    
+    if( marker ){
+      // pindahkan marker
+      marker.setPosition(posisiTitik);
+    } else {
+      // buat marker baru
+      marker = new google.maps.Marker({
+        position: posisiTitik,
+        map: peta,
+        draggable: true
+      });
+    }
+  
+     // isi nilai koordinat ke form
+    document.getElementById("lat").value = posisiTitik.lat();
+    document.getElementById("lng").value = posisiTitik.lng();
+    
+}
+  
+function initialize() {
+  var propertiPeta = {
+    center:new google.maps.LatLng(-7.785996142593305, 110.37836496578073),
+    zoom:13,
+    mapTypeId:google.maps.MapTypeId.ROADMAP
+  };
+  
+  var peta = new google.maps.Map(document.getElementById("googleMap"), propertiPeta);
+  
+  // even listner ketika maps diklik
+  google.maps.event.addListener(peta, 'click', function(event) {
+    taruhMarker(this, event.latLng);
+  });
+
+}
+
+
+// event jendela di-load  
+google.maps.event.addDomListener(window, 'load', initialize);
+  
+
+</script>
+
+@endsection
+
 @section('content')
     @if ($message = Session::get('success'))
         <div class="container">
@@ -124,6 +175,9 @@
                         Please fill out this field.
                     </div>
                 </div>
+                <div id="googleMap" style="width:100%;height:380px;"></div>
+                <input type="hidden" id="lat" name="lat" value="">
+                <input type="hidden" id="lng" name="lng" value="">
 
                 <div class="form-group">
                     <label for="no_telp">Nomor Telp :</label>
@@ -190,12 +244,15 @@
                 allowClear: true,
                 theme: "bootstrap-5",
             });
-
-            $('#id_user').select2({
-                placeholder: "Pilih Owner",
-                allowClear: true,
-                theme: "bootstrap-5",
-            });
+            
+            if(userrole ==1){
+                $('#id_user').select2({
+                    placeholder: "Pilih Owner",
+                    allowClear: true,
+                    theme: "bootstrap-5",
+                });
+            }
+            
         });
         //select2 end
 

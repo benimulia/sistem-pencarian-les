@@ -96,7 +96,6 @@ class TempatKursusController extends Controller
             return redirect()->route('tempatkursus.index')->with('fail', 'Gagal construct data. Silahkan coba lagi');
         }
 
-        try {
             TempatKursus::create([
                 'id_user' => $request->id_user,
                 'id_kategori' => $request->id_kategori,
@@ -104,11 +103,11 @@ class TempatKursusController extends Controller
                 'no_telp' => $request->no_telp,
                 'foto_utama' => $nameImageUtama,
                 'alamat' => $request->alamat,
+                'latitude' => $request->lat,
+                'longitude' => $request->lng,
             ]);
             return redirect()->route('tempatkursus.index')->with('success', 'Berhasil menambahkan data');
-        } catch (Exception $e) {
-            return redirect()->route('tempatkursus.create')->with('fail', 'Gagal menyimpan data. Silahkan coba lagi');
-        }
+        
     }
 
     public function update($id, Request $request)
@@ -140,6 +139,8 @@ class TempatKursusController extends Controller
             DB::table('tempat_kursus')->where('id_tempat_kursus', $id)->update([
                 'nama_tempat_kursus' => $request->nama_tempat_kursus,
                 'alamat' => $request->alamat,
+                'latitude' => $request->lat,
+                'longitude' => $request->lng,
                 'no_telp' => $request->no_telp,
                 'foto_utama' => $nameImageUtama,                
                 'updated_at' => Carbon::now(),

@@ -19,6 +19,8 @@ class CreateTempatKursusTable extends Migration
             $table->integer('id_user');
             $table->string('nama_tempat_kursus');
             $table->string('alamat');
+            $table->string('latitude');
+            $table->string('longitude');
             $table->string('no_telp');
             $table->string('foto_utama');
             $table->integer('jumlah_pengunjung')->default(0);

@@ -26,7 +26,7 @@ class UtamaController extends Controller
     {
         $kategori = Kategori::latest()->get();
 
-        return view('welcome',compact('kategori'), [
+        return view('utama.index',compact('kategori'), [
             "title" => "Dashboard"
         ]);
     }

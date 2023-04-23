@@ -24,7 +24,7 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', [UtamaController::class, 'index'])->name('welcome');
+Route::get('/', [UtamaController::class, 'index'])->name('utama.index');
 
 Auth::routes();
 

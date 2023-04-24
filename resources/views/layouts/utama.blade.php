@@ -23,14 +23,14 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" rel="stylesheet">
 
     <!-- Libraries Stylesheet -->
-    <link href="utama/lib/animate/animate.min.css" rel="stylesheet">
-    <link href="utama/lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
+    <link href="{{asset('utama/lib/animate/animate.min.css') }}" rel="stylesheet">
+    <link href="{{asset('utama/lib/owlcarousel/assets/owl.carousel.min.css') }}" rel="stylesheet">
 
     <!-- Customized Bootstrap Stylesheet -->
-    <link href="utama/css/bootstrap.min.css" rel="stylesheet">
+    <link href="{{asset('utama/css/bootstrap.min.css') }}" rel="stylesheet">
 
     <!-- Template Stylesheet -->
-    <link href="utama/css/style.css" rel="stylesheet">
+    <link href="{{asset('utama/css/style.css') }}" rel="stylesheet">
 
     @yield('style')
     @yield('head-script')
@@ -85,27 +85,27 @@
                         <h3 class="text-white mb-4">Photo Gallery</h3>
                         <div class="row g-2 pt-2">
                             <div class="col-4">
-                                <img class="img-fluid rounded bg-light p-1" src="utama/img/classes-1.jpg"
+                                <img class="img-fluid rounded bg-light p-1" src="{{asset('utama/img/classes-1.jpg') }}"
                                     alt="">
                             </div>
                             <div class="col-4">
-                                <img class="img-fluid rounded bg-light p-1" src="utama/img/classes-2.jpg"
+                                <img class="img-fluid rounded bg-light p-1" src="{{asset('utama/img/classes-2.jpg') }}"
                                     alt="">
                             </div>
                             <div class="col-4">
-                                <img class="img-fluid rounded bg-light p-1" src="utama/img/classes-3.jpg"
+                                <img class="img-fluid rounded bg-light p-1" src="{{asset('utama/img/classes-3.jpg') }}"
                                     alt="">
                             </div>
                             <div class="col-4">
-                                <img class="img-fluid rounded bg-light p-1" src="utama/img/classes-4.jpg"
+                                <img class="img-fluid rounded bg-light p-1" src="{{asset('utama/img/classes-4.jpg') }}"
                                     alt="">
                             </div>
                             <div class="col-4">
-                                <img class="img-fluid rounded bg-light p-1" src="utama/img/classes-5.jpg"
+                                <img class="img-fluid rounded bg-light p-1" src="{{asset('utama/img/classes-5.jpg') }}"
                                     alt="">
                             </div>
                             <div class="col-4">
-                                <img class="img-fluid rounded bg-light p-1" src="utama/img/classes-6.jpg"
+                                <img class="img-fluid rounded bg-light p-1" src="{{asset('utama/img/classes-6.jpg') }}"
                                     alt="">
                             </div>
                         </div>
@@ -155,13 +155,13 @@
     <!-- JavaScript Libraries -->
     <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="utama/lib/wow/wow.min.js"></script>
-    <script src="utama/lib/easing/easing.min.js"></script>
-    <script src="utama/lib/waypoints/waypoints.min.js"></script>
-    <script src="utama/lib/owlcarousel/owl.carousel.min.js"></script>
+    <script src="{{asset('utama/lib/wow/wow.min.js') }}"></script>
+    <script src="{{asset('utama/lib/easing/easing.min.js') }}"></script>
+    <script src="{{asset('utama/lib/waypoints/waypoints.min.js') }}"></script>
+    <script src="{{asset('utama/lib/owlcarousel/owl.carousel.min.js') }}"></script>
 
     <!-- Template Javascript -->
-    <script src="utama/js/main.js"></script>
+    <script src="{{asset('utama/js/main.js') }}"></script>
 </body>
 
 </html>

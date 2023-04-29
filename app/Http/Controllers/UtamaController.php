@@ -39,5 +39,13 @@ class UtamaController extends Controller
         return view('utama.kategori',compact('tempatkursus','kategori'));
     }
 
+    public function search(Request $request)
+    {
+        $kategori = Kategori::find($id);
+        $tempatkursus = TempatKursus::where('id_kategori','=',$id)->orderBy('jumlah_pengunjung','ASC')->get();
+
+        return view('utama.kategori',compact('tempatkursus','kategori'));
+    }
+
 
 }

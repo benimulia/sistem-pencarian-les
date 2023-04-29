@@ -26,6 +26,8 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', [UtamaController::class, 'index'])->name('utama.index');
 Route::get('/kategori/{id}', [UtamaController::class, 'kategori'])->name('utama.kategori');
+Route::get('/search', [UtamaController::class, 'kategori'])->name('utama.search');
+
 
 Auth::routes();
 

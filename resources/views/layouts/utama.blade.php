@@ -162,6 +162,8 @@
 
     <!-- Template Javascript -->
     <script src="{{asset('utama/js/main.js') }}"></script>
+
+    @yield('footer-script')
 </body>
 
 </html>

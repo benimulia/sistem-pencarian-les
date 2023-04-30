@@ -245,7 +245,9 @@ google.maps.event.addDomListener(window, 'load', initialize);
                 theme: "bootstrap-5",
             });
             
-            if(userrole ==1){
+            var role = "{{ $userrole }}";
+
+            if(role ==1){
                 $('#id_user').select2({
                     placeholder: "Pilih Owner",
                     allowClear: true,

@@ -27,10 +27,13 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', [UtamaController::class, 'index'])->name('utama.index');
 Route::get('/kategori/{id}', [UtamaController::class, 'kategori'])->name('utama.kategori');
 Route::get('/search', [UtamaController::class, 'search'])->name('utama.search');
+Route::get('/kontak', function () {
+    return view('utama.kontak');
+})->name('utama.contact');
 
-// Route::get('/search', function () {
-//     return view('utama.search');
-// });
+Route::get('/tentang', function () {
+    return view('utama.tentang');
+})->name('utama.about');
 
 
 Auth::routes();

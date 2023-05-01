@@ -20,8 +20,8 @@
                 </div>
             </div>
             <a href="{{route ('utama.search')}}" class="nav-item nav-link">Cari Tempat Kursus</a>
-            <a href="contact.html" class="nav-item nav-link">Maps</a>
-            <a href="about.html" class="nav-item nav-link">Tentang Kider</a>
+            <a href="{{route ('utama.contact')}}" class="nav-item nav-link">Contact Us</a>
+            <a href="{{route ('utama.about')}}" class="nav-item nav-link">About Us</a>
         </div>
         <form action="{{route ('utama.search')}}" method="GET" class="d-flex" style="display:none">
             <input type="text" name="query" class="form-control me-2" placeholder="">

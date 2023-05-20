@@ -42,25 +42,25 @@
                                             <small>Kategori</small>
                                         </div>
                                     </div>
-                                    <span class="bg-primary text-white rounded-pill py-2 px-3" href="">$99</span>
+                                    {{-- <span class="bg-primary text-white rounded-pill py-2 px-3" href="">$99</span> --}}
                                 </div>
                                 <div class="row g-1">
                                     <div class="col-4">
                                         <div class="border-top border-3 border-primary pt-2">
-                                            <h6 class="text-primary mb-1">Age:</h6>
+                                            <h6 class="text-primary mb-1">Usia:</h6>
                                             <small>3-5 Years</small>
                                         </div>
                                     </div>
                                     <div class="col-4">
                                         <div class="border-top border-3 border-success pt-2">
-                                            <h6 class="text-success mb-1">Time:</h6>
+                                            <h6 class="text-success mb-1">Waktu:</h6>
                                             <small>9-10 AM</small>
                                         </div>
                                     </div>
                                     <div class="col-4">
                                         <div class="border-top border-3 border-warning pt-2">
-                                            <h6 class="text-warning mb-1">Capacity:</h6>
-                                            <small>30 Kids</small>
+                                            <h6 class="text-warning mb-1">Kapasitas:</h6>
+                                            <small>30 Anak / kelas</small>
                                         </div>
                                     </div>
                                 </div>

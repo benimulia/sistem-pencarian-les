@@ -8,7 +8,7 @@
 @endsection
 
 @section('head-script')
-<script src="http://maps.googleapis.com/maps/api/js?key=AIzaSyD-vdSB4GHjLFmlr5HNHvOhHU1UrmDs7Js"></script>
+<script src="http://maps.googleapis.com/maps/api/js?key={{ env('GOOGLE_MAPS_API_KEY') }}"></script>
 <script>
 // variabel global marker
 var marker;

@@ -70,5 +70,12 @@ class UtamaController extends Controller
         return view('utama.search', compact('tempat_kursus', 'query', 'kategori', 'selected_kategoris', 'selected_lokasis'));
     }
 
+    public function showTempatKursus($id)
+    {
+        $tempatkursus = TempatKursus::with('program')->findOrFail($id);
+
+        return view('utama.tempatkursus', compact('tempatkursus'));
+    }
+
 
 }

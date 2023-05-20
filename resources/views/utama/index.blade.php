@@ -17,7 +17,7 @@
                                     terdekat dengan
                                     kualitas terbaik dan harga terjangkau. Dapatkan penawaran menarik dan promo eksklusif
                                     hanya di
-                                    kursusmu.com.</p>
+                                    kider.</p>
                                 <a href="{{ route('utama.search') }}"
                                     class="btn btn-primary rounded-pill py-sm-3 px-sm-5 me-3 animated slideInLeft">Cari
                                     Sekarang</a>
@@ -39,7 +39,7 @@
                                     meningkatkan kemampuan
                                     dan keterampilan Anda. Dapatkan pengalaman belajar yang menyenangkan dan bermanfaat
                                     hanya di
-                                    kursusmu.com.</p>
+                                    kider.</p>
                                 <a href="{{ route('utama.search') }}"
                                     class="btn btn-primary rounded-pill py-sm-3 px-sm-5 me-3 animated slideInLeft">Cari
                                     Sekarang</a>

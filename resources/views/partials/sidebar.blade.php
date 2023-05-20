@@ -24,26 +24,32 @@
         </a>
     </li>
 
+    @can('kategori-list')
     <li class="nav-item {{ request()->is('admin/kategori*') ? 'active' : '' }}">
         <a class="nav-link" href="{{ route('kategori.index') }}">
             <i class="fas fa-fw fa-window-restore"></i>
             <span>Kategori</span>
         </a>
     </li>
+    @endcan
 
+    @can('tempat-kursus-list')
     <li class="nav-item {{ request()->is('admin/tempatkursus*') ? 'active' : '' }}">
         <a class="nav-link" href="{{ route('tempatkursus.index') }}">
             <i class="fas fa-fw fa-school"></i>
             <span>Tempat Kursus</span>
         </a>
     </li>
+    @endcan
 
+    @can('program-list')
     <li class="nav-item {{ request()->is('admin/program*') ? 'active' : '' }}">
         <a class="nav-link" href="{{ route('program.index') }}">
             <i class="fas fa-fw fa-cogs"></i>
             <span>Program Kursus</span>
         </a>
     </li>
+    @endcan
 
 
 

@@ -31,6 +31,9 @@
                     <p class="mb-4">Kider juga memberikan layanan konsultasi gratis untuk membantu Anda dalam memilih
                         tempat kursus yang tepat untuk anak Anda. Dengan Kider, mencari tempat kursus anak menjadi lebih
                         mudah, cepat, dan efisien.</p>
+                    <p class="mb-4">Apakah kamu pemilik tempat kursus? Kamu juga bisa mendaftarkan tempat kursus kamu di
+                        Kider melalui link berikut.</p>
+                    <a href="{{route ('login')}}" target="_blank" rel="noopener noreferrer">Klik Disini</a>
                     <div class="row g-4 align-items-center">
                         <div class="col-sm-6">
                         </div>

@@ -24,6 +24,7 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+// ================== UTAMA ==================
 Route::get('/', [UtamaController::class, 'index'])->name('utama.index');
 Route::get('/kategori/{id}', [UtamaController::class, 'kategori'])->name('utama.kategori');
 Route::get('/search', [UtamaController::class, 'search'])->name('utama.search');
@@ -34,6 +35,8 @@ Route::get('/kontak', function () {
 Route::get('/tentang', function () {
     return view('utama.tentang');
 })->name('utama.about');
+
+Route::get('/tempatkursus/{id}', [UtamaController::class, 'showTempatKursus'])->name('utama.tempatkursus');
 
 
 Auth::routes();

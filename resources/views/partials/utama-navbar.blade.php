@@ -19,9 +19,10 @@
                     @endif
                 </div>
             </div>
-            <a href="{{route ('utama.search')}}" class="nav-item nav-link">Cari Tempat Kursus</a>
-            <a href="{{route ('utama.contact')}}" class="nav-item nav-link">Contact Us</a>
-            <a href="{{route ('utama.about')}}" class="nav-item nav-link">About Us</a>
+            <a href="{{route ('utama.search')}}" class="nav-item nav-link {{ request()->is('search*') ? 'active' : '' }}">Cari Tempat Kursus</a>
+            <a href="{{route ('utama.contact')}}" class="nav-item nav-link {{ request()->is('kontak*') ? 'active' : '' }}">Contact Us</a>
+            <a href="{{route ('utama.about')}}" class="nav-item nav-link {{ request()->is('tentang*') ? 'active' : '' }}">About Us</a>
+            <a href="{{route ('login')}}" class="nav-item nav-link">Login</a>
         </div>
         <form action="{{route ('utama.search')}}" method="GET" class="d-flex" style="display:none">
             <input type="text" name="query" class="form-control me-2" placeholder="">

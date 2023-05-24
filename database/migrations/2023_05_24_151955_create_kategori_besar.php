@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateKategoriTable extends Migration
+class CreateKategoriBesar extends Migration
 {
     /**
      * Run the migrations.
@@ -13,10 +13,9 @@ class CreateKategoriTable extends Migration
      */
     public function up()
     {
-        Schema::create('kategori', function (Blueprint $table) {
-            $table->bigIncrements('id_kategori');
-            $table->integer('id_kategori_besar');
-            $table->string('nama_kategori');
+        Schema::create('kategori_besar', function (Blueprint $table) {
+            $table->bigIncrements('id_kategori_besar');
+            $table->string('nama_kategori_besar');
             $table->timestamps();
         });
     }
@@ -28,6 +27,6 @@ class CreateKategoriTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('kategori');
+        Schema::dropIfExists('kategori_besar');
     }
 }

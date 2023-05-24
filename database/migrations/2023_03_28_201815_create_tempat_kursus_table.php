@@ -24,6 +24,8 @@ class CreateTempatKursusTable extends Migration
             $table->string('no_telp');
             $table->string('foto_utama');
             $table->integer('jumlah_pengunjung')->default(0);
+            $table->string('instagram');
+            $table->string('facebook');
             $table->timestamps();
         });
     }

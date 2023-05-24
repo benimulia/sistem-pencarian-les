@@ -20,6 +20,9 @@ class CreateProgramTable extends Migration
             $table->string('nama_program');
             $table->string('deskripsi_program');
             $table->string('foto_program');
+            $table->integer('harga');
+            $table->string('jadwal');
+            $table->string('durasi');
             $table->timestamps();
         });
     }

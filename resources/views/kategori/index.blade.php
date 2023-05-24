@@ -63,6 +63,7 @@
                 <thead class="thead-dark">
                     <tr>
                         <th class="text-center">No</th>
+                        <th class="text-center">Kategori Besar</th>
                         <th class="text-center">Nama Kategori</th>
                         @can('kategori-edit')
                         <th data-orderable="false"></th>
@@ -77,6 +78,7 @@
                     @foreach ($kategori as $index => $result)
                     <tr>
                         <td class="text-center">{{$index + 1}}</td>
+                        <td>{{\Illuminate\Support\Str::limit( html_entity_decode(strip_tags($result->kategoribesar->nama_kategori_besar)), 50 )}}
                         <td>{{\Illuminate\Support\Str::limit( html_entity_decode(strip_tags($result->nama_kategori)), 50 )}}
                         </td>
                         @can('kategori-edit')

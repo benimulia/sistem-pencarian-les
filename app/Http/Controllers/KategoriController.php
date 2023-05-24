@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\KategoriBesar;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Spatie\Permission\Models\Role;
@@ -22,33 +23,45 @@ class KategoriController extends Controller
 
     public function index()
     {
-        
-        $kategori = Kategori::with('tempatkursus')->latest()->get();
+
+        $kategori = Kategori::with('kategoribesar')->latest()->get();
 
         return view('kategori.index', compact('kategori'), [
             "title" => "List Kategori"
         ]);
     }
 
+    public function kategoribesarAll()
+    {
+        return KategoriBesar::orderBy('nama_kategori_besar', 'ASC')->get();
+    }
+
     public function create()
     {
-        return view('kategori.create', [
+        //get kategori besar
+        $kategoribesar = $this->kategoribesarAll();
+
+        return view('kategori.create', compact('kategoribesar'), [
             "title" => "Tambah Kategori Baru"
         ]);
     }
 
     public function edit($id)
     {
+        //get kategori besar
+        $kategoribesar = $this->kategoribesarAll();
+
         $kategori = Kategori::find($id);
-        return view('kategori.edit', compact('kategori'), [
+        return view('kategori.edit', compact('kategori', 'kategoribesar'), [
             "title" => "Edit Kategori"
         ]);
     }
 
-    public function store(Request $request) 
+    public function store(Request $request)
     {
         try {
             Kategori::create([
+                'id_kategori_besar' => $request->id_kategori_besar,
                 'nama_kategori' => $request->nama_kategori,
             ]);
             return redirect()->route('kategori.index')->with('success', 'Berhasil menambahkan data');
@@ -61,6 +74,7 @@ class KategoriController extends Controller
     {
         try {
             DB::table('kategori')->where('id_kategori', $id)->update([
+                'id_kategori_besar' => $request->id_kategori_besar,
                 'nama_kategori' => $request->nama_kategori,
                 'updated_at' => Carbon::now(),
             ]);

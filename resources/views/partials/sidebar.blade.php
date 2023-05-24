@@ -25,7 +25,16 @@
     </li>
 
     @can('kategori-list')
-    <li class="nav-item {{ request()->is('admin/kategori*') ? 'active' : '' }}">
+    <li class="nav-item {{ request()->is('admin/kategoribesar*') ? 'active' : '' }}">
+        <a class="nav-link" href="{{ route('kategoribesar.index') }}">
+            <i class="fas fa-fw fa-window-restore"></i>
+            <span>Kategori Besar</span>
+        </a>
+    </li>
+    @endcan
+
+    @can('kategori-list')
+    <li class="nav-item {{ request()->is('admin/kategori*') && !request()->is('admin/kategoribesar*') ? 'active' : '' }}">
         <a class="nav-link" href="{{ route('kategori.index') }}">
             <i class="fas fa-fw fa-window-restore"></i>
             <span>Kategori</span>

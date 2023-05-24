@@ -7,6 +7,7 @@ use App\Http\Controllers\RoleController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\UtamaController;
 use App\Http\Controllers\KategoriController;
+use App\Http\Controllers\KategoriBesarController;
 use App\Http\Controllers\TempatKursusController;
 use App\Http\Controllers\ProgramController;
 use Illuminate\Support\Facades\Route;
@@ -54,6 +55,14 @@ Route::group(['middleware' => ['auth']], function () {
     Route::get('/admin/kategori/edit/{id}', [KategoriController::class, 'edit'])->name('kategori.edit');
     Route::post('/admin/kategori/update/{id}', [KategoriController::class, 'update'])->name('kategori.update');
     Route::get('/admin/kategori/delete/{id}', [KategoriController::class, 'destroy'])->name('kategori.destroy');
+
+    // ================== KATEGORI BESAR ==================
+    Route::get('/admin/kategoribesar', [KategoriBesarController::class, 'index'])->name('kategoribesar.index');
+    Route::get('/admin/kategoribesar/create', [KategoriBesarController::class, 'create'])->name('kategoribesar.create');
+    Route::post('/admin/kategoribesar/store', [KategoriBesarController::class, 'store'])->name('kategoribesar.store');
+    Route::get('/admin/kategoribesar/edit/{id}', [KategoriBesarController::class, 'edit'])->name('kategoribesar.edit');
+    Route::post('/admin/kategoribesar/update/{id}', [KategoriBesarController::class, 'update'])->name('kategoribesar.update');
+    Route::get('/admin/kategoribesar/delete/{id}', [KategoriBesarController::class, 'destroy'])->name('kategoribesar.destroy');
 
     // ================== TEMPAT KURSUS ==================
     Route::get('/admin/tempatkursus', [TempatKursusController::class, 'index'])->name('tempatkursus.index');

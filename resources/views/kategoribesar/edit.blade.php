@@ -31,13 +31,13 @@
     <div class="row">
         <div class="col-sm-12 col-md-12">
             <div class="pull-left">
-                <h2>Edit Kategori </h2>
+                <h2>Edit Kategori Besar</h2>
             </div>
             <nav aria-label="breadcrumb" role="navigation">
                 <ol class="breadcrumb">
                     <li class="breadcrumb-item"><a href="{{ route('home') }}">Home</a></li>
-                    <li class="breadcrumb-item"><a href="{{ route('kategori.index') }}">Kategori</a></li>
-                    <li class="breadcrumb-item"><a href="#">Edit Kategori</a></li>
+                    <li class="breadcrumb-item"><a href="{{ route('kategoribesar.index') }}">Kategori Besar</a></li>
+                    <li class="breadcrumb-item"><a href="#">Edit Kategori Besar</a></li>
                 </ol>
             </nav>
         </div>
@@ -54,38 +54,22 @@
     @endcan
     <div class="row">
         <div class="col-sm-12 col-md-12">
-            <form name="kategoriForm" action="{{ route('kategori.update', ['id' => $kategori->id_kategori]) }}"
+            <form name="kategoribesarForm" action="{{ route('kategoribesar.update', ['id' => $kategori->id_kategori_besar]) }}"
                 class="needs-validation" novalidate method="POST" enctype="multipart/form-data">
 
                 @csrf
-                <input type="hidden" name="id_kategori" id="id_kategori">
+                <input type="hidden" name="id_kategori_besar" id="id_kategori_besar">
 
                 <div class="form-group">
-                    <label for="id_kategori_besar">Kategori Besar :</label>
-                    <select class="form-control select2" id="id_kategori_besar" name="id_kategori_besar" disabled=true>
-                        <option value="">Kategori Besar</option>
-                        @foreach ($kategoribesar as $index => $result)
-                            <option value="{{ $result->id_kategori_besar }}" {{ $kategori->id_kategori_besar == $result->id_kategori_besar ? 'selected' : '' }}>{{ $result->nama_kategori_besar }}</option>
-                        @endforeach
-                    </select>
-                    <div class="valid-feedback">
-                        Looks good!
-                    </div>
-                    <div class="invalid-feedback">
-                        Please fill out this field.
-                    </div>
-                </div>
-
-                <div class="form-group">
-                    <label for="nama_kategori">Nama :</label>
-                    <input type="text" class="form-control" id="nama_kategori" placeholder="Masukkan nama kategori.."
-                        name="nama_kategori" required value="{{ $kategori->nama_kategori }}" disabled=true>
+                    <label for="nama_kategori_besar">Nama :</label>
+                    <input type="text" class="form-control" id="nama_kategori_besar" placeholder="Masukkan nama kategori besar"
+                        name="nama_kategori_besar" required value="{{ $kategori->nama_kategori_besar }}" disabled=true>
                     <div class="valid-feedback">Valid.</div>
                     <div class="invalid-feedback">Please fill out this field.</div>
                 </div>
 
                 <div class="" style="margin-top: 30px;">
-                    <a href="{{ route('kategori.edit', ['id' => $kategori->id_kategori]) }}" id="btnBatal"
+                    <a href="{{ route('kategoribesar.edit', ['id' => $kategori->id_kategori_besar]) }}" id="btnBatal"
                         class="btn btn-danger mr-2" style="display: none;">Batal</a>
                     <a href="#myModal" id="btnUpdate" data-toggle="modal" class="btn btn-success"
                         style="display: none;">Update </a>
@@ -115,7 +99,6 @@
             </form>
         </div>
     </div>
-
 @endsection
 
 @section('footer-script')

@@ -17,7 +17,7 @@
                                     terdekat dengan
                                     kualitas terbaik dan harga terjangkau. Dapatkan penawaran menarik dan promo eksklusif
                                     hanya di
-                                    kider.</p>
+                                    Kursusku.</p>
                                 <a href="{{ route('utama.search') }}"
                                     class="btn btn-primary rounded-pill py-sm-3 px-sm-5 me-3 animated slideInLeft">Cari
                                     Sekarang</a>
@@ -39,7 +39,7 @@
                                     meningkatkan kemampuan
                                     dan keterampilan Anda. Dapatkan pengalaman belajar yang menyenangkan dan bermanfaat
                                     hanya di
-                                    kider.</p>
+                                    Kursusku.</p>
                                 <a href="{{ route('utama.search') }}"
                                     class="btn btn-primary rounded-pill py-sm-3 px-sm-5 me-3 animated slideInLeft">Cari
                                     Sekarang</a>
@@ -58,7 +58,7 @@
         <div class="container">
             <div class="text-center mx-auto mb-5 wow fadeInUp" data-wow-delay="0.1s" style="max-width: 600px;">
                 <h1 class="mb-3">Nilai-nilai</h1>
-                <p>Kider memiliki nilai yang terus akan dijaga untuk menjaga kualitas.</p>
+                <p>Kursusku memiliki nilai yang terus akan dijaga untuk menjaga kualitas.</p>
             </div>
             <div class="row g-4">
                 <div class="col-lg-3 col-sm-6 wow fadeInUp" data-wow-delay="0.1s">
@@ -133,13 +133,13 @@
             <div class="row g-5 align-items-center">
                 <div class="col-lg-6 wow fadeInUp" data-wow-delay="0.1s">
                     <h1 class="mb-4">Tentang</h1>
-                    <p>Kider adalah portal web yang memudahkan Anda untuk mencari tempat kursus anak di sekitar Yogyakarta
-                        secara online. Dengan Kider, Anda tidak perlu repot-repot mencari dan menghubungi setiap tempat
-                        kursus secara terpisah. Kider menyediakan informasi lengkap dan terpercaya tentang tempat kursus
+                    <p>Kursusku adalah portal web yang memudahkan Anda untuk mencari tempat kursus anak di sekitar Yogyakarta
+                        secara online. Dengan Kursusku, Anda tidak perlu repot-repot mencari dan menghubungi setiap tempat
+                        kursus secara terpisah. Kursusku menyediakan informasi lengkap dan terpercaya tentang tempat kursus
                         anak, sehingga Anda dapat memilih tempat kursus yang sesuai dengan kebutuhan dan preferensi Anda
                     </p>
-                    <p class="mb-4">Kider juga memberikan layanan konsultasi gratis untuk membantu Anda dalam memilih
-                        tempat kursus yang tepat untuk anak Anda. Dengan Kider, mencari tempat kursus anak menjadi lebih
+                    <p class="mb-4">Kursusku juga memberikan layanan konsultasi gratis untuk membantu Anda dalam memilih
+                        tempat kursus yang tepat untuk anak Anda. Dengan Kursusku, mencari tempat kursus anak menjadi lebih
                         mudah, cepat, dan efisien.</p>
                     <div class="row g-4 align-items-center">
                         <div class="col-sm-6">
@@ -174,7 +174,7 @@
         <div class="container">
             <div class="text-center mx-auto mb-5 wow fadeInUp" data-wow-delay="0.1s" style="max-width: 600px;">
                 <h1 class="mb-3">Kategori Kursus</h1>
-                <p>Temukan kursus terbaik untuk anak Anda dengan mudah melalui Kider. Di sini, kami menawarkan berbagai
+                <p>Temukan kursus terbaik untuk anak Anda dengan mudah melalui Kursusku. Di sini, kami menawarkan berbagai
                     kategori kursus yang dapat dipilih sesuai dengan kebutuhan anak Anda.</p>
             </div>
             <div class="row g-4">
@@ -201,7 +201,7 @@
         <div class="container">
             <div class="text-center mx-auto mb-5 wow fadeInUp" data-wow-delay="0.1s" style="max-width: 600px;">
                 <h1 class="mb-3">Kursus Populer</h1>
-                <p>Temukan kursus-kursus yang paling populer di Kider. Kami menawarkan berbagai pilihan kursus berkualitas
+                <p>Temukan kursus-kursus yang paling populer di Kursusku. Kami menawarkan berbagai pilihan kursus berkualitas
                     untuk memenuhi kebutuhan belajar anak-anak anda. Cari tahu kursus mana yang menjadi favorit para orang
                     tua dan siswa di sekitar anda.</p>
             </div>
@@ -265,12 +265,12 @@
         <div class="container">
             <div class="text-center mx-auto mb-5 wow fadeInUp" data-wow-delay="0.1s" style="max-width: 600px;">
                 <h1 class="mb-3">Apa Kata Mereka?</h1>
-                <p>Berikut adalah beberapa testimoni dari pelanggan kami yang telah menggunakan layanan Kider</p>
+                <p>Berikut adalah beberapa testimoni dari pelanggan kami yang telah menggunakan layanan Kursusku</p>
             </div>
             <div class="owl-carousel testimonial-carousel wow fadeInUp" data-wow-delay="0.1s">
                 <div class="testimonial-item bg-light rounded p-5">
-                    <p class="fs-5">Saya sangat senang dengan layanan Kider! Timnya sangat profesional dan membantu saya
-                        menyelesaikan proyek saya dengan sangat baik. Saya akan merekomendasikan Kider kepada siapa saja
+                    <p class="fs-5">Saya sangat senang dengan layanan Kursusku! Timnya sangat profesional dan membantu saya
+                        menyelesaikan proyek saya dengan sangat baik. Saya akan merekomendasikan Kursusku kepada siapa saja
                         yang membutuhkan layanan desain yang berkualitas tinggi.</p>
                     <div class="d-flex align-items-center bg-white me-n5" style="border-radius: 50px 0 0 50px;">
                         <img class="img-fluid flex-shrink-0 rounded-circle" src="utama/img/testimonial-1.jpg"
@@ -283,8 +283,8 @@
                     </div>
                 </div>
                 <div class="testimonial-item bg-light rounded p-5">
-                    <p class="fs-5">Kider benar-benar telah melampaui harapan saya. Mereka sangat responsif dan
-                        memberikan kualitas desain yang luar biasa. Saya sangat merekomendasikan Kider kepada siapa saja
+                    <p class="fs-5">Kursusku benar-benar telah melampaui harapan saya. Mereka sangat responsif dan
+                        memberikan kualitas desain yang luar biasa. Saya sangat merekomendasikan Kursusku kepada siapa saja
                         yang ingin bekerja dengan perusahaan desain yang terpercaya dan berkualitas tinggi.</p>
                     <div class="d-flex align-items-center bg-white me-n5" style="border-radius: 50px 0 0 50px;">
                         <img class="img-fluid flex-shrink-0 rounded-circle" src="utama/img/testimonial-2.jpg"
@@ -297,8 +297,8 @@
                     </div>
                 </div>
                 <div class="testimonial-item bg-light rounded p-5">
-                    <p class="fs-5">Kider memberikan layanan yang sangat cepat dan akurat, dengan hasil desain yang
-                        kreatif dan inovatif. Saya sangat senang dengan hasil akhirnya dan pasti akan menggunakan Kider lagi
+                    <p class="fs-5">Kursusku memberikan layanan yang sangat cepat dan akurat, dengan hasil desain yang
+                        kreatif dan inovatif. Saya sangat senang dengan hasil akhirnya dan pasti akan menggunakan Kursusku lagi
                         di masa depan.</p>
                     <div class="d-flex align-items-center bg-white me-n5" style="border-radius: 50px 0 0 50px;">
                         <img class="img-fluid flex-shrink-0 rounded-circle" src="utama/img/testimonial-3.jpg"

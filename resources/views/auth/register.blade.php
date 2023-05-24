@@ -10,7 +10,7 @@
     <meta name="author" content="">
 
     <link rel="icon" type="image/png" href="{{ asset('assets/img/header/logo/landapp-logo.png') }}">
-    <title>Login | Kider</title>
+    <title>Login | Kursusku</title>
 
     <!-- Custom fonts for this template-->
     <link href="{{ asset('vendor/fontawesome-free/css/all.min.css') }}" rel="stylesheet" type="text/css">
@@ -114,7 +114,7 @@
                                     </form>
                                     <hr>
                                     <div class="text-center">
-                                        <p class="small">Kider ©</p>
+                                        <p class="small">Kursusku ©</p>
                                         {{-- <a class="small" href="{{ route('password.request') }}">Forgot Password?</a> --}}
                                     </div>
                                     <div class="text-center">

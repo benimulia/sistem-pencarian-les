@@ -10,7 +10,7 @@
     <meta name="author" content="">
     <link rel="icon" type="image/png" href="{{ asset('utama/img/icon.png') }}">
 
-    <title>Kider | {{ $title }}</title>
+    <title>Kursusku | {{ $title }}</title>
 
     
     <link href="{{asset('vendor/fontawesome-free/css/all.min.css')}}" rel="stylesheet" type="text/css">
@@ -46,7 +46,7 @@
                         <i class="fa fa-bars"></i>
                     </button>
                     <div class="d-none d-sm-inline-block form-inline mr-auto ml-md-3 my-2 my-md-0 mw-100">
-                        <h5>CMS Site Kider</h5>
+                        <h5>CMS Site Kursusku</h5>
                     </div>
 
                     <!-- Topbar Navbar -->

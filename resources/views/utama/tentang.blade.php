@@ -23,16 +23,16 @@
             <div class="row g-5 align-items-center">
                 <div class="col-lg-6 wow fadeInUp" data-wow-delay="0.1s">
                     <h1 class="mb-4">Tentang</h1>
-                    <p>Kider adalah portal web yang memudahkan Anda untuk mencari tempat kursus anak di sekitar Yogyakarta
-                        secara online. Dengan Kider, Anda tidak perlu repot-repot mencari dan menghubungi setiap tempat
-                        kursus secara terpisah. Kider menyediakan informasi lengkap dan terpercaya tentang tempat kursus
+                    <p>Kursusku adalah portal web yang memudahkan Anda untuk mencari tempat kursus anak di sekitar Yogyakarta
+                        secara online. Dengan Kursusku, Anda tidak perlu repot-repot mencari dan menghubungi setiap tempat
+                        kursus secara terpisah. Kursusku menyediakan informasi lengkap dan terpercaya tentang tempat kursus
                         anak, sehingga Anda dapat memilih tempat kursus yang sesuai dengan kebutuhan dan preferensi Anda
                     </p>
-                    <p class="mb-4">Kider juga memberikan layanan konsultasi gratis untuk membantu Anda dalam memilih
-                        tempat kursus yang tepat untuk anak Anda. Dengan Kider, mencari tempat kursus anak menjadi lebih
+                    <p class="mb-4">Kursusku juga memberikan layanan konsultasi gratis untuk membantu Anda dalam memilih
+                        tempat kursus yang tepat untuk anak Anda. Dengan Kursusku, mencari tempat kursus anak menjadi lebih
                         mudah, cepat, dan efisien.</p>
                     <p class="mb-4">Apakah kamu pemilik tempat kursus? Kamu juga bisa mendaftarkan tempat kursus kamu di
-                        Kider melalui link berikut.</p>
+                        Kursusku melalui link berikut.</p>
                     <a href="{{route ('login')}}" target="_blank" rel="noopener noreferrer">Klik Disini</a>
                     <div class="row g-4 align-items-center">
                         <div class="col-sm-6">

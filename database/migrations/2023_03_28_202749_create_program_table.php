@@ -18,7 +18,7 @@ class CreateProgramTable extends Migration
             $table->integer('id_tempat_kursus');
             $table->integer('id_user');
             $table->string('nama_program');
-            $table->string('deskripsi_program');
+            $table->text('deskripsi_program');
             $table->string('foto_program');
             $table->integer('harga');
             $table->string('jadwal');

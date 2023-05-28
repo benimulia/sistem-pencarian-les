@@ -8,60 +8,57 @@
 @endsection
 
 @section('head-script')
-<script src="http://maps.googleapis.com/maps/api/js?key={{ env('GOOGLE_MAPS_API_KEY') }}"></script>
-<script>
-// variabel global marker
-var marker;
-  
-function taruhMarker(peta, posisiTitik){
-    
-    if( marker ){
-      // pindahkan marker
-      marker.setPosition(posisiTitik);
-    } else {
-      // buat marker baru
-      marker = new google.maps.Marker({
-        position: posisiTitik,
-        map: peta,
-        draggable: true // membuat marker dapat di-drag oleh pengguna
-      });
-    }
-  
-     // isi nilai koordinat ke form
-    document.getElementById("lat").value = posisiTitik.lat();
-    document.getElementById("lng").value = posisiTitik.lng();
-    
-}
-  
-function initialize() {
-  var propertiPeta = {
-    center:new google.maps.LatLng(-7.785996142593305, 110.37836496578073),
-    zoom:13,
-    mapTypeId:google.maps.MapTypeId.ROADMAP
-  };
-  
-  var peta = new google.maps.Map(document.getElementById("googleMap"), propertiPeta);
-  
-  // ambil data latitude dan longitude dari database dan buat marker
-  var lat = <?php echo $tempatkursus->latitude ?>;
-  var lng = <?php echo $tempatkursus->longitude ?>;
-  var posisiTitik = new google.maps.LatLng(lat, lng);
-  taruhMarker(peta, posisiTitik);
+    <script src="http://maps.googleapis.com/maps/api/js?key={{ env('GOOGLE_MAPS_API_KEY') }}"></script>
+    <script>
+        // variabel global marker
+        var marker;
 
-  // even listner ketika maps diklik
-  google.maps.event.addListener(peta, 'click', function(event) {
-    taruhMarker(this, event.latLng);
-  });
+        function taruhMarker(peta, posisiTitik) {
 
-}
+            if (marker) {
+                // pindahkan marker
+                marker.setPosition(posisiTitik);
+            } else {
+                // buat marker baru
+                marker = new google.maps.Marker({
+                    position: posisiTitik,
+                    map: peta,
+                    draggable: true // membuat marker dapat di-drag oleh pengguna
+                });
+            }
+
+            // isi nilai koordinat ke form
+            document.getElementById("lat").value = posisiTitik.lat();
+            document.getElementById("lng").value = posisiTitik.lng();
+
+        }
+
+        function initialize() {
+            var propertiPeta = {
+                center: new google.maps.LatLng(-7.785996142593305, 110.37836496578073),
+                zoom: 13,
+                mapTypeId: google.maps.MapTypeId.ROADMAP
+            };
+
+            var peta = new google.maps.Map(document.getElementById("googleMap"), propertiPeta);
+
+            // ambil data latitude dan longitude dari database dan buat marker
+            var lat = <?php echo $tempatkursus->latitude; ?>;
+            var lng = <?php echo $tempatkursus->longitude; ?>;
+            var posisiTitik = new google.maps.LatLng(lat, lng);
+            taruhMarker(peta, posisiTitik);
+
+            // even listner ketika maps diklik
+            google.maps.event.addListener(peta, 'click', function(event) {
+                taruhMarker(this, event.latLng);
+            });
+
+        }
 
 
-// event jendela di-load  
-google.maps.event.addDomListener(window, 'load', initialize);
-  
-
-</script>
-
+        // event jendela di-load  
+        google.maps.event.addDomListener(window, 'load', initialize);
+    </script>
 @endsection
 
 @section('content')
@@ -119,7 +116,8 @@ google.maps.event.addDomListener(window, 'load', initialize);
     @endcan
     <div class="row">
         <div class="col-sm-12 col-md-12">
-            <form name="tempatkursusForm" action="{{ route('tempatkursus.update', ['id' => $tempatkursus->id_tempat_kursus]) }}"
+            <form name="tempatkursusForm"
+                action="{{ route('tempatkursus.update', ['id' => $tempatkursus->id_tempat_kursus]) }}"
                 class="needs-validation" novalidate method="POST" enctype="multipart/form-data">
 
                 @csrf
@@ -130,7 +128,9 @@ google.maps.event.addDomListener(window, 'load', initialize);
                     <select class="form-control select2" id="id_kategori" name="id_kategori" disabled=true>
                         <option value="">Kategori</option>
                         @foreach ($kategori as $index => $result)
-                            <option value="{{ $result->id_kategori }}" {{ $tempatkursus->id_kategori == $result->id_kategori ? 'selected' : '' }}>{{ $result->nama_kategori }}</option>
+                            <option value="{{ $result->id_kategori }}"
+                                {{ $tempatkursus->id_kategori == $result->id_kategori ? 'selected' : '' }}>
+                                {{ $result->nama_kategori }}</option>
                         @endforeach
                     </select>
                     <div class="valid-feedback">
@@ -171,8 +171,35 @@ google.maps.event.addDomListener(window, 'load', initialize);
 
                 <div class="form-group">
                     <label for="no_telp">Nomor Telp :</label>
-                    <input type="text" class="form-control" id="no_telp" placeholder="Masukkan no telp.." name="no_telp"
-                        maxlength="13" required value="{{ $tempatkursus->no_telp }}" disabled=true>
+                    <input type="text" class="form-control" id="no_telp" placeholder="Masukkan no telp.."
+                        name="no_telp" maxlength="13" required value="{{ $tempatkursus->no_telp }}" disabled=true>
+                    <div class="valid-feedback">
+                        Looks good!
+                    </div>
+                    <div class="invalid-feedback">
+                        Please fill out this field.
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="instagram">Instagram :</label>
+                    <input type="text" class="form-control" id="instagram"
+                        placeholder="Masukkan username instagram.." name="instagram" required
+                        value="{{ $tempatkursus->instagram }}" disabled=true>
+                    <small>contoh : ukdw.yogyakarta </small>
+                    <div class="valid-feedback">
+                        Looks good!
+                    </div>
+                    <div class="invalid-feedback">
+                        Please fill out this field.
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="facebook">Facebook :</label>
+                    <input type="text" class="form-control" id="facebook" placeholder="Masukkan facebook.."
+                        name="facebook" required value="{{ $tempatkursus->facebook }}" disabled=true>
+                    <small>contoh : UKDW Yogyakarta </small>
                     <div class="valid-feedback">
                         Looks good!
                     </div>
@@ -184,8 +211,8 @@ google.maps.event.addDomListener(window, 'load', initialize);
                 <div class="form-group">
                     <label for="foto_utama">Upload foto utama tempat kursus :</label> <br>
                     <div class="custom-file">
-                        <input type="file" class="custom-file-input form-control" id="foto_utama"
-                            name="foto_utama" accept=".jpg,.jpeg,.png" disabled=true />
+                        <input type="file" class="custom-file-input form-control" id="foto_utama" name="foto_utama"
+                            accept=".jpg,.jpeg,.png" disabled=true />
                         <label class="custom-file-label" for="foto_utama">{{ $tempatkursus->foto_utama }}</label>
                     </div>
                     <div>
@@ -196,7 +223,7 @@ google.maps.event.addDomListener(window, 'load', initialize);
                     <label id="lblimgtag" for="profile-img-tag" style="display:none">Preview Gambar:</label>
                     <a href="/gambar/tempatkursus/foto-utama/{{ $tempatkursus->foto_utama }}">
                         <img src="/gambar/tempatkursus/foto-utama/{{ $tempatkursus->foto_utama }}"
-                        style="width: 10%; aspect-ratio: 3/2; object-fit:contain;" id="profile-img-tag">
+                            style="width: 10%; aspect-ratio: 3/2; object-fit:contain;" id="profile-img-tag">
                     </a>
                 </div>
 
@@ -231,7 +258,6 @@ google.maps.event.addDomListener(window, 'load', initialize);
             </form>
         </div>
     </div>
-
 @endsection
 
 @section('body-script')

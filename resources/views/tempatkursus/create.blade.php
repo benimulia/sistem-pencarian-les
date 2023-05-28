@@ -192,6 +192,32 @@ google.maps.event.addDomListener(window, 'load', initialize);
                 </div>
 
                 <div class="form-group">
+                    <label for="instagram">Instagram :</label>
+                    <input type="text" class="form-control" id="instagram" placeholder="Masukkan username instagram.." name="instagram"
+                        required>
+                    <small>contoh : ukdw.yogyakarta </small>
+                    <div class="valid-feedback">
+                        Looks good!
+                    </div>
+                    <div class="invalid-feedback">
+                        Please fill out this field.
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="facebook">Facebook :</label>
+                    <input type="text" class="form-control" id="facebook" placeholder="Masukkan facebook.." name="facebook"
+                        required>
+                        <small>contoh : UKDW Yogyakarta </small>
+                    <div class="valid-feedback">
+                        Looks good!
+                    </div>
+                    <div class="invalid-feedback">
+                        Please fill out this field.
+                    </div>
+                </div>
+
+                <div class="form-group">
                     <label for="foto_utama">Upload foto utama tempat kursus:</label> <br>
                     <div class="custom-file">
                         <input type="file" class="custom-file-input" id="foto_utama" name="foto_utama"

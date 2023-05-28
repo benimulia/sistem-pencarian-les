@@ -22,6 +22,8 @@ class TempatKursus extends Model
             'no_telp',
             'foto_utama',
             'jumlah_pengunjung',
+            'instagram',
+            'facebook',
     ];
 
     public function kategori()

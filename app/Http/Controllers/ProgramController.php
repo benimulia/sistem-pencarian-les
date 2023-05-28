@@ -109,6 +109,9 @@ class ProgramController extends Controller
                 'nama_program' => $request->nama_program,
                 'deskripsi_program' => $request->deskripsi_program,
                 'foto_program' => $nameImageUtama,
+                'harga' => $request->harga,
+                'jadwal' => $request->jadwal,
+                'durasi' => $request->durasi,
             ]);
             return redirect()->route('program.index')->with('success', 'Berhasil menambahkan data');
         } catch (Exception $e) {
@@ -146,7 +149,10 @@ class ProgramController extends Controller
                 'id_tempat_kursus' => $request->id_tempat_kursus,
                 'nama_program' => $request->nama_program,
                 'deskripsi_program' => $request->deskripsi_program,
-                'foto_program' => $nameImageUtama,                
+                'foto_program' => $nameImageUtama,              
+                'harga' => $request->deskripsi_program,
+                'jadwal' => $request->deskripsi_program,
+                'durasi' => $request->deskripsi_program,  
                 'updated_at' => Carbon::now(),
             ]);
             return redirect()->route('program.index')->with('success', 'Berhasil mengedit data');

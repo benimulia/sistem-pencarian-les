@@ -18,6 +18,9 @@ class Program extends Model
             'nama_program',
             'deskripsi_program',
             'foto_program',
+            'harga',
+            'jadwal',
+            'durasi',
     ];
 
     public function tempatkursus()

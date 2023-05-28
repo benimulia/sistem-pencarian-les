@@ -60,28 +60,28 @@
 
     <div class="row">
         <div class="col-sm-12 col-md-12">
-            <form id="programForm" class="needs-validation" novalidate action="{{ route('program.store') }}"
-                method="POST" enctype="multipart/form-data">
+            <form id="programForm" class="needs-validation" novalidate action="{{ route('program.store') }}" method="POST"
+                enctype="multipart/form-data">
                 @csrf
 
-                @if($userrole == 1)
-                <div class="form-group">
-                    <label for="id_user">Owner :</label>
-                    <select class="form-control select2" id="id_user" name="id_user">
-                        <option value="">Owner</option>
-                        @foreach ($users as $index => $result)
-                            <option value="{{ $result->id }}">{{ $result->name }}</option>
-                        @endforeach
-                    </select>
-                    <div class="valid-feedback">
-                        Looks good!
+                @if ($userrole == 1)
+                    <div class="form-group">
+                        <label for="id_user">Owner :</label>
+                        <select class="form-control select2" id="id_user" name="id_user">
+                            <option value="">Owner</option>
+                            @foreach ($users as $index => $result)
+                                <option value="{{ $result->id }}">{{ $result->name }}</option>
+                            @endforeach
+                        </select>
+                        <div class="valid-feedback">
+                            Looks good!
+                        </div>
+                        <div class="invalid-feedback">
+                            Please fill out this field.
+                        </div>
                     </div>
-                    <div class="invalid-feedback">
-                        Please fill out this field.
-                    </div>
-                </div>
                 @else
-                <input type="hidden" id="id_user" name="id_user" value="{{ auth()->user()->id }}">
+                    <input type="hidden" id="id_user" name="id_user" value="{{ auth()->user()->id }}">
                 @endif
 
 
@@ -115,8 +115,45 @@
 
                 <div class="form-group">
                     <label for="deskripsi_program">Deskripsi Program :</label>
-                    <input type="text" class="form-control" id="deskripsi_program" placeholder="Masukkan deskripsi.." name="deskripsi_program"
+                    <textarea type="text" class="form-control" id="deskripsi_program" placeholder="Masukkan deskripsi.."
+                        name="deskripsi_program" required> </textarea>
+                    <div class="valid-feedback">
+                        Looks good!
+                    </div>
+                    <div class="invalid-feedback">
+                        Please fill out this field.
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="harga">Harga :</label>
+                    <input type="text" class="form-control" id="harga" placeholder="Masukkan harga.." name="harga"
                         required>
+                    <small>contoh: 250000 </small>
+                    <div class="valid-feedback">
+                        Looks good!
+                    </div>
+                    <div class="invalid-feedback">
+                        Please fill out this field.
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="jadwal">Jadwal Program :</label>
+                    <input type="text" class="form-control" id="jadwal" placeholder="Masukkan jadwal program.."
+                        name="jadwal" required>
+                    <small>contoh: Senin-Jumat Pukul 16:00 - 17:00 </small>
+                    <div class="valid-feedback">
+                        Looks good!
+                    </div>
+                    <div class="invalid-feedback">
+                        Please fill out this field.
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="durasi">Durasi Program :</label>
+                    <input type="text" class="form-control" id="durasi" placeholder="Masukkan durasi program.."
+                        name="durasi" required>
+                    <small>contoh: 60 menit </small>
                     <div class="valid-feedback">
                         Looks good!
                     </div>
@@ -186,6 +223,17 @@
             });
         });
         //select2 end
+
+        $('#harga').keypress(function(e) {
+            var arr = [];
+            var kk = e.which;
+
+            for (i = 48; i < 58; i++)
+                arr.push(i);
+
+            if (!(arr.indexOf(kk) >= 0))
+                e.preventDefault();
+        });
 
         //logic upload foto start
         $('#foto_program').on('change', function() {

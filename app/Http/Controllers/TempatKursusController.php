@@ -105,6 +105,8 @@ class TempatKursusController extends Controller
                 'alamat' => $request->alamat,
                 'latitude' => $request->lat,
                 'longitude' => $request->lng,
+                'instagram' => $request->instagram,
+                'facebook' => $request->facebook,
             ]);
             return redirect()->route('tempatkursus.index')->with('success', 'Berhasil menambahkan data');
         
@@ -142,7 +144,9 @@ class TempatKursusController extends Controller
                 'latitude' => $request->lat,
                 'longitude' => $request->lng,
                 'no_telp' => $request->no_telp,
-                'foto_utama' => $nameImageUtama,                
+                'foto_utama' => $nameImageUtama,    
+                'instagram' => $request->instagram,
+                'facebook' => $request->facebook,            
                 'updated_at' => Carbon::now(),
             ]);
             return redirect()->route('tempatkursus.index')->with('success', 'Berhasil mengedit data');

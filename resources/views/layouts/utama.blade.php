@@ -48,7 +48,7 @@
         <!-- Spinner End -->
 
 
-        @include('partials.utama-navbar', ['kategori' => \App\Models\Kategori::all()])
+        @include('partials.utama-navbar', ['kategoribesar' => \App\Models\KategoriBesar::with('kategori')->get()])
 
 
         @yield('content')

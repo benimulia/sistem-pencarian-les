@@ -213,7 +213,7 @@
                             <div class="bg-light rounded-circle w-75 mx-auto p-3">
                                 <img class="img-fluid rounded-circle"
                                     src="{{ asset('gambar/tempatkursus/foto-utama/' . $result->foto_utama) }}"
-                                    alt="">
+                                    alt="" style="width: 100%; aspect-ratio: 3/2; object-fit:contain;">
                             </div>
                             <div class="bg-light rounded p-4 pt-5 mt-n5">
                                 <a class="d-block text-center h3 mt-3 mb-4"

@@ -167,7 +167,9 @@
                                                     style="background-image: url('{{ asset('gambar/tempatkursus/foto-utama/' . $kursus->foto_utama) }}');">
                                                 </div>
                                                 <div class="card-body">
-                                                    <h4 class="card-title">{{ $kursus->nama_tempat_kursus }}</h4>
+                                                    <a href="{{ route('utama.tempatkursus', ['id' => $kursus->id_tempat_kursus]) }}">
+                                                        <h4 class="card-title">{{ $kursus->nama_tempat_kursus }}</h4>
+                                                    </a>
                                                     <p class="card-text">{{ $kursus->alamat }}</p>
                                                 </div>
                                             </div>

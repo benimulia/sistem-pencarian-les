@@ -2,7 +2,7 @@
 
 @section('content')
     <!-- Page Header End -->
-    <div class="container-xxl py-5 page-header position-relative mb-5">
+    <div class="container-xxxl py-5 page-header position-relative mb-5">
         <div class="container py-5">
             <h1 class="display-2 text-white animated slideInDown mb-4">About Us</h1>
             <nav aria-label="breadcrumb animated slideInDown">
@@ -18,7 +18,7 @@
 
 
     <!-- About Start -->
-    <div class="container-xxl py-5">
+    <div class="container-xxxl py-5">
         <div class="container">
             <div class="row g-5 align-items-center">
                 <div class="col-lg-6 wow fadeInUp" data-wow-delay="0.1s">

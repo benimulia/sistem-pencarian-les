@@ -27,7 +27,15 @@ class UtamaController extends Controller
     public function index()
     {
         $kategori = Kategori::latest()->take(3)->get();
-        $kursuspopuler = TempatKursus::with('kategori')->orderBy('jumlah_pengunjung', 'ASC')->take(6)->get();
+        $kursuspopuler = TempatKursus::with([
+            'kategori',
+            'program' => function ($query) {
+                $query->orderBy('harga', 'ASC')->take(1);
+            }
+        ])
+            ->orderBy('jumlah_pengunjung', 'DESC')
+            ->take(6)
+            ->get();
 
         return view('utama.index', compact('kategori', 'kursuspopuler'));
     }
@@ -70,9 +78,12 @@ class UtamaController extends Controller
         return view('utama.search', compact('tempat_kursus', 'query', 'kategori', 'selected_kategoris', 'selected_lokasis'));
     }
 
+
     public function showTempatKursus($id)
     {
         $tempatkursus = TempatKursus::with('program')->findOrFail($id);
+        // Tambahkan 1 pada kolom jumlah_pengunjung
+        $tempatkursus->increment('jumlah_pengunjung');
 
         return view('utama.tempatkursus', compact('tempatkursus'));
     }

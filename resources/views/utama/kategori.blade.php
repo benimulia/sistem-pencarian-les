@@ -34,33 +34,33 @@
                             </div>
                             <div class="bg-light rounded p-4 pt-5 mt-n5">
                                 <a class="d-block text-center h3 mt-3 mb-4"
-                                    href="">{{ $result->nama_tempat_kursus }}</a>
+                                    href="{{ route('utama.tempatkursus', ['id' => $result->id_tempat_kursus]) }}">{{ $result->nama_tempat_kursus }}</a>
                                 <div class="d-flex align-items-center justify-content-between mb-4">
                                     <div class="d-flex align-items-center">
                                         <div class="ms-3">
                                             <h6 class="text-primary mb-1">{{ $result->kategori->nama_kategori }}</h6>
                                             <small>Kategori</small>
-                                        </div>
+                                        </div> 
                                     </div>
                                     {{-- <span class="bg-primary text-white rounded-pill py-2 px-3" href="">$99</span> --}}
                                 </div>
                                 <div class="row g-1">
                                     <div class="col-4">
                                         <div class="border-top border-3 border-primary pt-2">
-                                            <h6 class="text-primary mb-1">Usia:</h6>
-                                            <small>3-5 Years</small>
+                                            <h6 class="text-primary mb-1">Harga:</h6>
+                                            <small>Start from Rp {{ number_format($result->program->first()->harga, 0, ',', '.') }}</small>
                                         </div>
                                     </div>
                                     <div class="col-4">
                                         <div class="border-top border-3 border-success pt-2">
-                                            <h6 class="text-success mb-1">Waktu:</h6>
-                                            <small>9-10 AM</small>
+                                            <h6 class="text-success mb-1">Jadwal:</h6>
+                                            <small>{{ $result->program->first()->jadwal }}</small>
                                         </div>
                                     </div>
                                     <div class="col-4">
                                         <div class="border-top border-3 border-warning pt-2">
-                                            <h6 class="text-warning mb-1">Kapasitas:</h6>
-                                            <small>30 Anak / kelas</small>
+                                            <h6 class="text-warning mb-1">Durasi:</h6>
+                                            <small>{{ $result->program->first()->durasi }}</small>
                                         </div>
                                     </div>
                                 </div>

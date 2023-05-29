@@ -25,24 +25,36 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-// ================== UTAMA ==================
-Route::get('/', [UtamaController::class, 'index'])->name('utama.index');
-Route::get('/kategori/{id}', [UtamaController::class, 'kategori'])->name('utama.kategori');
-Route::get('/search', [UtamaController::class, 'search'])->name('utama.search');
-Route::get('/kontak', function () {
-    return view('utama.kontak');
-})->name('utama.contact');
+    // ================== UTAMA ==================
+    Route::get('/', [UtamaController::class, 'index'])->name('utama.index');
 
-Route::get('/tentang', function () {
-    return view('utama.tentang');
-})->name('utama.about');
+    // kategori
+    Route::get('/kategori/{id}', [UtamaController::class, 'kategori'])->name('utama.kategori');
 
-Route::get('/tempatkursus/{id}', [UtamaController::class, 'showTempatKursus'])->name('utama.tempatkursus');
+    //search
+    Route::get('/search', [UtamaController::class, 'search'])->name('utama.search');
+
+    //kontak
+    Route::get('/kontak', function () {
+        return view('utama.kontak');
+    })->name('utama.contact');
+
+    //tentang
+    Route::get('/tentang', function () {
+        return view('utama.tentang');
+    })->name('utama.about');
+
+    //tempat kursus
+    Route::get('/tempatkursus/{id}', [UtamaController::class, 'showTempatKursus'])->name('utama.tempatkursus');
 
 
-Auth::routes();
 
-Route::get('/admin/home', [HomeController::class, 'index'])->name('home');
+    // ================== ADMIN ==================
+
+
+    Auth::routes();
+
+    Route::get('/admin/home', [HomeController::class, 'index'])->name('home');
 
 Route::group(['middleware' => ['auth']], function () {
     Route::resource('roles', RoleController::class);

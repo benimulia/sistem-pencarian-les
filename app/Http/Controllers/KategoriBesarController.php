@@ -10,6 +10,7 @@ use Exception;
 use Carbon\Carbon;
 use App\Models\KategoriBesar;
 use App\Models\Kategori;
+use App\Models\KategoriUtama;
 
 class KategoriBesarController extends Controller
 {
@@ -24,24 +25,35 @@ class KategoriBesarController extends Controller
     public function index()
     {
 
-        $kategori = KategoriBesar::latest()->get();
+        $kategori = KategoriBesar::with('kategoriutama')->latest()->get();
 
         return view('kategoribesar.index', compact('kategori'), [
             "title" => "List Kategori Besar"
         ]);
     }
 
+    public function kategoriutamaAll()
+    {
+        return KategoriUtama::orderBy('nama_kategori_utama', 'ASC')->get();
+    }
+
     public function create()
     {
-        return view('kategoribesar.create', [
+        //get kategori utama
+        $kategoriutama = $this->kategoriutamaAll();
+
+        return view('kategoribesar.create', compact('kategoriutama'),  [
             "title" => "Tambah Kategori Baru"
         ]);
     }
 
     public function edit($id)
     {
+        //get kategori utama
+        $kategoriutama = $this->kategoriutamaAll();
+
         $kategori = KategoriBesar::find($id);
-        return view('kategoribesar.edit', compact('kategori'), [
+        return view('kategoribesar.edit', compact('kategori', 'kategoriutama'), [
             "title" => "Edit Kategori Besar"
         ]);
     }
@@ -50,6 +62,7 @@ class KategoriBesarController extends Controller
     {
         try {
             KategoriBesar::create([
+                'id_kategori_utama' => $request->id_kategori_utama,
                 'nama_kategori_besar' => $request->nama_kategori_besar,
             ]);
             return redirect()->route('kategoribesar.index')->with('success', 'Berhasil menambahkan data');
@@ -62,6 +75,7 @@ class KategoriBesarController extends Controller
     {
         try {
             DB::table('kategori_besar')->where('id_kategori_besar', $id)->update([
+                'id_kategori_utama' => $request->id_kategori_utama,
                 'nama_kategori_besar' => $request->nama_kategori_besar,
                 'updated_at' => Carbon::now(),
             ]);

@@ -10,13 +10,11 @@
     <meta name="author" content="">
 
     <link rel="icon" type="image/png" href="{{ asset('assets/img/header/logo/landapp-logo.png') }}">
-    <title>Login | Kursusku</title>
+    <title>Login | SIPTKA </title>
 
     <!-- Custom fonts for this template-->
     <link href="{{ asset('vendor/fontawesome-free/css/all.min.css') }}" rel="stylesheet" type="text/css">
-    <link
-        href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"
-        rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
 
     <!-- Custom styles for this template-->
     <link href="{{ asset('css/sb-admin-2.min.css') }}" rel="stylesheet">
@@ -36,8 +34,7 @@
                         <!-- Nested Row within Card Body -->
                         <div class="row">
                             <div class="col-lg-6 d-none d-lg-block">
-                                <img src="{{ asset('img/login-img.jpg') }}" style="min-height: 570px;width: 500px;"
-                                    alt="">
+                                <img src="{{ asset('img/login-img.jpg') }}" style="min-height: 570px;width: 500px;" alt="">
                             </div>
                             <div class="col-lg-6">
                                 <div class="p-5">
@@ -48,59 +45,45 @@
                                         @csrf
 
                                         <div class="form-group row">
-                                            <label for="name"
-                                                class="col-md-4 col-form-label text-md-right">{{ __('Name') }}</label>
+                                            <label for="name" class="col-md-4 col-form-label text-md-right">{{ __('Name') }}</label>
                                             <div class="col-md-8">
-                                                <input id="name" type="text"
-                                                    class="form-control form-control-user @error('name') is-invalid @enderror"
-                                                    name="name" value="{{ old('name') }}" required
-                                                    autocomplete="name" autofocus>
+                                                <input id="name" type="text" class="form-control form-control-user @error('name') is-invalid @enderror" name="name" value="{{ old('name') }}" required autocomplete="name" autofocus>
                                                 @error('name')
-                                                    <span class="invalid-feedback" role="alert">
-                                                        <strong>{{ $message }}</strong>
-                                                    </span>
+                                                <span class="invalid-feedback" role="alert">
+                                                    <strong>{{ $message }}</strong>
+                                                </span>
                                                 @enderror
                                             </div>
                                         </div>
 
                                         <div class="form-group row">
-                                            <label for="email"
-                                                class="col-md-4 col-form-label text-md-right">{{ __('Email Address') }}</label>
+                                            <label for="email" class="col-md-4 col-form-label text-md-right">{{ __('Email Address') }}</label>
                                             <div class="col-md-8">
-                                                <input id="email" type="email"
-                                                    class="form-control form-control-user @error('email') is-invalid @enderror"
-                                                    name="email" value="{{ old('email') }}" required
-                                                    autocomplete="email">
+                                                <input id="email" type="email" class="form-control form-control-user @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email">
                                                 @error('email')
-                                                    <span class="invalid-feedback" role="alert">
-                                                        <strong>{{ $message }}</strong>
-                                                    </span>
+                                                <span class="invalid-feedback" role="alert">
+                                                    <strong>{{ $message }}</strong>
+                                                </span>
                                                 @enderror
                                             </div>
                                         </div>
 
                                         <div class="form-group row">
-                                            <label for="password"
-                                                class="col-md-4 col-form-label text-md-right">{{ __('Password') }}</label>
+                                            <label for="password" class="col-md-4 col-form-label text-md-right">{{ __('Password') }}</label>
                                             <div class="col-md-8">
-                                                <input id="password" type="password"
-                                                    class="form-control form-control-user @error('password') is-invalid @enderror"
-                                                    name="password" required autocomplete="new-password">
+                                                <input id="password" type="password" class="form-control form-control-user @error('password') is-invalid @enderror" name="password" required autocomplete="new-password">
                                                 @error('password')
-                                                    <span class="invalid-feedback" role="alert">
-                                                        <strong>{{ $message }}</strong>
-                                                    </span>
+                                                <span class="invalid-feedback" role="alert">
+                                                    <strong>{{ $message }}</strong>
+                                                </span>
                                                 @enderror
                                             </div>
                                         </div>
 
                                         <div class="form-group row">
-                                            <label for="password-confirm"
-                                                class="col-md-4 col-form-label text-md-right">{{ __('Confirm Password') }}</label>
+                                            <label for="password-confirm" class="col-md-4 col-form-label text-md-right">{{ __('Confirm Password') }}</label>
                                             <div class="col-md-8">
-                                                <input id="password-confirm" type="password"
-                                                    class="form-control form-control-user" name="password_confirmation"
-                                                    required autocomplete="new-password">
+                                                <input id="password-confirm" type="password" class="form-control form-control-user" name="password_confirmation" required autocomplete="new-password">
                                             </div>
                                         </div>
 
@@ -114,12 +97,11 @@
                                     </form>
                                     <hr>
                                     <div class="text-center">
-                                        <p class="small">Kursusku ©</p>
+                                        <p class="small">SIPTKA ©</p>
                                         {{-- <a class="small" href="{{ route('password.request') }}">Forgot Password?</a> --}}
                                     </div>
                                     <div class="text-center">
-                                        <p class="small">Already have an account? <a
-                                                href="{{ route('login') }}">Login!</a>
+                                        <p class="small">Already have an account? <a href="{{ route('login') }}">Login!</a>
                                         </p>
                                     </div>
                                 </div>

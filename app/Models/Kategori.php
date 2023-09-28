@@ -12,9 +12,12 @@ class Kategori extends Model
     protected $primaryKey = 'id_kategori';
 
     protected $fillable = [
-            'id_kategori',
-            'id_kategori_besar',
-            'nama_kategori',
+        'id_kategori',
+        'id_kategori_besar',
+        'nama_kategori',
+        'persen_populer',
+        'persen_umum',
+        'persen_unik',
     ];
 
     public function tempatkursus()

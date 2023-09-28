@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="utf-8">
-    <title>Kursusku - Find your kids course here!</title>
+    <title>SIPTKA - Find your kids course here!</title>
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
     <meta content="" name="keywords">
     <meta content="" name="description">
@@ -14,9 +14,7 @@
     <!-- Google Web Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link
-        href="https://fonts.googleapis.com/css2?family=Heebo:wght@400;500;600&family=Inter:wght@600&family=Lobster+Two:wght@700&display=swap"
-        rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@400;500;600&family=Inter:wght@600&family=Lobster+Two:wght@700&display=swap" rel="stylesheet">
 
     <!-- Icon Font Stylesheet -->
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
@@ -36,8 +34,7 @@
 <body>
     <div class="container-xxxl bg-white p-0">
         <!-- Spinner Start -->
-        <div id="spinner"
-            class="show bg-white position-fixed translate-middle w-100 vh-100 top-50 start-50 d-flex align-items-center justify-content-center">
+        <div id="spinner" class="show bg-white position-fixed translate-middle w-100 vh-100 top-50 start-50 d-flex align-items-center justify-content-center">
             <div class="spinner-border text-primary" style="width: 3rem; height: 3rem;" role="status">
                 <span class="sr-only">Loading...</span>
             </div>
@@ -48,7 +45,7 @@
         <!-- Navbar Start -->
         <nav class="navbar navbar-expand-lg bg-white navbar-light sticky-top px-4 px-lg-5 py-lg-0">
             <a href="index.html" class="navbar-brand">
-                <h1 class="m-0 text-primary"><i class="fa fa-book-reader me-3"></i>Kursusku</h1>
+                <h1 class="m-0 text-primary"><i class="fa fa-book-reader me-3"></i>SIPTKA</h1>
             </a>
             <button type="button" class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
                 <span class="navbar-toggler-icon"></span>
@@ -71,8 +68,7 @@
                     </div>
                     <a href="contact.html" class="nav-item nav-link">Contact Us</a>
                 </div>
-                <a href="" class="btn btn-primary rounded-pill px-3 d-none d-lg-block">Join Us<i
-                        class="fa fa-arrow-right ms-3"></i></a>
+                <a href="" class="btn btn-primary rounded-pill px-3 d-none d-lg-block">Join Us<i class="fa fa-arrow-right ms-3"></i></a>
             </div>
         </nav>
         <!-- Navbar End -->
@@ -83,8 +79,7 @@
             <div class="owl-carousel header-carousel position-relative">
                 <div class="owl-carousel-item position-relative">
                     <img class="img-fluid" src="utama/img/carousel-1.jpg" alt="">
-                    <div class="position-absolute top-0 start-0 w-100 h-100 d-flex align-items-center p-4"
-                        style="background: rgba(0, 0, 0, .2);">
+                    <div class="position-absolute top-0 start-0 w-100 h-100 d-flex align-items-center p-4" style="background: rgba(0, 0, 0, .2);">
                         <div class="container">
                             <div class="row justify-content-start">
                                 <div class="col-10 col-lg-8">
@@ -93,8 +88,7 @@
                                     <p class="fs-5 fw-medium text-white mb-4 pb-2">Vero elitr justo clita lorem. Ipsum
                                         dolor at sed stet sit diam no. Kasd rebum ipsum et diam justo clita et kasd
                                         rebum sea elitr.</p>
-                                    <a href=""
-                                        class="btn btn-primary rounded-pill py-sm-3 px-sm-5 me-3 animated slideInLeft">Learn
+                                    <a href="" class="btn btn-primary rounded-pill py-sm-3 px-sm-5 me-3 animated slideInLeft">Learn
                                         More</a>
                                 </div>
                             </div>
@@ -103,8 +97,7 @@
                 </div>
                 <div class="owl-carousel-item position-relative">
                     <img class="img-fluid" src="utama/img/carousel-2.jpg" alt="">
-                    <div class="position-absolute top-0 start-0 w-100 h-100 d-flex align-items-center p-4"
-                        style="background: rgba(0, 0, 0, .2);">
+                    <div class="position-absolute top-0 start-0 w-100 h-100 d-flex align-items-center p-4" style="background: rgba(0, 0, 0, .2);">
                         <div class="container">
                             <div class="row justify-content-start">
                                 <div class="col-10 col-lg-8">
@@ -113,8 +106,7 @@
                                     <p class="fs-5 fw-medium text-white mb-4 pb-2">Vero elitr justo clita lorem. Ipsum
                                         dolor at sed stet sit diam no. Kasd rebum ipsum et diam justo clita et kasd
                                         rebum sea elitr.</p>
-                                    <a href=""
-                                        class="btn btn-primary rounded-pill py-sm-3 px-sm-5 me-3 animated slideInLeft">Learn
+                                    <a href="" class="btn btn-primary rounded-pill py-sm-3 px-sm-5 me-3 animated slideInLeft">Learn
                                         More</a>
                                 </div>
                             </div>
@@ -131,7 +123,7 @@
             <div class="container">
                 <div class="text-center mx-auto mb-5 wow fadeInUp" data-wow-delay="0.1s" style="max-width: 600px;">
                     <h1 class="mb-3">Our Value</h1>
-                    <p>Kursusku memiliki value yang terus akan dijaga untuk menjaga kualitas.</p>
+                    <p>SIPTKA memiliki value yang terus akan dijaga untuk menjaga kualitas.</p>
                 </div>
                 <div class="row g-4">
                     <div class="col-lg-3 col-sm-6 wow fadeInUp" data-wow-delay="0.1s">
@@ -218,16 +210,13 @@
                     <div class="col-lg-6 about-img wow fadeInUp" data-wow-delay="0.5s">
                         <div class="row">
                             <div class="col-12 text-center">
-                                <img class="img-fluid w-75 rounded-circle bg-light p-3" src="utama/img/about-1.jpg"
-                                    alt="">
+                                <img class="img-fluid w-75 rounded-circle bg-light p-3" src="utama/img/about-1.jpg" alt="">
                             </div>
                             <div class="col-6 text-start" style="margin-top: -150px;">
-                                <img class="img-fluid w-100 rounded-circle bg-light p-3" src="utama/img/about-2.jpg"
-                                    alt="">
+                                <img class="img-fluid w-100 rounded-circle bg-light p-3" src="utama/img/about-2.jpg" alt="">
                             </div>
                             <div class="col-6 text-end" style="margin-top: -150px;">
-                                <img class="img-fluid w-100 rounded-circle bg-light p-3" src="utama/img/about-3.jpg"
-                                    alt="">
+                                <img class="img-fluid w-100 rounded-circle bg-light p-3" src="utama/img/about-3.jpg" alt="">
                             </div>
                         </div>
                     </div>
@@ -249,10 +238,10 @@
                     @foreach ($kategori as $index => $result)
                     <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.1s">
                         <div class="team-item position-relative">
-                            
+
                             <div class="team-text">
                                 <h3>{{$result->nama_kategori}}</h3>
-                                
+
                                 <div class="d-flex align-items-center"></div>
                             </div>
                         </div>
@@ -282,15 +271,13 @@
                                 <a class="d-block text-center h3 mt-3 mb-4" href="">Art & Drawing</a>
                                 <div class="d-flex align-items-center justify-content-between mb-4">
                                     <div class="d-flex align-items-center">
-                                        <img class="rounded-circle flex-shrink-0" src="utama/img/user.jpg"
-                                            alt="" style="width: 45px; height: 45px;">
+                                        <img class="rounded-circle flex-shrink-0" src="utama/img/user.jpg" alt="" style="width: 45px; height: 45px;">
                                         <div class="ms-3">
                                             <h6 class="text-primary mb-1">Jhon Doe</h6>
                                             <small>Teacher</small>
                                         </div>
                                     </div>
-                                    <span class="bg-primary text-white rounded-pill py-2 px-3"
-                                        href="">$99</span>
+                                    <span class="bg-primary text-white rounded-pill py-2 px-3" href="">$99</span>
                                 </div>
                                 <div class="row g-1">
                                     <div class="col-4">
@@ -324,15 +311,13 @@
                                 <a class="d-block text-center h3 mt-3 mb-4" href="">Color Management</a>
                                 <div class="d-flex align-items-center justify-content-between mb-4">
                                     <div class="d-flex align-items-center">
-                                        <img class="rounded-circle flex-shrink-0" src="utama/img/user.jpg"
-                                            alt="" style="width: 45px; height: 45px;">
+                                        <img class="rounded-circle flex-shrink-0" src="utama/img/user.jpg" alt="" style="width: 45px; height: 45px;">
                                         <div class="ms-3">
                                             <h6 class="text-primary mb-1">Jhon Doe</h6>
                                             <small>Teacher</small>
                                         </div>
                                     </div>
-                                    <span class="bg-primary text-white rounded-pill py-2 px-3"
-                                        href="">$99</span>
+                                    <span class="bg-primary text-white rounded-pill py-2 px-3" href="">$99</span>
                                 </div>
                                 <div class="row g-1">
                                     <div class="col-4">
@@ -366,15 +351,13 @@
                                 <a class="d-block text-center h3 mt-3 mb-4" href="">Athletic & Dance</a>
                                 <div class="d-flex align-items-center justify-content-between mb-4">
                                     <div class="d-flex align-items-center">
-                                        <img class="rounded-circle flex-shrink-0" src="utama/img/user.jpg"
-                                            alt="" style="width: 45px; height: 45px;">
+                                        <img class="rounded-circle flex-shrink-0" src="utama/img/user.jpg" alt="" style="width: 45px; height: 45px;">
                                         <div class="ms-3">
                                             <h6 class="text-primary mb-1">Jhon Doe</h6>
                                             <small>Teacher</small>
                                         </div>
                                     </div>
-                                    <span class="bg-primary text-white rounded-pill py-2 px-3"
-                                        href="">$99</span>
+                                    <span class="bg-primary text-white rounded-pill py-2 px-3" href="">$99</span>
                                 </div>
                                 <div class="row g-1">
                                     <div class="col-4">
@@ -408,15 +391,13 @@
                                 <a class="d-block text-center h3 mt-3 mb-4" href="">Language & Speaking</a>
                                 <div class="d-flex align-items-center justify-content-between mb-4">
                                     <div class="d-flex align-items-center">
-                                        <img class="rounded-circle flex-shrink-0" src="utama/img/user.jpg"
-                                            alt="" style="width: 45px; height: 45px;">
+                                        <img class="rounded-circle flex-shrink-0" src="utama/img/user.jpg" alt="" style="width: 45px; height: 45px;">
                                         <div class="ms-3">
                                             <h6 class="text-primary mb-1">Jhon Doe</h6>
                                             <small>Teacher</small>
                                         </div>
                                     </div>
-                                    <span class="bg-primary text-white rounded-pill py-2 px-3"
-                                        href="">$99</span>
+                                    <span class="bg-primary text-white rounded-pill py-2 px-3" href="">$99</span>
                                 </div>
                                 <div class="row g-1">
                                     <div class="col-4">
@@ -450,15 +431,13 @@
                                 <a class="d-block text-center h3 mt-3 mb-4" href="">Religion & History</a>
                                 <div class="d-flex align-items-center justify-content-between mb-4">
                                     <div class="d-flex align-items-center">
-                                        <img class="rounded-circle flex-shrink-0" src="utama/img/user.jpg"
-                                            alt="" style="width: 45px; height: 45px;">
+                                        <img class="rounded-circle flex-shrink-0" src="utama/img/user.jpg" alt="" style="width: 45px; height: 45px;">
                                         <div class="ms-3">
                                             <h6 class="text-primary mb-1">Jhon Doe</h6>
                                             <small>Teacher</small>
                                         </div>
                                     </div>
-                                    <span class="bg-primary text-white rounded-pill py-2 px-3"
-                                        href="">$99</span>
+                                    <span class="bg-primary text-white rounded-pill py-2 px-3" href="">$99</span>
                                 </div>
                                 <div class="row g-1">
                                     <div class="col-4">
@@ -492,15 +471,13 @@
                                 <a class="d-block text-center h3 mt-3 mb-4" href="">General Knowledge</a>
                                 <div class="d-flex align-items-center justify-content-between mb-4">
                                     <div class="d-flex align-items-center">
-                                        <img class="rounded-circle flex-shrink-0" src="utama/img/user.jpg"
-                                            alt="" style="width: 45px; height: 45px;">
+                                        <img class="rounded-circle flex-shrink-0" src="utama/img/user.jpg" alt="" style="width: 45px; height: 45px;">
                                         <div class="ms-3">
                                             <h6 class="text-primary mb-1">Jhon Doe</h6>
                                             <small>Teacher</small>
                                         </div>
                                     </div>
-                                    <span class="bg-primary text-white rounded-pill py-2 px-3"
-                                        href="">$99</span>
+                                    <span class="bg-primary text-white rounded-pill py-2 px-3" href="">$99</span>
                                 </div>
                                 <div class="row g-1">
                                     <div class="col-4">
@@ -546,8 +523,7 @@
                         <p class="fs-5">Tempor stet labore dolor clita stet diam amet ipsum dolor duo ipsum rebum
                             stet dolor amet diam stet. Est stet ea lorem amet est kasd kasd erat eos</p>
                         <div class="d-flex align-items-center bg-white me-n5" style="border-radius: 50px 0 0 50px;">
-                            <img class="img-fluid flex-shrink-0 rounded-circle" src="utama/img/testimonial-1.jpg"
-                                style="width: 90px; height: 90px;">
+                            <img class="img-fluid flex-shrink-0 rounded-circle" src="utama/img/testimonial-1.jpg" style="width: 90px; height: 90px;">
                             <div class="ps-3">
                                 <h3 class="mb-1">Client Name</h3>
                                 <span>Profession</span>
@@ -559,8 +535,7 @@
                         <p class="fs-5">Tempor stet labore dolor clita stet diam amet ipsum dolor duo ipsum rebum
                             stet dolor amet diam stet. Est stet ea lorem amet est kasd kasd erat eos</p>
                         <div class="d-flex align-items-center bg-white me-n5" style="border-radius: 50px 0 0 50px;">
-                            <img class="img-fluid flex-shrink-0 rounded-circle" src="utama/img/testimonial-2.jpg"
-                                style="width: 90px; height: 90px;">
+                            <img class="img-fluid flex-shrink-0 rounded-circle" src="utama/img/testimonial-2.jpg" style="width: 90px; height: 90px;">
                             <div class="ps-3">
                                 <h3 class="mb-1">Client Name</h3>
                                 <span>Profession</span>
@@ -572,8 +547,7 @@
                         <p class="fs-5">Tempor stet labore dolor clita stet diam amet ipsum dolor duo ipsum rebum
                             stet dolor amet diam stet. Est stet ea lorem amet est kasd kasd erat eos</p>
                         <div class="d-flex align-items-center bg-white me-n5" style="border-radius: 50px 0 0 50px;">
-                            <img class="img-fluid flex-shrink-0 rounded-circle" src="utama/img/testimonial-3.jpg"
-                                style="width: 90px; height: 90px;">
+                            <img class="img-fluid flex-shrink-0 rounded-circle" src="utama/img/testimonial-3.jpg" style="width: 90px; height: 90px;">
                             <div class="ps-3">
                                 <h3 class="mb-1">Client Name</h3>
                                 <span>Profession</span>
@@ -597,14 +571,10 @@
                         <p class="mb-2"><i class="fa fa-phone-alt me-3"></i>+012 345 67890</p>
                         <p class="mb-2"><i class="fa fa-envelope me-3"></i>info@example.com</p>
                         <div class="d-flex pt-2">
-                            <a class="btn btn-outline-light btn-social" href=""><i
-                                    class="fab fa-twitter"></i></a>
-                            <a class="btn btn-outline-light btn-social" href=""><i
-                                    class="fab fa-facebook-f"></i></a>
-                            <a class="btn btn-outline-light btn-social" href=""><i
-                                    class="fab fa-youtube"></i></a>
-                            <a class="btn btn-outline-light btn-social" href=""><i
-                                    class="fab fa-linkedin-in"></i></a>
+                            <a class="btn btn-outline-light btn-social" href=""><i class="fab fa-twitter"></i></a>
+                            <a class="btn btn-outline-light btn-social" href=""><i class="fab fa-facebook-f"></i></a>
+                            <a class="btn btn-outline-light btn-social" href=""><i class="fab fa-youtube"></i></a>
+                            <a class="btn btn-outline-light btn-social" href=""><i class="fab fa-linkedin-in"></i></a>
                         </div>
                     </div>
                     <div class="col-lg-3 col-md-6">
@@ -619,28 +589,22 @@
                         <h3 class="text-white mb-4">Photo Gallery</h3>
                         <div class="row g-2 pt-2">
                             <div class="col-4">
-                                <img class="img-fluid rounded bg-light p-1" src="utama/img/classes-1.jpg"
-                                    alt="">
+                                <img class="img-fluid rounded bg-light p-1" src="utama/img/classes-1.jpg" alt="">
                             </div>
                             <div class="col-4">
-                                <img class="img-fluid rounded bg-light p-1" src="utama/img/classes-2.jpg"
-                                    alt="">
+                                <img class="img-fluid rounded bg-light p-1" src="utama/img/classes-2.jpg" alt="">
                             </div>
                             <div class="col-4">
-                                <img class="img-fluid rounded bg-light p-1" src="utama/img/classes-3.jpg"
-                                    alt="">
+                                <img class="img-fluid rounded bg-light p-1" src="utama/img/classes-3.jpg" alt="">
                             </div>
                             <div class="col-4">
-                                <img class="img-fluid rounded bg-light p-1" src="utama/img/classes-4.jpg"
-                                    alt="">
+                                <img class="img-fluid rounded bg-light p-1" src="utama/img/classes-4.jpg" alt="">
                             </div>
                             <div class="col-4">
-                                <img class="img-fluid rounded bg-light p-1" src="utama/img/classes-5.jpg"
-                                    alt="">
+                                <img class="img-fluid rounded bg-light p-1" src="utama/img/classes-5.jpg" alt="">
                             </div>
                             <div class="col-4">
-                                <img class="img-fluid rounded bg-light p-1" src="utama/img/classes-6.jpg"
-                                    alt="">
+                                <img class="img-fluid rounded bg-light p-1" src="utama/img/classes-6.jpg" alt="">
                             </div>
                         </div>
                     </div>
@@ -648,10 +612,8 @@
                         <h3 class="text-white mb-4">Newsletter</h3>
                         <p>Dolor amet sit justo amet elitr clita ipsum elitr est.</p>
                         <div class="position-relative mx-auto" style="max-width: 400px;">
-                            <input class="form-control bg-transparent w-100 py-3 ps-4 pe-5" type="text"
-                                placeholder="Your email">
-                            <button type="button"
-                                class="btn btn-primary py-2 position-absolute top-0 end-0 mt-2 me-2">SignUp</button>
+                            <input class="form-control bg-transparent w-100 py-3 ps-4 pe-5" type="text" placeholder="Your email">
+                            <button type="button" class="btn btn-primary py-2 position-absolute top-0 end-0 mt-2 me-2">SignUp</button>
                         </div>
                     </div>
                 </div>
@@ -660,12 +622,11 @@
                 <div class="copyright">
                     <div class="row">
                         <div class="col-md-6 text-center text-md-start mb-3 mb-md-0">
-                            &copy; <a class="border-bottom" href="#">Kursusku</a>, All Right Reserved.
+                            &copy; <a class="border-bottom" href="#">SIPTKA</a>, All Right Reserved.
 
                             <!--/*** This template is free as long as you keep the footer author’s credit link/attribution link/backlink. If you'd like to use the template without the footer author’s credit link/attribution link/backlink, you can purchase the Credit Removal License from "https://htmlcodex.com/credit-removal". Thank you for your support. ***/-->
                             Designed By <a class="border-bottom" href="https://htmlcodex.com">HTML Codex</a>
-                            <br>Distributed By: <a class="border-bottom" href="https://themewagon.com"
-                                target="_blank">ThemeWagon</a>
+                            <br>Distributed By: <a class="border-bottom" href="https://themewagon.com" target="_blank">ThemeWagon</a>
                         </div>
                         <div class="col-md-6 text-center text-md-end">
                             <div class="footer-menu">

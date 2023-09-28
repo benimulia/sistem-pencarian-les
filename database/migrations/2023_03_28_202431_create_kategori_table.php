@@ -17,6 +17,9 @@ class CreateKategoriTable extends Migration
             $table->bigIncrements('id_kategori');
             $table->integer('id_kategori_besar');
             $table->string('nama_kategori');
+            $table->integer('persen_populer');
+            $table->integer('persen_unik');
+            $table->integer('persen_umum');
             $table->timestamps();
         });
     }

@@ -25,22 +25,25 @@
     </li>
 
     @can('kategori-list')
-    <li class="nav-item {{ request()->is('admin/kategoribesar*') ? 'active' : '' }}">
-        <a class="nav-link" href="{{ route('kategoribesar.index') }}">
-            <i class="fas fa-fw fa-window-restore"></i>
-            <span>Kategori Besar</span>
-        </a>
-    </li>
-    @endcan
+    <!-- Divider -->
+    <hr class="sidebar-divider d-none d-md-block">
 
-    @can('kategori-list')
-    <li class="nav-item {{ request()->is('admin/kategori*') && !request()->is('admin/kategoribesar*') ? 'active' : '' }}">
-        <a class="nav-link" href="{{ route('kategori.index') }}">
+    <li class="nav-item {{ request()->is('kategori*') ? 'active' : '' }}">
+        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
             <i class="fas fa-fw fa-window-restore"></i>
             <span>Kategori</span>
         </a>
+        <div id="collapseOne" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
+            <div class="bg-white py-2 collapse-inner rounded">
+                <h6 class="collapse-header">Menu Kategori:</h6>
+                <a class="collapse-item" href="{{ route('kategoriutama.index') }}">Kategori Utama</a>
+                <a class="collapse-item" href="{{ route('kategoribesar.index') }}">Kategori Besar</a>
+                <a class="collapse-item" href="{{ route('kategori.index') }}">Kategori</a>
+            </div>
+        </div>
     </li>
     @endcan
+
 
     @can('tempat-kursus-list')
     <li class="nav-item {{ request()->is('admin/tempatkursus*') ? 'active' : '' }}">
@@ -67,8 +70,7 @@
     <hr class="sidebar-divider d-none d-md-block">
 
     <li class="nav-item {{ request()->is('setting*') ? 'active' : '' }}">
-        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo"
-            aria-expanded="true" aria-controls="collapseTwo">
+        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo">
             <i class="fas fa-fw fa-cog"></i>
             <span>Setting</span>
         </a>
@@ -76,13 +78,13 @@
             <div class="bg-white py-2 collapse-inner rounded">
                 <h6 class="collapse-header">Menu Setting:</h6>
                 @can('role-list')
-                    <a class="collapse-item" href="{{ route('roles.index') }}">Kelola Role</a>
+                <a class="collapse-item" href="{{ route('roles.index') }}">Kelola Role</a>
                 @endcan
                 @can('user-list')
-                    <a class="collapse-item" href="{{ route('users.index') }}">Kelola Users</a>
+                <a class="collapse-item" href="{{ route('users.index') }}">Kelola Users</a>
                 @endcan
                 @can('cabang-list')
-                    <a class="collapse-item" href="{{ route('cabang.index') }}">Cabang</a>
+                <a class="collapse-item" href="{{ route('cabang.index') }}">Cabang</a>
                 @endcan
 
                 <a class="collapse-item" href="#" data-toggle="modal" data-target="#logoutModal">
@@ -94,8 +96,7 @@
     </li>
     {{-- @endcan --}}
     <!-- Logout Modal-->
-    <div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
-        aria-hidden="true">
+    <div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog" role="document">
             <div class="modal-content">
                 <div class="modal-header">
@@ -107,8 +108,7 @@
                 <div class="modal-body">Select "Logout" below if you are ready to end your current session.</div>
                 <div class="modal-footer">
                     <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
-                    <a class="btn btn-primary" href="{{ route('logout') }}"
-                        onclick="event.preventDefault();
+                    <a class="btn btn-primary" href="{{ route('logout') }}" onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">
                         {{ __('Logout') }}
                     </a>

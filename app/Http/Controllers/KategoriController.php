@@ -63,6 +63,9 @@ class KategoriController extends Controller
             Kategori::create([
                 'id_kategori_besar' => $request->id_kategori_besar,
                 'nama_kategori' => $request->nama_kategori,
+                'persen_populer' => $request->persen_populer,
+                'persen_umum' => $request->persen_umum,
+                'persen_unik' => $request->persen_unik,
             ]);
             return redirect()->route('kategori.index')->with('success', 'Berhasil menambahkan data');
         } catch (Exception $e) {
@@ -76,6 +79,9 @@ class KategoriController extends Controller
             DB::table('kategori')->where('id_kategori', $id)->update([
                 'id_kategori_besar' => $request->id_kategori_besar,
                 'nama_kategori' => $request->nama_kategori,
+                'persen_populer' => $request->persen_populer,
+                'persen_unik' => $request->persen_unik,
+                'persen_umum' => $request->persen_umum,
                 'updated_at' => Carbon::now(),
             ]);
             return redirect()->route('kategori.index')->with('success', 'Berhasil mengedit data');

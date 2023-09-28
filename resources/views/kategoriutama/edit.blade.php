@@ -29,61 +29,67 @@
 <div class="row">
     <div class="col-sm-12 col-md-12">
         <div class="pull-left">
-            <h2>Tambah Kategori Besar Baru</h2>
+            <h2>Edit Kategori Utama</h2>
         </div>
         <nav aria-label="breadcrumb" role="navigation">
             <ol class="breadcrumb">
                 <li class="breadcrumb-item"><a href="{{ route('home') }}">Home</a></li>
-                <li class="breadcrumb-item"><a href="{{ route('kategoribesar.index') }}">Kategori Besar</a></li>
-                <li class="breadcrumb-item"><a href="#">Tambah Kategori Besar</a></li>
+                <li class="breadcrumb-item"><a href="{{ route('kategoriutama.index') }}">Kategori Utama</a></li>
+                <li class="breadcrumb-item"><a href="#">Edit Kategori Utama</a></li>
             </ol>
         </nav>
     </div>
 </div>
-
+@can('kategori-edit')
 <div class="row" style="margin-bottom: 30px;">
     <div class="col-sm-12 col-md-12">
         <a href="{{ url()->previous() }}" class="btn btn-danger"> <i class="fas fa-fw fa-arrow-left"></i>
             Kembali</a>
+        <button id="btnEnableEdit" class="btn btn-info" onclick="enableInput();"> <i class="fas fa-fw fa-edit"></i> Edit
+            Data</button>
     </div>
 </div>
-
+@endcan
 <div class="row">
     <div class="col-sm-12 col-md-12">
-        <form id="kategoriForm" class="needs-validation" novalidate action="{{ route('kategoribesar.store') }}" method="POST" enctype="multipart/form-data">
+        <form name="kategoriutamaForm" action="{{ route('kategoriutama.update', ['id' => $kategori->id_kategori_utama]) }}" class="needs-validation" novalidate method="POST" enctype="multipart/form-data">
+
             @csrf
-            <div class="form-group">
-                <label for="id_kategori_utama">Kategori Utama :</label>
-                <select class="form-control select2" id="id_kategori_utama" name="id_kategori_utama">
-                    <option value="">Pilih Kategori Utama</option>
-                    @foreach ($kategoriutama as $index => $result)
-                    <option value="{{ $result->id_kategori_utama }}">{{ $result->nama_kategori_utama }}</option>
-                    @endforeach
-                </select>
-                <div class="valid-feedback">
-                    Looks good!
-                </div>
-                <div class="invalid-feedback">
-                    Please fill out this field.
-                </div>
-            </div>
+            <input type="hidden" name="id_kategori_utama" id="id_kategori_utama">
 
             <div class="form-group">
-                <label for="nama_kategori_besar">Nama :</label>
-                <input type="text" class="form-control" id="nama_kategori_besar" placeholder="Masukkan nama kategori besar" name="nama_kategori_besar" required>
-                <div class="valid-feedback">
-                    Looks good!
-                </div>
-                <div class="invalid-feedback">
-                    Please fill out this field.
-                </div>
-            </div>
-            <div class="mt-4">
-                <a href="{{ route('kategoribesar.create') }}" class="btn btn-danger mr-2">Batal</a>
-                <button type="submit" id="btn-save" name="btnsave" class="btn btn-primary">Submit</button>
-
+                <label for="nama_kategori_utama">Nama :</label>
+                <input type="text" class="form-control" id="nama_kategori_utama" placeholder="Masukkan nama kategori besar" name="nama_kategori_utama" required value="{{ $kategori->nama_kategori_utama }}" disabled=true>
+                <div class="valid-feedback">Valid.</div>
+                <div class="invalid-feedback">Please fill out this field.</div>
             </div>
 
+            <div class="" style="margin-top: 30px;">
+                <a href="{{ route('kategoriutama.edit', ['id' => $kategori->id_kategori_utama]) }}" id="btnBatal" class="btn btn-danger mr-2" style="display: none;">Batal</a>
+                <a href="#myModal" id="btnUpdate" data-toggle="modal" class="btn btn-success" style="display: none;">Update </a>
+            </div>
+            <!-- Modal HTML -->
+
+
+            <div id="myModal" class="modal fade">
+                <div class="modal-dialog modal-confirm">
+                    <div class="modal-content">
+                        <div class="modal-header bg-info text-light">
+                            <h5 class="modal-title w-100">Edit Data?</h5>
+                            <a data-dismiss="modal" class="btn btn-secondary btn-circle">
+                                <i class="fas fa-times"></i>
+                            </a>
+                        </div>
+                        <div class="modal-body">
+                            <p>Apakah anda yakin untuk mengedit data?</p>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Batal</button>
+                            <button id="submit" type="submit" class="btn btn-success">Ya</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </form>
     </div>
 </div>
@@ -91,6 +97,15 @@
 
 @section('footer-script')
 <script type="text/javascript">
+    function enableInput() {
+        var inputs = document.getElementsByClassName('form-control');
+        for (var i = 0; i < inputs.length; i++) {
+            inputs[i].disabled = false;
+        }
+        $("#btnUpdate").css("display", "");
+        $("#btnBatal").css("display", "");
+    }
+
     (function() {
         'use strict';
         window.addEventListener('load', function() {

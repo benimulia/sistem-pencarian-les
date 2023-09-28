@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="utf-8">
-    <title>Kursusku - Find your kids course here!</title>
+    <title>SIPTKA - Find your kids course here!</title>
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
     <meta content="" name="keywords">
     <meta content="" name="description">
@@ -14,9 +14,7 @@
     <!-- Google Web Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link
-        href="https://fonts.googleapis.com/css2?family=Heebo:wght@400;500;600&family=Inter:wght@600&family=Lobster+Two:wght@700&display=swap"
-        rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@400;500;600&family=Inter:wght@600&family=Lobster+Two:wght@700&display=swap" rel="stylesheet">
 
     <!-- Icon Font Stylesheet -->
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
@@ -39,8 +37,7 @@
 <body>
     <div class="container-xxxl bg-white p-0">
         <!-- Spinner Start -->
-        <div id="spinner"
-            class="show bg-white position-fixed translate-middle w-100 vh-100 top-50 start-50 d-flex align-items-center justify-content-center">
+        <div id="spinner" class="show bg-white position-fixed translate-middle w-100 vh-100 top-50 start-50 d-flex align-items-center justify-content-center">
             <div class="spinner-border text-primary" style="width: 3rem; height: 3rem;" role="status">
                 <span class="sr-only">Loading...</span>
             </div>
@@ -48,7 +45,7 @@
         <!-- Spinner End -->
 
 
-        @include('partials.utama-navbar', ['kategoribesar' => \App\Models\KategoriBesar::with('kategori')->get()])
+        @include('partials.utama-navbar', ['kategoriutama' => \App\Models\KategoriUtama::with('kategoribesar')->get(), 'kategoribesar' => \App\Models\KategoriBesar::with('kategori')->get()])
 
 
         @yield('content')
@@ -63,14 +60,10 @@
                         <p class="mb-2"><i class="fa fa-phone-alt me-3"></i>+012 345 67890</p>
                         <p class="mb-2"><i class="fa fa-envelope me-3"></i>info@example.com</p>
                         <div class="d-flex pt-2">
-                            <a class="btn btn-outline-light btn-social" href=""><i
-                                    class="fab fa-twitter"></i></a>
-                            <a class="btn btn-outline-light btn-social" href=""><i
-                                    class="fab fa-facebook-f"></i></a>
-                            <a class="btn btn-outline-light btn-social" href=""><i
-                                    class="fab fa-youtube"></i></a>
-                            <a class="btn btn-outline-light btn-social" href=""><i
-                                    class="fab fa-linkedin-in"></i></a>
+                            <a class="btn btn-outline-light btn-social" href=""><i class="fab fa-twitter"></i></a>
+                            <a class="btn btn-outline-light btn-social" href=""><i class="fab fa-facebook-f"></i></a>
+                            <a class="btn btn-outline-light btn-social" href=""><i class="fab fa-youtube"></i></a>
+                            <a class="btn btn-outline-light btn-social" href=""><i class="fab fa-linkedin-in"></i></a>
                         </div>
                     </div>
                     <div class="col-lg-3 col-md-6">
@@ -85,28 +78,22 @@
                         <h3 class="text-white mb-4">Photo Gallery</h3>
                         <div class="row g-2 pt-2">
                             <div class="col-4">
-                                <img class="img-fluid rounded bg-light p-1" src="{{asset('utama/img/classes-1.jpg') }}"
-                                    alt="">
+                                <img class="img-fluid rounded bg-light p-1" src="{{asset('utama/img/classes-1.jpg') }}" alt="">
                             </div>
                             <div class="col-4">
-                                <img class="img-fluid rounded bg-light p-1" src="{{asset('utama/img/classes-2.jpg') }}"
-                                    alt="">
+                                <img class="img-fluid rounded bg-light p-1" src="{{asset('utama/img/classes-2.jpg') }}" alt="">
                             </div>
                             <div class="col-4">
-                                <img class="img-fluid rounded bg-light p-1" src="{{asset('utama/img/classes-3.jpg') }}"
-                                    alt="">
+                                <img class="img-fluid rounded bg-light p-1" src="{{asset('utama/img/classes-3.jpg') }}" alt="">
                             </div>
                             <div class="col-4">
-                                <img class="img-fluid rounded bg-light p-1" src="{{asset('utama/img/classes-4.jpg') }}"
-                                    alt="">
+                                <img class="img-fluid rounded bg-light p-1" src="{{asset('utama/img/classes-4.jpg') }}" alt="">
                             </div>
                             <div class="col-4">
-                                <img class="img-fluid rounded bg-light p-1" src="{{asset('utama/img/classes-5.jpg') }}"
-                                    alt="">
+                                <img class="img-fluid rounded bg-light p-1" src="{{asset('utama/img/classes-5.jpg') }}" alt="">
                             </div>
                             <div class="col-4">
-                                <img class="img-fluid rounded bg-light p-1" src="{{asset('utama/img/classes-6.jpg') }}"
-                                    alt="">
+                                <img class="img-fluid rounded bg-light p-1" src="{{asset('utama/img/classes-6.jpg') }}" alt="">
                             </div>
                         </div>
                     </div>
@@ -114,10 +101,8 @@
                         <h3 class="text-white mb-4">Newsletter</h3>
                         <p>Dolor amet sit justo amet elitr clita ipsum elitr est.</p>
                         <div class="position-relative mx-auto" style="max-width: 400px;">
-                            <input class="form-control bg-transparent w-100 py-3 ps-4 pe-5" type="text"
-                                placeholder="Your email">
-                            <button type="button"
-                                class="btn btn-primary py-2 position-absolute top-0 end-0 mt-2 me-2">SignUp</button>
+                            <input class="form-control bg-transparent w-100 py-3 ps-4 pe-5" type="text" placeholder="Your email">
+                            <button type="button" class="btn btn-primary py-2 position-absolute top-0 end-0 mt-2 me-2">SignUp</button>
                         </div>
                     </div>
                 </div>
@@ -126,7 +111,7 @@
                 <div class="copyright">
                     <div class="row">
                         <div class="col-md-6 text-center text-md-start mb-3 mb-md-0">
-                            &copy; <a class="border-bottom" href="#">Kursusku</a>, All Right Reserved.
+                            &copy; <a class="border-bottom" href="#">SIPTKA</a>, All Right Reserved.
                         </div>
                         <div class="col-md-6 text-center text-md-end">
                             <div class="footer-menu">

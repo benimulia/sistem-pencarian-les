@@ -29,13 +29,13 @@
 <div class="row">
     <div class="col-sm-12 col-md-12">
         <div class="pull-left">
-            <h2>Tambah Kategori Besar Baru</h2>
+            <h2>Tambah Kategori Utama Baru</h2>
         </div>
         <nav aria-label="breadcrumb" role="navigation">
             <ol class="breadcrumb">
                 <li class="breadcrumb-item"><a href="{{ route('home') }}">Home</a></li>
-                <li class="breadcrumb-item"><a href="{{ route('kategoribesar.index') }}">Kategori Besar</a></li>
-                <li class="breadcrumb-item"><a href="#">Tambah Kategori Besar</a></li>
+                <li class="breadcrumb-item"><a href="{{ route('kategoriutama.index') }}">Kategori Utama</a></li>
+                <li class="breadcrumb-item"><a href="#">Tambah Kategori Utama</a></li>
             </ol>
         </nav>
     </div>
@@ -50,27 +50,11 @@
 
 <div class="row">
     <div class="col-sm-12 col-md-12">
-        <form id="kategoriForm" class="needs-validation" novalidate action="{{ route('kategoribesar.store') }}" method="POST" enctype="multipart/form-data">
+        <form id="kategoriForm" class="needs-validation" novalidate action="{{ route('kategoriutama.store') }}" method="POST" enctype="multipart/form-data">
             @csrf
             <div class="form-group">
-                <label for="id_kategori_utama">Kategori Utama :</label>
-                <select class="form-control select2" id="id_kategori_utama" name="id_kategori_utama">
-                    <option value="">Pilih Kategori Utama</option>
-                    @foreach ($kategoriutama as $index => $result)
-                    <option value="{{ $result->id_kategori_utama }}">{{ $result->nama_kategori_utama }}</option>
-                    @endforeach
-                </select>
-                <div class="valid-feedback">
-                    Looks good!
-                </div>
-                <div class="invalid-feedback">
-                    Please fill out this field.
-                </div>
-            </div>
-
-            <div class="form-group">
-                <label for="nama_kategori_besar">Nama :</label>
-                <input type="text" class="form-control" id="nama_kategori_besar" placeholder="Masukkan nama kategori besar" name="nama_kategori_besar" required>
+                <label for="nama_kategori_utama">Nama :</label>
+                <input type="text" class="form-control" id="nama_kategori_utama" placeholder="Masukkan nama kategori besar" name="nama_kategori_utama" required>
                 <div class="valid-feedback">
                     Looks good!
                 </div>
@@ -79,7 +63,7 @@
                 </div>
             </div>
             <div class="mt-4">
-                <a href="{{ route('kategoribesar.create') }}" class="btn btn-danger mr-2">Batal</a>
+                <a href="{{ route('kategoriutama.create') }}" class="btn btn-danger mr-2">Batal</a>
                 <button type="submit" id="btn-save" name="btnsave" class="btn btn-primary">Submit</button>
 
             </div>

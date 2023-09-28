@@ -8,6 +8,7 @@ use App\Http\Controllers\UserController;
 use App\Http\Controllers\UtamaController;
 use App\Http\Controllers\KategoriController;
 use App\Http\Controllers\KategoriBesarController;
+use App\Http\Controllers\KategoriUtamaController;
 use App\Http\Controllers\TempatKursusController;
 use App\Http\Controllers\ProgramController;
 use Illuminate\Support\Facades\Route;
@@ -25,36 +26,36 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-    // ================== UTAMA ==================
-    Route::get('/', [UtamaController::class, 'index'])->name('utama.index');
+// ================== UTAMA ==================
+Route::get('/', [UtamaController::class, 'index'])->name('utama.index');
 
-    // kategori
-    Route::get('/kategori/{id}', [UtamaController::class, 'kategori'])->name('utama.kategori');
+// kategori
+Route::get('/kategori/{id}', [UtamaController::class, 'kategori'])->name('utama.kategori');
 
-    //search
-    Route::get('/search', [UtamaController::class, 'search'])->name('utama.search');
+//search
+Route::get('/search', [UtamaController::class, 'search'])->name('utama.search');
 
-    //kontak
-    Route::get('/kontak', function () {
-        return view('utama.kontak');
-    })->name('utama.contact');
+//kontak
+Route::get('/kontak', function () {
+    return view('utama.kontak');
+})->name('utama.contact');
 
-    //tentang
-    Route::get('/tentang', function () {
-        return view('utama.tentang');
-    })->name('utama.about');
+//tentang
+Route::get('/tentang', function () {
+    return view('utama.tentang');
+})->name('utama.about');
 
-    //tempat kursus
-    Route::get('/tempatkursus/{id}', [UtamaController::class, 'showTempatKursus'])->name('utama.tempatkursus');
-
-
-
-    // ================== ADMIN ==================
+//tempat kursus
+Route::get('/tempatkursus/{id}', [UtamaController::class, 'showTempatKursus'])->name('utama.tempatkursus');
 
 
-    Auth::routes();
 
-    Route::get('/admin/home', [HomeController::class, 'index'])->name('home');
+// ================== ADMIN ==================
+
+
+Auth::routes();
+
+Route::get('/admin/home', [HomeController::class, 'index'])->name('home');
 
 Route::group(['middleware' => ['auth']], function () {
     Route::resource('roles', RoleController::class);
@@ -76,6 +77,14 @@ Route::group(['middleware' => ['auth']], function () {
     Route::post('/admin/kategoribesar/update/{id}', [KategoriBesarController::class, 'update'])->name('kategoribesar.update');
     Route::get('/admin/kategoribesar/delete/{id}', [KategoriBesarController::class, 'destroy'])->name('kategoribesar.destroy');
 
+    // ================== KATEGORI UTAMA ==================
+    Route::get('/admin/kategoriutama', [KategoriUtamaController::class, 'index'])->name('kategoriutama.index');
+    Route::get('/admin/kategoriutama/create', [KategoriUtamaController::class, 'create'])->name('kategoriutama.create');
+    Route::post('/admin/kategoriutama/store', [KategoriUtamaController::class, 'store'])->name('kategoriutama.store');
+    Route::get('/admin/kategoriutama/edit/{id}', [KategoriUtamaController::class, 'edit'])->name('kategoriutama.edit');
+    Route::post('/admin/kategoriutama/update/{id}', [KategoriUtamaController::class, 'update'])->name('kategoriutama.update');
+    Route::get('/admin/kategoriutama/delete/{id}', [KategoriUtamaController::class, 'destroy'])->name('kategoriutama.destroy');
+
     // ================== TEMPAT KURSUS ==================
     Route::get('/admin/tempatkursus', [TempatKursusController::class, 'index'])->name('tempatkursus.index');
     Route::get('/admin/tempatkursus/create', [TempatKursusController::class, 'create'])->name('tempatkursus.create');
@@ -91,5 +100,4 @@ Route::group(['middleware' => ['auth']], function () {
     Route::get('/admin/program/edit/{id}', [ProgramController::class, 'edit'])->name('program.edit');
     Route::post('/admin/program/update/{id}', [ProgramController::class, 'update'])->name('program.update');
     Route::get('/admin/program/delete/{id}', [ProgramController::class, 'destroy'])->name('program.destroy');
-
 });

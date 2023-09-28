@@ -10,13 +10,13 @@
     <meta name="author" content="">
     <link rel="icon" type="image/png" href="{{ asset('utama/img/icon.png') }}">
 
-    <title>Kursusku | {{ $title }}</title>
+    <title>SIPTKA | {{ $title }}</title>
 
-    
+
     <link href="{{asset('vendor/fontawesome-free/css/all.min.css')}}" rel="stylesheet" type="text/css">
     <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
 
-    
+
     <link href="{{asset('css/sb-admin-2.min.css')}}" rel="stylesheet">
 
 
@@ -46,7 +46,7 @@
                         <i class="fa fa-bars"></i>
                     </button>
                     <div class="d-none d-sm-inline-block form-inline mr-auto ml-md-3 my-2 my-md-0 mw-100">
-                        <h5>CMS Site Kursusku</h5>
+                        <h5>CMS Site SIPTKA</h5>
                     </div>
 
                     <!-- Topbar Navbar -->

@@ -26,18 +26,11 @@ class UtamaController extends Controller
      */
     public function index()
     {
-        $kategori = Kategori::latest()->take(3)->get();
-        $kursuspopuler = TempatKursus::with([
-            'kategori',
-            'program' => function ($query) {
-                $query->orderBy('harga', 'ASC')->take(1);
-            }
-        ])
-            ->orderBy('jumlah_pengunjung', 'DESC')
-            ->take(6)
-            ->get();
+        $kategorikursuspopuler = Kategori::orderBy('persen_populer', 'DESC')->take(3)->get();
+        $kategorikursusumum = Kategori::orderBy('persen_umum', 'DESC')->take(3)->get();
+        $kategorikursusunik = Kategori::orderBy('persen_unik', 'DESC')->take(3)->get();
 
-        return view('utama.index', compact('kategori', 'kursuspopuler'));
+        return view('utama.index', compact('kategorikursuspopuler', 'kategorikursusumum', 'kategorikursusunik'));
     }
 
     public function kategori($id)
@@ -64,15 +57,13 @@ class UtamaController extends Controller
                     $query->orWhere('alamat', 'LIKE', "%$lokasi%");
                 }
             });
-
-
         }
 
         if (count($selected_kategoris) > 0) {
             $tempat_kursus = $tempat_kursus->whereIn('id_kategori', $selected_kategoris);
         }
 
-        // Add orderBy 
+        // Add orderBy
         $tempat_kursus = $tempat_kursus->orderBy('jumlah_pengunjung', 'desc')->get();
 
         return view('utama.search', compact('tempat_kursus', 'query', 'kategori', 'selected_kategoris', 'selected_lokasis'));
@@ -87,6 +78,4 @@ class UtamaController extends Controller
 
         return view('utama.tempatkursus', compact('tempatkursus'));
     }
-
-
 }

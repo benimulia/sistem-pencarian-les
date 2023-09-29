@@ -20,10 +20,11 @@ class Kategori extends Model
         'persen_unik',
     ];
 
-    public function tempatkursus()
+    public function tempatKursus()
     {
-        return $this->hasMany(TempatKursus::class, 'id_kategori', 'id_kategori');
+        return $this->belongsToMany(TempatKursus::class, 'kategori_tempat_kursus', 'kategori_id', 'tempat_kursus_id');
     }
+
 
     public function kategoribesar()
     {

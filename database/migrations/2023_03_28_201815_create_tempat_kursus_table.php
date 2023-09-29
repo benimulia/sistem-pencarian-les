@@ -15,7 +15,6 @@ class CreateTempatKursusTable extends Migration
     {
         Schema::create('tempat_kursus', function (Blueprint $table) {
             $table->bigIncrements('id_tempat_kursus');
-            $table->integer('id_kategori');
             $table->integer('id_user');
             $table->string('nama_tempat_kursus');
             $table->string('alamat');

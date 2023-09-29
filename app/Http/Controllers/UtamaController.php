@@ -36,10 +36,12 @@ class UtamaController extends Controller
     public function kategori($id)
     {
         $kategori = Kategori::find($id);
-        $tempatkursus = TempatKursus::where('id_kategori', '=', $id)->orderBy('jumlah_pengunjung', 'ASC')->get();
+        $tempatkursus = $kategori->tempatkursus()->orderBy('jumlah_pengunjung', 'ASC')->get();
 
         return view('utama.kategori', compact('tempatkursus', 'kategori'));
     }
+
+
 
     public function search(Request $request)
     {

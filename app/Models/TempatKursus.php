@@ -12,28 +12,28 @@ class TempatKursus extends Model
     protected $primaryKey = 'id_tempat_kursus';
 
     protected $fillable = [
-            'id_tempat_kursus',
-            'id_user',
-            'id_kategori',
-            'nama_tempat_kursus',
-            'alamat',
-            'latitude',
-            'longitude',
-            'no_telp',
-            'foto_utama',
-            'jumlah_pengunjung',
-            'instagram',
-            'facebook',
+        'id_tempat_kursus',
+        'id_user',
+        'id_kategori',
+        'nama_tempat_kursus',
+        'alamat',
+        'latitude',
+        'longitude',
+        'no_telp',
+        'foto_utama',
+        'jumlah_pengunjung',
+        'instagram',
+        'facebook',
     ];
 
     public function kategori()
     {
-        return $this->belongsTo(Kategori::class, 'id_kategori', 'id_kategori');
+        return $this->belongsToMany(Kategori::class, 'kategori_tempat_kursus', 'tempat_kursus_id', 'kategori_id');
     }
+
 
     public function program()
     {
         return $this->hasMany(Program::class, 'id_tempat_kursus', 'id_tempat_kursus');
     }
 }
-

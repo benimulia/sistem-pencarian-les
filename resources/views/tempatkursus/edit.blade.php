@@ -125,12 +125,12 @@
 
                 <div class="form-group">
                     <label for="id_kategori">Kategori :</label>
-                    <select class="form-control select2" id="id_kategori" name="id_kategori" disabled=true>
-                        <option value="">Kategori</option>
+                    <select class="form-control select2" id="id_kategori" name="id_kategori[]" multiple="multiple" required disabled=true>
                         @foreach ($kategori as $index => $result)
                             <option value="{{ $result->id_kategori }}"
-                                {{ $tempatkursus->id_kategori == $result->id_kategori ? 'selected' : '' }}>
-                                {{ $result->nama_kategori }}</option>
+                                {{ in_array($result->id_kategori, $tempatkursus->kategori->pluck('id_kategori')->toArray()) ? 'selected' : '' }}>
+                                {{ $result->nama_kategori }}
+                            </option>
                         @endforeach
                     </select>
                     <div class="valid-feedback">
@@ -140,6 +140,7 @@
                         Please fill out this field.
                     </div>
                 </div>
+
 
                 <div class="form-group">
                     <label for="nama_tempat_kursus">Nama Tempat Kursus :</label>
@@ -219,13 +220,18 @@
                         <small>*Ukuran Foto Maksimal 2Mb</small>
                     </div>
                 </div>
-                <div class="col-xs-12 col-sm-12 col-md-12 ">
+                <div class="col-xs-12 col-sm-12 col-md-12">
                     <label id="lblimgtag" for="profile-img-tag" style="display:none">Preview Gambar:</label>
-                    <a href="/gambar/tempatkursus/foto-utama/{{ $tempatkursus->foto_utama }}">
-                        <img src="/gambar/tempatkursus/foto-utama/{{ $tempatkursus->foto_utama }}"
-                            style="width: 10%; aspect-ratio: 3/2; object-fit:contain;" id="profile-img-tag">
-                    </a>
+                    @if ($tempatkursus->foto_utama)
+                        <a href="/gambar/tempatkursus/foto-utama/{{ $tempatkursus->foto_utama }}">
+                            <img src="/gambar/tempatkursus/foto-utama/{{ $tempatkursus->foto_utama }}"
+                                style="width: 10%; aspect-ratio: 3/2; object-fit: contain;" id="profile-img-tag">
+                        </a>
+                    @else
+                        <p>Tidak ada gambar yang diunggah.</p>
+                    @endif
                 </div>
+
 
                 <div class="" style="margin-top: 30px;">
                     <a href="{{ route('tempatkursus.edit', ['id' => $tempatkursus->id_tempat_kursus]) }}" id="btnBatal"

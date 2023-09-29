@@ -43,14 +43,14 @@ class TempatKursusController extends Controller
     {
         $userrole = $this->userController->getUserRole()->role_id;
         $userid = $this->userController->getUserRole()->model_id;
-        
-        //check superadmin atau bukan
-        if($userrole != 1){            
-            $tempatkursus = TempatKursus::with('kategori')->where('id_user','=',$userid)->latest()->get();
-        }else{
+
+        // Check apakah user adalah superadmin atau bukan
+        if ($userrole != 1) {
+            $tempatkursus = TempatKursus::with('kategori')->where('id_user', '=', $userid)->latest()->get();
+        } else {
             $tempatkursus = TempatKursus::with('kategori')->latest()->get();
         }
-                
+
         return view('tempatkursus.index', compact('tempatkursus'), [
             "title" => "List Tempat Kursus"
         ]);
@@ -58,13 +58,13 @@ class TempatKursusController extends Controller
 
     public function create()
     {
-        //get kategori
+        // Mendapatkan semua kategori yang tersedia
         $kategori = $this->kategoriAll();
 
-        //get user
+        // Mendapatkan semua user (jika diperlukan)
         $users = $this->userController->userAll();
 
-        //get userrole
+        // Mendapatkan peran pengguna (jika diperlukan)
         $userrole = $this->userController->getUserRole()->role_id;
 
         return view('tempatkursus.create', compact('kategori', 'userrole', 'users'), [
@@ -72,16 +72,22 @@ class TempatKursusController extends Controller
         ]);
     }
 
+
     public function edit($id)
     {
+        // Mendapatkan semua kategori yang tersedia
         $kategori = $this->kategoriAll();
+
+        // Mendapatkan tempat kursus yang akan diedit beserta kategori-kategorinya
         $tempatkursus = TempatKursus::with('kategori')->find($id);
-        return view('tempatkursus.edit', compact('tempatkursus','kategori'), [
+
+        return view('tempatkursus.edit', compact('tempatkursus', 'kategori'), [
             "title" => "Edit Tempat Kursus"
         ]);
     }
 
-    public function store(Request $request) 
+
+    public function store(Request $request)
     {
         try {
             if ($request->foto_utama != null) {
@@ -92,13 +98,10 @@ class TempatKursusController extends Controller
             } else {
                 $nameImageUtama = null;
             }
-        } catch (Exception $e) {
-            return redirect()->route('tempatkursus.index')->with('fail', 'Gagal construct data. Silahkan coba lagi');
-        }
 
-            TempatKursus::create([
+            // Membuat tempat kursus
+            $tempatkursus = TempatKursus::create([
                 'id_user' => $request->id_user,
-                'id_kategori' => $request->id_kategori,
                 'nama_tempat_kursus' => $request->nama_tempat_kursus,
                 'no_telp' => $request->no_telp,
                 'foto_utama' => $nameImageUtama,
@@ -108,8 +111,19 @@ class TempatKursusController extends Controller
                 'instagram' => $request->instagram,
                 'facebook' => $request->facebook,
             ]);
+
+            // Attach kategori-kategori yang dipilih
+            // Attach kategori-kategori yang dipilih
+            if ($request->has('id_kategori')) {
+                foreach ($request->id_kategori as $kategoriId) {
+                    $tempatkursus->kategori()->attach($kategoriId);
+                }
+            }
+
             return redirect()->route('tempatkursus.index')->with('success', 'Berhasil menambahkan data');
-        
+        } catch (Exception $e) {
+            return redirect()->route('tempatkursus.index')->with('fail', 'Gagal construct data. Silahkan coba lagi');
+        }
     }
 
     public function update($id, Request $request)
@@ -117,11 +131,10 @@ class TempatKursusController extends Controller
         $tempatkursus = TempatKursus::find($id);
         $fotoutama = $tempatkursus->foto_utama;
 
-        // jika request mengandung foto baru maka hapus dan bikin format nama baru
         try {
             if ($request->foto_utama != null) {
                 $extensionfotoutama = $request->foto_utama->getClientOriginalExtension();
-                
+
                 $file = public_path('/gambar/tempatkursus/foto-utama/') . $fotoutama;
                 if (file_exists($file)) {
                     unlink($file);
@@ -133,27 +146,28 @@ class TempatKursusController extends Controller
                 // jika tidak ttp gunakan data dari db foto lama utk namane
                 $nameImageUtama = $tempatkursus->foto_utama;
             }
-        } catch (Exception $e) {
-            return redirect()->route('tempatkursus.edit', ['id' => $tempatkursus->id_tempat_kursus])->with('fail', 'Gagal construct data. Silahkan coba lagi');
-        }
-        
-        try {
-            DB::table('tempat_kursus')->where('id_tempat_kursus', $id)->update([
+
+            // Mengupdate tempat kursus
+            $tempatkursus->update([
                 'nama_tempat_kursus' => $request->nama_tempat_kursus,
                 'alamat' => $request->alamat,
                 'latitude' => $request->lat,
                 'longitude' => $request->lng,
                 'no_telp' => $request->no_telp,
-                'foto_utama' => $nameImageUtama,    
+                'foto_utama' => $nameImageUtama,
                 'instagram' => $request->instagram,
-                'facebook' => $request->facebook,            
-                'updated_at' => Carbon::now(),
+                'facebook' => $request->facebook,
             ]);
+
+            // Menyinkronkan kategori-kategori yang dipilih
+            $tempatkursus->kategori()->sync($request->id_kategori);
+
             return redirect()->route('tempatkursus.index')->with('success', 'Berhasil mengedit data');
         } catch (Exception $e) {
-            return redirect()->route('tempatkursus.edit')->with('fail', 'Gagal mengedit data. Silahkan coba lagi');
+            return redirect()->route('tempatkursus.edit', ['id' => $tempatkursus->id_tempat_kursus])->with('fail', 'Gagal construct data. Silahkan coba lagi');
         }
     }
+
 
     public function destroy($id)
     {
@@ -177,9 +191,9 @@ class TempatKursusController extends Controller
                     unlink($fotoprogram);
                 }
             }
-        
+
             //hapus program
-            Program::where('id_tempat_kursus',$id)->delete();
+            Program::where('id_tempat_kursus', $id)->delete();
 
             //hapus tempat kursus
             TempatKursus::destroy($id);
@@ -193,5 +207,5 @@ class TempatKursusController extends Controller
     }
 
 
-    
+
 }

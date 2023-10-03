@@ -32,8 +32,7 @@
         <div class="row mb-3">
             <div class="col-lg-12">
                 <div class="pull-right">
-                    <button type="button" class="btn btn-primary" onclick="verifySelectedUsers()">Verifikasi Pengguna
-                        Terpilih</button>
+                    <button type="button" class="btn btn-primary" onclick="verifySelectedUsers()">Olah data user</button>
                 </div>
             </div>
         </div>

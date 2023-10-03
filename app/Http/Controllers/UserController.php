@@ -1,7 +1,7 @@
 <?php
-    
+
 namespace App\Http\Controllers;
-    
+
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
@@ -10,7 +10,8 @@ use Spatie\Permission\Models\Role;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Arr;
-    
+use Carbon\Carbon;
+
 class UserController extends Controller
 {
     /**
@@ -21,10 +22,10 @@ class UserController extends Controller
 
     function __construct()
     {
-         $this->middleware('permission:user-list|user-create|user-edit|user-delete', ['only' => ['index','store']]);
-         $this->middleware('permission:user-create', ['only' => ['create','store']]);
-         $this->middleware('permission:user-edit', ['only' => ['edit','update']]);
-         $this->middleware('permission:user-delete', ['only' => ['destroy']]);
+        $this->middleware('permission:user-list|user-create|user-edit|user-delete', ['only' => ['index', 'store']]);
+        $this->middleware('permission:user-create', ['only' => ['create', 'store']]);
+        $this->middleware('permission:user-edit', ['only' => ['edit', 'update']]);
+        $this->middleware('permission:user-delete', ['only' => ['destroy']]);
     }
 
     public function userAll()
@@ -37,25 +38,25 @@ class UserController extends Controller
         if (!auth()->check()) {
             return null;
         }
-        
+
         $user_id = auth()->user()->id;
         $userrole = DB::table('model_has_roles')
             ->select('model_has_roles.*')
             ->where('model_id', $user_id)
             ->first();
-        
+
         return $userrole;
     }
 
     public function index(Request $request)
     {
-        $data = User::orderBy('name','ASC')->paginate(5);
-        return view('users.index',compact('data'),[
+        $data = User::orderBy('name', 'ASC')->paginate(5);
+        return view('users.index', compact('data'), [
             "title" => "List User"
         ])
             ->with('i', ($request->input('page', 1) - 1) * 5);
     }
-    
+
     /**
      * Show the form for creating a new resource.
      *
@@ -63,12 +64,12 @@ class UserController extends Controller
      */
     public function create()
     {
-        $roles = Role::pluck('name','name')->all();
-        return view('users.create',compact('roles'),[
+        $roles = Role::pluck('name', 'name')->all();
+        return view('users.create', compact('roles'), [
             "title" => "Tambah User"
         ]);
     }
-    
+
     /**
      * Store a newly created resource in storage.
      *
@@ -83,17 +84,17 @@ class UserController extends Controller
             'password' => 'required|same:confirm-password',
             'roles' => 'required',
         ]);
-    
+
         $input = $request->all();
         $input['password'] = Hash::make($input['password']);
-    
+
         $user = User::create($input);
         $user->assignRole($request->input('roles'));
-    
+
         return redirect()->route('users.index')
-                        ->with('success','User created successfully');
+            ->with('success', 'User created successfully');
     }
-    
+
     /**
      * Display the specified resource.
      *
@@ -103,11 +104,11 @@ class UserController extends Controller
     public function show($id)
     {
         $user = User::find($id);
-        return view('users.show',compact('user'),[
+        return view('users.show', compact('user'), [
             "title" => "Show User"
         ]);
     }
-    
+
     /**
      * Show the form for editing the specified resource.
      *
@@ -117,14 +118,14 @@ class UserController extends Controller
     public function edit($id)
     {
         $user = User::find($id);
-        $roles = Role::pluck('name','name')->all();
-        $userRole = $user->roles->pluck('name','name')->all();
-    
-        return view('users.edit',compact('user','roles','userRole'),[
+        $roles = Role::pluck('name', 'name')->all();
+        $userRole = $user->roles->pluck('name', 'name')->all();
+
+        return view('users.edit', compact('user', 'roles', 'userRole'), [
             "title" => "Edit User"
         ]);
     }
-    
+
     /**
      * Update the specified resource in storage.
      *
@@ -136,38 +137,64 @@ class UserController extends Controller
     {
         $this->validate($request, [
             'name' => 'required',
-            'email' => 'required|email|unique:users,email,'.$id,
+            'email' => 'required|email|unique:users,email,' . $id,
             'password' => 'same:confirm-password',
             'roles' => 'required',
         ]);
-    
+
         $input = $request->all();
-        if(!empty($input['password'])){ 
+        if (!empty($input['password'])) {
             $input['password'] = Hash::make($input['password']);
-        }else{
-            $input = Arr::except($input,array('password'));    
+        } else {
+            $input = Arr::except($input, array('password'));
         }
-    
+
         $user = User::find($id);
         $user->update($input);
-        DB::table('model_has_roles')->where('model_id',$id)->delete();
-    
+        DB::table('model_has_roles')->where('model_id', $id)->delete();
+
         $user->assignRole($request->input('roles'));
-    
+
         return redirect()->route('users.index')
-                        ->with('success','User updated successfully');
+            ->with('success', 'User updated successfully');
     }
-    
+
     /**
      * Remove the specified resource from storage.
      *
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    // public function destroy(Request $request)
+    // {
+    //     $userIdsToDelete = $request->input('users_to_delete');
+    //     dd($userIdsToDelete);
+
+    //     if (!empty($userIdsToDelete)) {
+    //         User::whereIn('id', $userIdsToDelete)->delete();
+    //         return redirect()->route('users.index')->with('success', 'Users deleted successfully');
+    //     }
+
+    //     return redirect()->route('users.index')->with('error', 'No users selected for deletion');
+    // }
+
+
+
+    public function verify(Request $request)
     {
-        User::find($id)->delete();
-        return redirect()->route('users.index')
-                        ->with('success','User deleted successfully');
+        $userIdsToVerify = $request->input('users_verified');
+        $userIdsToDelete = $request->input('users_to_delete');
+
+        // Verifikasi pengguna yang dipilih
+        if (!empty($userIdsToVerify)) {
+            User::whereIn('id', $userIdsToVerify)->update(['email_verified_at' => now()]);
+        }
+
+        // Hapus pengguna yang dipilih
+        if (!empty($userIdsToDelete)) {
+            User::whereIn('id', $userIdsToDelete)->delete();
+        }
+
+        return redirect()->route('users.index')->with('success', 'Data pengguna sudah diproses');
     }
 }

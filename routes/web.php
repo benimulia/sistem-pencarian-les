@@ -55,11 +55,14 @@ Route::get('/tempatkursus/{id}', [UtamaController::class, 'showTempatKursus'])->
 
 Auth::routes();
 
-Route::get('/admin/home', [HomeController::class, 'index'])->name('home');
+Route::get('/admin/home', [HomeController::class, 'index'])->name('home')->middleware('adminconfirmation', 'auth');
 
-Route::group(['middleware' => ['auth']], function () {
+Route::group(['middleware' => ['auth', 'adminconfirmation']], function () {
     Route::resource('roles', RoleController::class);
     Route::resource('users', UserController::class);
+    Route::post('/users/verify', [UserController::class, 'verify'])->name('users.verify');
+
+
 
     // ================== KATEGORI ==================
     Route::get('/admin/kategori', [KategoriController::class, 'index'])->name('kategori.index');

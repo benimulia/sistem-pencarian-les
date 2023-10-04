@@ -41,6 +41,27 @@ class UtamaController extends Controller
         return view('utama.kategori', compact('tempatkursus', 'kategori'));
     }
 
+    public function kategoripopuler()
+    {
+        $namajeniskategori = "populer";
+        $jeniskategori = Kategori::orderBy('persen_populer', 'DESC')->where('persen_populer', '>', 0)->get();
+        return view('utama.jeniskategori', compact('jeniskategori','namajeniskategori'));
+    }
+
+    public function kategoriumum()
+    {
+        $namajeniskategori = "umum";
+        $jeniskategori = Kategori::orderBy('persen_umum', 'DESC')->where('persen_umum', '>', 0)->get();
+        return view('utama.jeniskategori', compact('jeniskategori','namajeniskategori'));
+    }
+
+    public function kategoriunik()
+    {
+        $namajeniskategori = "unik";
+        $jeniskategori = Kategori::orderBy('persen_unik', 'DESC')->where('persen_unik', '>', 0)->get();
+        return view('utama.jeniskategori', compact('jeniskategori','namajeniskategori'));
+    }
+
 
 
     public function search(Request $request)

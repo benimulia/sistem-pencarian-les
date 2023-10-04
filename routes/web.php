@@ -32,6 +32,11 @@ Route::get('/', [UtamaController::class, 'index'])->name('utama.index');
 // kategori
 Route::get('/kategori/{id}', [UtamaController::class, 'kategori'])->name('utama.kategori');
 
+//jenis kategori
+Route::get('/kategoripopuler', [UtamaController::class, 'kategoripopuler'])->name('utama.jeniskategoripopuler');
+Route::get('/kategoriumum', [UtamaController::class, 'kategoriumum'])->name('utama.jeniskategoriumum');
+Route::get('/kategoriunik', [UtamaController::class, 'kategoriunik'])->name('utama.jeniskategoriunik');
+
 //search
 Route::get('/search', [UtamaController::class, 'search'])->name('utama.search');
 

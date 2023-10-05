@@ -216,11 +216,15 @@
                 theme: "bootstrap-5",
             });
 
-            $('#id_user').select2({
-                placeholder: "Pilih Owner",
-                allowClear: true,
-                theme: "bootstrap-5",
-            });
+            var role = "{{ $userrole }}";
+
+            if (role == 1) {
+                $('#id_user').select2({
+                    placeholder: "Pilih Owner",
+                    allowClear: true,
+                    theme: "bootstrap-5",
+                });
+            }
         });
         //select2 end
 

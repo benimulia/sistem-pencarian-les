@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 
+use App\Notifications\EmailNotification;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Models\User;
@@ -185,9 +186,20 @@ class UserController extends Controller
         $userIdsToVerify = $request->input('users_verified');
         $userIdsToDelete = $request->input('users_to_delete');
 
-        // Verifikasi pengguna yang dipilih
-        if (!empty($userIdsToVerify)) {
-            User::whereIn('id', $userIdsToVerify)->update(['email_verified_at' => now()]);
+        // Ambil semua pengguna yang telah diverifikasi sebelumnya
+        $userOriginalVerification = User::whereIn('id', $userIdsToVerify)->whereNotNull('email_verified_at')->pluck('id')->toArray();
+
+        // Verifikasi pengguna yang baru dicentang (berbeda dengan yang telah diverifikasi sebelumnya)
+        $newUsersToVerify = array_diff($userIdsToVerify, $userOriginalVerification);
+
+        if (!empty($newUsersToVerify)) {
+            $usersToVerify = User::whereIn('id', $newUsersToVerify)->get();
+
+            foreach ($usersToVerify as $user) {
+                $user->update(['email_verified_at' => now()]);
+                $user->notify(new EmailNotification());
+                printf('kirim email ke : ' . $user->email);
+            }
         }
 
         // Hapus pengguna yang dipilih
@@ -197,4 +209,5 @@ class UserController extends Controller
 
         return redirect()->route('users.index')->with('success', 'Data pengguna sudah diproses');
     }
+
 }

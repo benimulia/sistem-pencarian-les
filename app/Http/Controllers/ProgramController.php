@@ -150,14 +150,14 @@ class ProgramController extends Controller
                 'nama_program' => $request->nama_program,
                 'deskripsi_program' => $request->deskripsi_program,
                 'foto_program' => $nameImageUtama,              
-                'harga' => $request->deskripsi_program,
-                'jadwal' => $request->deskripsi_program,
-                'durasi' => $request->deskripsi_program,  
+                'harga' => $request->harga,
+                'jadwal' => $request->jadwal,
+                'durasi' => $request->durasi,  
                 'updated_at' => Carbon::now(),
             ]);
             return redirect()->route('program.index')->with('success', 'Berhasil mengedit data');
         } catch (Exception $e) {
-            return redirect()->route('program.edit')->with('fail', 'Gagal mengedit data. Silahkan coba lagi');
+            return redirect()->route('program.edit', ['id' => $program->id_program])->with('fail', 'Gagal mengedit data. Silahkan coba lagi');
         }
     }
 

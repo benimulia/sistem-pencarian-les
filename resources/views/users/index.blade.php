@@ -80,7 +80,7 @@
 
 @section('footer-script')
     <script type="text/javascript">
-        var ctext = 'Confirm you want to Delete ? \n'
+        var ctext = 'Apakah Anda yakin memproses data ? \n'
 
         function verifySelectedUsers() {
             var checkboxes = document.getElementsByName('users_verified[]');
@@ -92,7 +92,7 @@
                 // Submit form verifikasi pengguna
                 document.getElementById('userForm').submit();
             } else {
-                alert('Select at least one user to verify.');
+                alert('Pilih minimal satu untuk diproses.');
             }
         }
     </script>

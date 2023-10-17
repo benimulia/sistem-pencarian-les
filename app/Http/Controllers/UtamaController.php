@@ -45,21 +45,21 @@ class UtamaController extends Controller
     {
         $namajeniskategori = "populer";
         $jeniskategori = Kategori::orderBy('persen_populer', 'DESC')->where('persen_populer', '>', 0)->get();
-        return view('utama.jeniskategori', compact('jeniskategori','namajeniskategori'));
+        return view('utama.jeniskategori', compact('jeniskategori', 'namajeniskategori'));
     }
 
     public function kategoriumum()
     {
         $namajeniskategori = "umum";
         $jeniskategori = Kategori::orderBy('persen_umum', 'DESC')->where('persen_umum', '>', 0)->get();
-        return view('utama.jeniskategori', compact('jeniskategori','namajeniskategori'));
+        return view('utama.jeniskategori', compact('jeniskategori', 'namajeniskategori'));
     }
 
     public function kategoriunik()
     {
         $namajeniskategori = "unik";
         $jeniskategori = Kategori::orderBy('persen_unik', 'DESC')->where('persen_unik', '>', 0)->get();
-        return view('utama.jeniskategori', compact('jeniskategori','namajeniskategori'));
+        return view('utama.jeniskategori', compact('jeniskategori', 'namajeniskategori'));
     }
 
 
@@ -72,8 +72,17 @@ class UtamaController extends Controller
         $selected_kategoris = $request->input('kategori', []);
         $selected_lokasis = $request->input('lokasi', []);
 
-        $tempat_kursus = TempatKursus::where('nama_tempat_kursus', 'LIKE', "%$query%");
+        // Mulai dari tabel tempat_kursus
+        $tempat_kursus = TempatKursus::where('nama_tempat_kursus', 'LIKE', "%$query");
 
+        // Gabungkan kategori_tempat_kursus untuk mencari tempat kursus berdasarkan kategori
+        if (count($selected_kategoris) > 0) {
+            $tempat_kursus = $tempat_kursus->whereHas('kategori', function ($query) use ($selected_kategoris) {
+                $query->whereIn('id_kategori', $selected_kategoris);
+            });
+        }
+
+        // Filter berdasarkan lokasi (alamat)
         if (count($selected_lokasis) > 0) {
             $tempat_kursus = $tempat_kursus->where(function ($query) use ($selected_lokasis) {
                 foreach ($selected_lokasis as $lokasi) {
@@ -82,15 +91,12 @@ class UtamaController extends Controller
             });
         }
 
-        if (count($selected_kategoris) > 0) {
-            $tempat_kursus = $tempat_kursus->whereIn('id_kategori', $selected_kategoris);
-        }
-
-        // Add orderBy
+        // Sekarang urutkan berdasarkan jumlah pengunjung
         $tempat_kursus = $tempat_kursus->orderBy('jumlah_pengunjung', 'desc')->get();
 
         return view('utama.search', compact('tempat_kursus', 'query', 'kategori', 'selected_kategoris', 'selected_lokasis'));
     }
+
 
 
     public function showTempatKursus($id)

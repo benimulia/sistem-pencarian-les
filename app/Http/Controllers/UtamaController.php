@@ -24,13 +24,16 @@ class UtamaController extends Controller
      *
      * @return \Illuminate\Contracts\Support\Renderable
      */
-    public function index()
+    public function index(Request $request)
     {
         $kategorikursuspopuler = Kategori::orderBy('persen_populer', 'DESC')->take(3)->get();
         $kategorikursusumum = Kategori::orderBy('persen_umum', 'DESC')->take(3)->get();
-        $kategorikursusunik = Kategori::orderBy('persen_unik', 'DESC')->take(3)->get();
+        // $kategorikursusunik = Kategori::orderBy('persen_unik', 'DESC')->take(3)->get();
+       
+        $tempat_kursus = TempatKursus::orderBy('jumlah_pengunjung', 'DESC')->take(12)->get();
 
-        return view('utama.index', compact('kategorikursuspopuler', 'kategorikursusumum', 'kategorikursusunik'));
+
+        return view('utama.index', compact('kategorikursuspopuler', 'kategorikursusumum','tempat_kursus'));
     }
 
     public function kategori($id)

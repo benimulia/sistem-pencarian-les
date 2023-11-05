@@ -8,7 +8,8 @@
             <nav aria-label="breadcrumb animated slideInDown">
                 <ol class="breadcrumb">
                     <li class="breadcrumb-item"><a href="/">Home</a></li>
-                    <li class="breadcrumb-item text-white active" aria-current="page">Kategori</li>
+                    <li class="breadcrumb-item text-white">Kategori Kursus</li>
+                    <li class="breadcrumb-item text-white active" aria-current="page">{{ $kategori->nama_kategori }}</li>
                 </ol>
             </nav>
         </div>

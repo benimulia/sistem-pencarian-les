@@ -75,13 +75,18 @@ class TempatKursusController extends Controller
 
     public function edit($id)
     {
+        // Mendapatkan semua user (jika diperlukan)
+        $users = $this->userController->userAll();
+
+        $userrole = $this->userController->getUserRole()->role_id;
+
         // Mendapatkan semua kategori yang tersedia
         $kategori = $this->kategoriAll();
 
         // Mendapatkan tempat kursus yang akan diedit beserta kategori-kategorinya
         $tempatkursus = TempatKursus::with('kategori')->find($id);
 
-        return view('tempatkursus.edit', compact('tempatkursus', 'kategori'), [
+        return view('tempatkursus.edit', compact('tempatkursus', 'kategori','userrole', 'users'), [
             "title" => "Edit Tempat Kursus"
         ]);
     }

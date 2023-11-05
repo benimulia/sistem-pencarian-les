@@ -123,9 +123,32 @@
                 @csrf
                 <input type="hidden" name="id_tempat_kursus" id="id_tempat_kursus">
 
+                @if ($userrole == 1)
+                    <div class="form-group">
+                        <label for="id_user">Owner :</label>
+                        <select class="form-control select2" id="id_user" name="id_user" disabled=true>
+                            <option value="">Owner</option>
+                            @foreach ($users as $index => $result)
+                                <option value="{{ $result->id }}"
+                                    {{ $tempatkursus->id_user == $result->id ? 'selected' : '' }}>{{ $result->name }}
+                                </option>
+                            @endforeach
+                        </select>
+                        <div class="valid-feedback">
+                            Looks good!
+                        </div>
+                        <div class="invalid-feedback">
+                            Please fill out this field.
+                        </div>
+                    </div>
+                @else
+                    <input type="hidden" id="id_user" name="id_user" value="{{ auth()->user()->id }}">
+                @endif
+
                 <div class="form-group">
                     <label for="id_kategori">Kategori :</label>
-                    <select class="form-control select2" id="id_kategori" name="id_kategori[]" multiple="multiple" required disabled=true>
+                    <select class="form-control select2" id="id_kategori" name="id_kategori[]" multiple="multiple" required
+                        disabled=true>
                         @foreach ($kategori as $index => $result)
                             <option value="{{ $result->id_kategori }}"
                                 {{ in_array($result->id_kategori, $tempatkursus->kategori->pluck('id_kategori')->toArray()) ? 'selected' : '' }}>
@@ -294,6 +317,17 @@
                 allowClear: true,
                 theme: "bootstrap-5",
             });
+
+            var role = "{{ $userrole }}";
+
+            if (role == 1) {
+                $('#id_user').select2({
+                    placeholder: "Pilih Owner",
+                    allowClear: true,
+                    theme: "bootstrap-5",
+                });
+            }
+
         });
         //select2 end
 

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 
+use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use App\Models\Kategori;
@@ -26,7 +27,9 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('home', [
+        $unverified = User::whereNull('email_verified_at')->count();
+
+        return view('home',compact('unverified'), [
             "title" => "Dashboard"
         ]);
     }

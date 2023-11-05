@@ -54,11 +54,11 @@
                         <h1 class="mb-4">Akses ditolak!</h1>
                         <p class="mb-4">Akun Anda belum diverifikasi oleh admin. Silakan hubungi administrator untuk
                             verifikasi.</p>
-                        <a class="btn btn-primary rounded-pill py-3 px-5" href="/">Kembali ke Home</a>
+                        {{-- <a class="btn btn-primary rounded-pill py-3 px-5" href="/">Kembali ke Home</a> --}}
                         <a class="btn btn-primary rounded-pill py-3 px-5" href="{{ route('logout') }}"
-                            onclick="event.preventDefault();document.getElementById('logout-form').submit();">
+                            onclick="event.preventDefault(); showVerificationAlert(); document.getElementById('logout-form').submit();">
                             <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
-                            {{ __('Logout') }}
+                            {{ __('Verifikasi Akun') }}
                         </a>
 
                         <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
@@ -82,6 +82,12 @@
 
     <!-- Template Javascript -->
     <script src="{{ asset('utama/js/main.js') }}"></script>
+
+    <script>
+        function showVerificationAlert() {
+            alert("Terimakasih akun Anda akan diverifikasi.");
+        }
+    </script>
 </body>
 
 </html>

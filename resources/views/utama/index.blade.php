@@ -68,7 +68,9 @@
     <div class="container-xxxl py-5">
         <div class="container">
             <div class="text-left mb-5 wow fadeInUp" data-wow-delay="0.1s" style="max-width: 600px;">
-                <h2 class="mb-3">Tempat Kursus Pilihan</h2>
+                <h2 class="mb-3">Temukan Kursus Terbaik Anda</h2>
+                <p>Temukan kursus terbaik untuk anak Anda dengan mudah melalui SIPTKA. Di sini, kami menawarkan berbagai
+                    kategori kursus yang dapat dipilih sesuai dengan kebutuhan anak Anda.</p>
             </div>
             <div class="row g-4">
                 @if ($tempat_kursus->count() > 0)

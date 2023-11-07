@@ -154,6 +154,7 @@ class TempatKursusController extends Controller
 
             // Mengupdate tempat kursus
             $tempatkursus->update([
+                'id_user' => $request->id_user,
                 'nama_tempat_kursus' => $request->nama_tempat_kursus,
                 'alamat' => $request->alamat,
                 'latitude' => $request->lat,

@@ -12,6 +12,7 @@ use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Arr;
 use Carbon\Carbon;
+use Illuminate\Support\Facades\Validator;
 
 class UserController extends Controller
 {
@@ -209,5 +210,40 @@ class UserController extends Controller
 
         return redirect()->route('users.index')->with('success', 'Data pengguna sudah diproses');
     }
+
+    public function changePasswordForm()
+    {
+        return view('users.change-password', [
+            "title" => "Edit User"
+        ]);
+
+    }
+
+    public function changePassword(Request $request)
+    {
+        $user = auth()->user();
+
+        // Gunakan Validator untuk memvalidasi input
+        $validator = Validator::make($request->all(), [
+            'current_password' => 'required',
+            'new_password' => 'required|min:6|confirmed',
+        ]);
+
+        // Periksa apakah validasi gagal
+        if ($validator->fails()) {
+            return redirect()->route('change-password')
+                ->withErrors($validator)
+                ->withInput();
+        }
+
+        // Validasi berhasil, lanjutkan dengan pembaruan kata sandi
+        if (Hash::check($request->current_password, $user->password)) {
+            $user->update(['password' => Hash::make($request->new_password)]);
+            return redirect()->route('users.index')->with('success', 'Password has been changed.');
+        } else {
+            return redirect()->route('change-password')->with('error', 'Current password is incorrect.');
+        }
+    }
+
 
 }

@@ -67,6 +67,10 @@ Route::group(['middleware' => ['auth', 'adminconfirmation']], function () {
     Route::resource('users', UserController::class);
     Route::post('/users/verify', [UserController::class, 'verify'])->name('users.verify');
 
+    Route::get('/change-password', [UserController::class, 'changePasswordForm'])->name('change-password');
+    Route::post('/change-password-store', [UserController::class, 'changePassword'])->name('change-password-post');
+
+
 
 
     // ================== KATEGORI ==================

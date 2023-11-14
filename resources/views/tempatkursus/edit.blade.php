@@ -34,17 +34,19 @@
         }
 
         function initialize() {
+            // ambil data latitude dan longitude dari database dan buat marker
+            var lat = <?php echo $tempatkursus->latitude; ?>;
+            var lng = <?php echo $tempatkursus->longitude; ?>;
+
             var propertiPeta = {
-                center: new google.maps.LatLng(-7.785996142593305, 110.37836496578073),
+                center: new google.maps.LatLng(lat, lng),
                 zoom: 13,
                 mapTypeId: google.maps.MapTypeId.ROADMAP
             };
 
             var peta = new google.maps.Map(document.getElementById("googleMap"), propertiPeta);
 
-            // ambil data latitude dan longitude dari database dan buat marker
-            var lat = <?php echo $tempatkursus->latitude; ?>;
-            var lng = <?php echo $tempatkursus->longitude; ?>;
+            
             var posisiTitik = new google.maps.LatLng(lat, lng);
             taruhMarker(peta, posisiTitik);
 

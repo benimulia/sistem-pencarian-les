@@ -216,7 +216,6 @@ class UserController extends Controller
         return view('users.change-password', [
             "title" => "Edit User"
         ]);
-
     }
 
     public function changePassword(Request $request)
@@ -229,6 +228,7 @@ class UserController extends Controller
             'new_password' => 'required|min:6|confirmed',
         ]);
 
+
         // Periksa apakah validasi gagal
         if ($validator->fails()) {
             return redirect()->route('change-password')
@@ -236,14 +236,15 @@ class UserController extends Controller
                 ->withInput();
         }
 
-        // Validasi berhasil, lanjutkan dengan pembaruan kata sandi
+        // Periksa kecocokan password saat ini
         if (Hash::check($request->current_password, $user->password)) {
             $user->update(['password' => Hash::make($request->new_password)]);
-            return redirect()->route('users.index')->with('success', 'Password has been changed.');
+            return redirect()->route('change-password')->with('success', 'Password has been changed.');
         } else {
-            return redirect()->route('change-password')->with('error', 'Current password is incorrect.');
+            $validator->errors()->add('current_password', 'Current password is incorrect.');
+            return redirect()->route('change-password')
+                ->withErrors($validator)
+                ->withInput();
         }
     }
-
-
 }

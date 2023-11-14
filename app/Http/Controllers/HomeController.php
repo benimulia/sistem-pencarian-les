@@ -15,9 +15,10 @@ class HomeController extends Controller
      *
      * @return void
      */
-    public function __construct()
+    public function __construct(UserController $userController)
     {
         $this->middleware('auth');
+        $this->userController = $userController;
     }
 
     /**
@@ -25,11 +26,15 @@ class HomeController extends Controller
      *
      * @return \Illuminate\Contracts\Support\Renderable
      */
+
+    private $userController;
+
     public function index()
     {
+        $userrole = $this->userController->getUserRole()->role_id;
         $unverified = User::whereNull('email_verified_at')->count();
 
-        return view('home',compact('unverified'), [
+        return view('home', compact('unverified','userrole'), [
             "title" => "Dashboard"
         ]);
     }
@@ -39,11 +44,8 @@ class HomeController extends Controller
 
         $kategori = Kategori::latest()->get();
 
-        return view('welcome',compact('kategori'), [
+        return view('welcome', compact('kategori'), [
             "title" => "Dashboard"
         ]);
     }
-
-
-
 }

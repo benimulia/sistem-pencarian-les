@@ -5,18 +5,24 @@
         <div class="slideshow-container mt-4">
 
             <div class="mySlides">
-                <img src="utama/img/custom-carousel-1.png" style="width:100%">
-                <div class="text"></div>
+                <a href="/register" target="_blank" rel="noopener noreferrer">
+                    <img src="utama/img/custom-carousel-1.png" style="width:100%">
+                    <div class="text"></div>
+                </a>
             </div>
 
             <div class="mySlides">
-                <img src="utama/img/custom-carousel-2.png" style="width:100%">
-                <div class="text"></div>
+                <a href="{{ route('utama.jeniskategoriunik') }}" target="_blank" rel="noopener noreferrer">
+                    <img src="utama/img/custom-carousel-1.png" style="width:100%">
+                    <div class="text"></div>
+                </a>
             </div>
 
             <div class="mySlides">
-                <img src="utama/img/custom-carousel-3.png" style="width:100%">
-                <div class="text"></div>
+                <a href="{{ route('utama.jeniskategoriumum') }}" target="_blank" rel="noopener noreferrer">
+                    <img src="utama/img/custom-carousel-1.png" style="width:100%">
+                    <div class="text"></div>
+                </a>
             </div>
 
             <a class="prev" onclick="plusSlides(-1)">❮</a>

@@ -8,20 +8,25 @@
                 class="fas fa-download fa-sm text-white-50"></i> Generate Report</a> --}}
     </div>
     <div class="row">
-        <div class="col-md-6">
-            <div class="card">
-                <div class="card-body">
-                    <h5 class="card-title">Akun Belum Diverifikasi</h5>
-                    <h6 class="card-subtitle mb-2 text-muted">
-                        Jumlah akun yang perlu diverifikasi oleh admin.
-                    </h6>
-                    <p class="card-text">
-                        Jumlah: <span class="text-primary">{{ $unverified }}</span>
-                    </p>
-                    <a href="/users" class="btn btn-primary">Lihat</a>
+        @if ($userrole == 1)
+            <div class="col-md-6">
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title">Akun Belum Diverifikasi</h5>
+                        <h6 class="card-subtitle mb-2 text-muted">
+                            Jumlah akun yang perlu diverifikasi oleh admin.
+                        </h6>
+                        <p class="card-text">
+                            Jumlah: <span class="text-primary">{{ $unverified }}</span>
+                        </p>
+                        <a href="/users" class="btn btn-primary">Lihat</a>
+                    </div>
                 </div>
             </div>
-        </div>
+        @else
+        @endif
+
+
     </div>
 
     {{-- @can('dashboard')

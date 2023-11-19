@@ -50,6 +50,17 @@ class UserController extends Controller
         return $userrole;
     }
 
+    public function getUserId()
+    {
+        if (!auth()->check()) {
+            return null;
+        }
+
+        $userid = auth()->user()->id;
+
+        return $userid;
+    }
+
     public function index(Request $request)
     {
         $data = User::orderBy('name', 'ASC')->paginate(5);

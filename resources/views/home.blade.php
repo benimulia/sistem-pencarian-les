@@ -24,6 +24,23 @@
                 </div>
             </div>
         @else
+            @foreach ($tempatkursus as $tempat)
+                <div class="col-md-4">
+                    <div class="card">
+                        <div class="card-body">
+                            <h5 class="card-title">{{ $tempat->nama_tempat_kursus }}</h5>
+                            <p class="card-text">
+                                Jumlah Program: {{ $tempat->program_count }}
+                                @if ($tempat->program_count == 0)
+                                    <br>
+                                    <span class="text-danger">Anda belum memiliki program untuk tempat kursus ini.
+                                        Silakan tambahkan program.</span>
+                                @endif
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            @endforeach
         @endif
 
 

@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="utf-8">
-    <title>SIPTKA - Find your kids course here!</title>
+    <title>SIPTKA - Temukan kursus anak Anda disini!</title>
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
     <meta content="" name="keywords">
     <meta content="" name="description">

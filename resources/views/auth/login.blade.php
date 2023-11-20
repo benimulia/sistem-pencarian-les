@@ -9,7 +9,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <link rel="icon" type="image/png" href="{{ asset('assets/img/header/logo/landapp-logo.png') }}">
+    <link rel="icon" type="image/png" href="{{ asset('utama/img/icon.png') }}">
     <title>Login | SIPTKA </title>
 
     <!-- Custom fonts for this template-->
@@ -18,10 +18,15 @@
 
     <!-- Custom styles for this template-->
     <link href="{{asset('css/sb-admin-2.min.css')}}" rel="stylesheet">
-
+    <!-- <style>
+        #btn-register {
+            background-color: #fe5d37;
+            color: white;
+        }
+    </style> -->
 </head>
 
-<body class="bg-gradient-primary">
+<body class="bg-gradient-none">
 
     <div class="container">
 
@@ -45,39 +50,38 @@
                     @endif
                     <div class="card-body p-0">
                         <!-- Nested Row within Card Body -->
-                        <div class="row">
-                            <div class="col-lg-6 d-none d-lg-block">
-                                <img src="{{asset('img/login-img.jpg')}}" style="height: 450px;width: 460px;" alt="">
+                        <div class="row d-flex justify-content-center align-items-center h-100">
+                            <div class="col-lg-6 p-4 d-none d-lg-block">
+                                <a href="/" class="navbar-brand"><img src="{{asset('img/logo.jpg')}}" style="height: 80px;width: 350px;" alt=""></a>
                             </div>
                             <div class="col-lg-6">
                                 <div class="p-5">
                                     <div class="text-center">
-                                        <h1 class="h4 text-gray-900 mb-4">Welcome Back!</h1>
+                                        <h1 class="h4 text-gray-900 mb-4">Selamat Datang!</h1>
                                     </div>
                                     <form class="user" method="POST" action="{{ route('login') }}">
                                         @csrf
                                         <div class="form-group">
-                                            <input type="email" class="form-control form-control-user" id="email" name="email" value="{{ old('email') }}" required autofocus aria-describedby="emailHelp" placeholder="Enter Email Address...">
+                                            <input type="email" class="form-control form-control-user" id="email" name="email" value="{{ old('email') }}" required autofocus aria-describedby="emailHelp" placeholder="Masukan Email...">
                                         </div>
                                         <div class="form-group">
-                                            <input type="password" class="form-control form-control-user" id="password" name="password" required autocomplete="current-password" placeholder="Password">
+                                            <input type="password" class="form-control form-control-user" id="password" name="password" required autocomplete="current-password" placeholder="Kata Sandi">
                                         </div>
                                         <div class="form-group">
                                             {{-- <div class="custom-control custom-checkbox small">
                                                 <input type="checkbox" class="custom-control-input" id="customCheck" name="remember">
-                                                <label class="custom-control-label" for="customCheck">Remember
-                                                    Me</label>
+                                                <label class="custom-control-label" for="customCheck">Ingat Saya</label>
                                             </div> --}}
                                         </div>
-                                        <button type="submit" id="btn-register" name="btn-register" class="btn btn-primary btn-user btn-block">Login</button>
+                                        <button type="submit" id="btn-register" name="btn-register" class="btn btn-user btn-block" style="background-color:  #fe5d37; color:white">Login</button>
                                     </form>
                                     <hr>
                                     <div class="text-center">
                                         <p class="small">SIPTKA ©</p>
-                                        {{-- <a class="small" href="{{ route('password.request') }}">Forgot Password?</a> --}}
+                                        {{-- <a class="small" href="{{ route('password.request') }}">Lupa Kata Sandi?</a> --}}
                                     </div>
                                     <div class="text-center">
-                                        <p class="small">Belum punya akun? <a href="{{ route('register') }}">Create an Account!</a></p>
+                                        <p class="small">Belum punya akun? <a href="{{ route('register') }}">Buat akun!</a></p>
                                     </div>
                                 </div>
                             </div>

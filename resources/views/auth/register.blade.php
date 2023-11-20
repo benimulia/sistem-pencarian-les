@@ -9,8 +9,8 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <link rel="icon" type="image/png" href="{{ asset('assets/img/header/logo/landapp-logo.png') }}">
-    <title>Login | SIPTKA </title>
+    <link rel="icon" type="image/png" href="{{ asset('utama/img/icon.png') }}">
+    <title>Registrasi | SIPTKA </title>
 
     <!-- Custom fonts for this template-->
     <link href="{{ asset('vendor/fontawesome-free/css/all.min.css') }}" rel="stylesheet" type="text/css">
@@ -21,7 +21,7 @@
 
 </head>
 
-<body class="bg-gradient-primary">
+<body class="bg-gradient-none">
 
     <div class="container">
 
@@ -30,22 +30,22 @@
             <div class="col-xl-10 col-lg-12 col-md-9">
 
                 <div class="card o-hidden border-0 shadow-lg my-5">
-                    <div class="card-body p-0">
+                    <div class="card-body p-2">
                         <!-- Nested Row within Card Body -->
-                        <div class="row">
-                            <div class="col-lg-6 d-none d-lg-block">
-                                <img src="{{ asset('img/login-img.jpg') }}" style="min-height: 570px;width: 500px;" alt="">
+                        <div class="row d-flex justify-content-center align-items-center h-100">
+                            <div class="col-lg-6 p-4 d-none d-lg-block">
+                                <a href="/" class="navbar-brand"><img src="{{asset('img/logo.jpg')}}" style="height: 80px;width: 350px;" alt=""></a>
                             </div>
                             <div class="col-lg-6">
                                 <div class="p-5">
                                     <div class="text-center">
-                                        <h1 class="h4 text-gray-900 mb-4">{{ __('Register') }}</h1>
+                                        <h1 class="h4 text-gray-900 mb-4">{{ __('Registrasi Akun') }}</h1>
                                     </div>
                                     <form method="POST" action="{{ route('register') }}">
                                         @csrf
 
                                         <div class="form-group row">
-                                            <label for="name" class="col-md-4 col-form-label text-md-right">{{ __('Name') }}</label>
+                                            <label for="name" class="col-md-4 col-form-label text-md-right">{{ __('Nama') }}</label>
                                             <div class="col-md-8">
                                                 <input id="name" type="text" class="form-control form-control-user @error('name') is-invalid @enderror" name="name" value="{{ old('name') }}" required autocomplete="name" autofocus>
                                                 @error('name')
@@ -57,7 +57,7 @@
                                         </div>
 
                                         <div class="form-group row">
-                                            <label for="email" class="col-md-4 col-form-label text-md-right">{{ __('Email Address') }}</label>
+                                            <label for="email" class="col-md-4 col-form-label text-md-right">{{ __('Email') }}</label>
                                             <div class="col-md-8">
                                                 <input id="email" type="email" class="form-control form-control-user @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email">
                                                 @error('email')
@@ -69,7 +69,7 @@
                                         </div>
 
                                         <div class="form-group row">
-                                            <label for="password" class="col-md-4 col-form-label text-md-right">{{ __('Password') }}</label>
+                                            <label for="password" class="col-md-4 col-form-label text-md-right">{{ __('Kata Sandi') }}</label>
                                             <div class="col-md-8">
                                                 <input id="password" type="password" class="form-control form-control-user @error('password') is-invalid @enderror" name="password" required autocomplete="new-password">
                                                 @error('password')
@@ -81,7 +81,7 @@
                                         </div>
 
                                         <div class="form-group row">
-                                            <label for="password-confirm" class="col-md-4 col-form-label text-md-right">{{ __('Confirm Password') }}</label>
+                                            <label for="password-confirm" class="col-md-4 col-form-label text-md-right">{{ __('Konfirmasi Kata Sandi') }}</label>
                                             <div class="col-md-8">
                                                 <input id="password-confirm" type="password" class="form-control form-control-user" name="password_confirmation" required autocomplete="new-password">
                                             </div>
@@ -89,8 +89,8 @@
 
                                         <div class="form-group row mb-0">
                                             <div class="col-md-8 offset-md-4">
-                                                <button type="submit" class="btn btn-primary btn-user">
-                                                    {{ __('Register') }}
+                                                <button type="submit" class="btn btn-user" style="background-color:  #fe5d37; color:white">
+                                                    {{ __('Daftar') }}
                                                 </button>
                                             </div>
                                         </div>
@@ -98,10 +98,10 @@
                                     <hr>
                                     <div class="text-center">
                                         <p class="small">SIPTKA ©</p>
-                                        {{-- <a class="small" href="{{ route('password.request') }}">Forgot Password?</a> --}}
+                                        {{-- <a class="small" href="{{ route('password.request') }}">Lupa Kata Sandi?</a> --}}
                                     </div>
                                     <div class="text-center">
-                                        <p class="small">Already have an account? <a href="{{ route('login') }}">Login!</a>
+                                        <p class="small">Sudah Punya Akun? <a href="{{ route('login') }}">Login!</a>
                                         </p>
                                     </div>
                                 </div>

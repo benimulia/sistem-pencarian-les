@@ -103,10 +103,10 @@
                         <div class="modal fade" tabindex="-1" id="previewModal-{{ $result->id_kategori }}">
                             <div class="modal-dialog">
                                 <div class="modal-content">
-                                    <div class="modal-header bg-warning dark">
-                                        <h5 class="modal-title w-100 text-dark">Hapus Data?</h5>
+                                    <div class="modal-header bg-danger dark">
+                                        <h5 class="modal-title w-100 text-light">Hapus Data</h5>
                                         <!-- <button type="button" class="btn-close" data-dismiss="modal" aria-label="Close">&times;</button> -->
-                                        <a data-dismiss="modal" class="btn btn-secondary btn-circle">
+                                        <a data-dismiss="modal" class="btn btn-light btn-circle">
                                             <i class="fas fa-times"></i>
                                         </a>
                                     </div>

@@ -14,9 +14,7 @@
 
 
     <link href="{{ asset('vendor/fontawesome-free/css/all.min.css') }}" rel="stylesheet" type="text/css">
-    <link
-        href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"
-        rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
 
 
     <link href="{{ asset('css/sb-admin-2.min.css') }}" rel="stylesheet">
@@ -48,7 +46,7 @@
                         <i class="fa fa-bars"></i>
                     </button>
                     <div class="d-none d-sm-inline-block form-inline mr-auto ml-md-3 my-2 my-md-0 mw-100">
-                        <h5>CMS Site SIPTKA</h5>
+                        <h5 style="font-weight: bold;">Sistem Informasi Pencarian Tempat Kursus Anak</h5>
                     </div>
 
                     <!-- Topbar Navbar -->
@@ -56,18 +54,16 @@
                         <div class="topbar-divider d-none d-sm-block"></div>
 
                         <li class="nav-item dropdown no-arrow">
-                            <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button"
-                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                 <span class="mr-2 d-none d-lg-inline text-gray-600 small">halo,
                                     {{ auth()->user()->name }}</span>
                                 <img class="img-profile rounded-circle" src="{{ asset('img/undraw_profile.svg') }}">
                             </a>
                             <!-- Dropdown - User Information -->
-                            <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in"
-                                aria-labelledby="userDropdown">
+                            <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="userDropdown">
                                 <a class="dropdown-item" href="{{ route('change-password') }}">
                                     <i class="fas fa-lock fa-sm fa-fw mr-2 text-gray-400"></i>
-                                    Ganti Password
+                                    Ubah Kata Sandi
                                 </a>
                                 <a class="dropdown-item" href="#" data-toggle="modal" data-target="#logoutModal">
                                     <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
@@ -114,21 +110,19 @@
     </a>
 
     <!-- Logout Modal-->
-    <div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
-        aria-hidden="true">
+    <div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog" role="document">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">Ready to Leave?</h5>
+                    <h5 class="modal-title" id="exampleModalLabel">Yakin Ingin Keluar?</h5>
                     <button class="close" type="button" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">×</span>
                     </button>
                 </div>
-                <div class="modal-body">Select "Logout" below if you are ready to end your current session.</div>
+                <div class="modal-body">Pilih "Logout" dibawah jika Anda siap untuk mengakhiri sesi saat ini.</div>
                 <div class="modal-footer">
                     <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
-                    <a class="btn btn-primary" href="{{ route('logout') }}"
-                        onclick="event.preventDefault();
+                    <a class="btn " href="{{ route('logout') }}" style="background-color:#fe5d37; color:white" onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">
                         {{ __('Logout') }}
                     </a>

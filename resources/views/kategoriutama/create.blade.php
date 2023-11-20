@@ -6,7 +6,7 @@
         <div class="col-md-5">
             <div class="alert alert-success" role="alert">
                 <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                <strong>Success!</strong> {{ $message }}
+                <strong>Berhasil!</strong> {{ $message }}
             </div>
         </div>
     </div>
@@ -19,7 +19,7 @@
         <div class="col-md-5">
             <div class="alert alert-danger" role="alert">
                 <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                <strong>Failed!</strong> {{ $message }}
+                <strong>Gagal!</strong> {{ $message }}
             </div>
         </div>
     </div>
@@ -33,9 +33,9 @@
         </div>
         <nav aria-label="breadcrumb" role="navigation">
             <ol class="breadcrumb">
-                <li class="breadcrumb-item"><a href="{{ route('home') }}">Home</a></li>
+                <li class="breadcrumb-item"><a href="{{ route('home') }}">Beranda</a></li>
                 <li class="breadcrumb-item"><a href="{{ route('kategoriutama.index') }}">Kategori Utama</a></li>
-                <li class="breadcrumb-item"><a href="#">Tambah Kategori Utama</a></li>
+                <li class="breadcrumb-item">Tambah Kategori Utama</li>
             </ol>
         </nav>
     </div>
@@ -43,7 +43,7 @@
 
 <div class="row" style="margin-bottom: 30px;">
     <div class="col-sm-12 col-md-12">
-        <a href="{{ url()->previous() }}" class="btn btn-danger"> <i class="fas fa-fw fa-arrow-left"></i>
+        <a href="{{ url()->previous() }}" class="btn btn-secondary"> <i class="fas fa-fw fa-arrow-left"></i>
             Kembali</a>
     </div>
 </div>
@@ -56,15 +56,15 @@
                 <label for="nama_kategori_utama">Nama :</label>
                 <input type="text" class="form-control" id="nama_kategori_utama" placeholder="Masukkan nama kategori besar" name="nama_kategori_utama" required>
                 <div class="valid-feedback">
-                    Looks good!
+                    Terlihat bagus!
                 </div>
                 <div class="invalid-feedback">
-                    Please fill out this field.
+                    Silahkan isi kolom ini.
                 </div>
             </div>
             <div class="mt-4">
                 <a href="{{ route('kategoriutama.create') }}" class="btn btn-danger mr-2">Batal</a>
-                <button type="submit" id="btn-save" name="btnsave" class="btn btn-primary">Submit</button>
+                <button type="submit" id="btn-save" name="btnsave" class="btn btn-success">Simpan</button>
 
             </div>
 

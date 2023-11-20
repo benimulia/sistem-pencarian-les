@@ -6,7 +6,7 @@
         <div class="col-md-5">
             <div class="alert alert-success" role="alert">
                 <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                <strong>Success!</strong> {{ $message }}
+                <strong>Berhasil!</strong> {{ $message }}
             </div>
         </div>
     </div>
@@ -19,7 +19,7 @@
         <div class="col-md-5">
             <div class="alert alert-danger" role="alert">
                 <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                <strong>Failed!</strong> {{ $message }}
+                <strong>Gagal!</strong> {{ $message }}
             </div>
         </div>
     </div>
@@ -33,9 +33,9 @@
         </div>
         <nav aria-label="breadcrumb" role="navigation">
             <ol class="breadcrumb">
-                <li class="breadcrumb-item"><a href="{{ route('home') }}">Home</a></li>
+                <li class="breadcrumb-item"><a href="{{ route('home') }}">Beranda</a></li>
                 <li class="breadcrumb-item"><a href="{{ route('kategori.index') }}">Kategori</a></li>
-                <li class="breadcrumb-item"><a href="#">Tambah Kategori</a></li>
+                <li class="breadcrumb-item">Tambah Kategori</li>
             </ol>
         </nav>
     </div>
@@ -43,7 +43,7 @@
 
 <div class="row" style="margin-bottom: 30px;">
     <div class="col-sm-12 col-md-12">
-        <a href="{{ url()->previous() }}" class="btn btn-danger"> <i class="fas fa-fw fa-arrow-left"></i>
+        <a href="{{ url()->previous() }}" class="btn btn-secondary"> <i class="fas fa-fw fa-arrow-left"></i>
             Kembali</a>
     </div>
 </div>
@@ -61,10 +61,10 @@
                     @endforeach
                 </select>
                 <div class="valid-feedback">
-                    Looks good!
+                    Terlihat bagus!
                 </div>
                 <div class="invalid-feedback">
-                    Please fill out this field.
+                    Silahkan isi kolom ini.
                 </div>
             </div>
 
@@ -72,10 +72,10 @@
                 <label for="nama_kategori">Nama :</label>
                 <input type="text" class="form-control" id="nama_kategori" placeholder="Masukkan nama kategori" name="nama_kategori" required>
                 <div class="valid-feedback">
-                    Looks good!
+                    Terlihat bagus!
                 </div>
                 <div class="invalid-feedback">
-                    Please fill out this field.
+                    Silahkan isi kolom ini.
                 </div>
             </div>
             <div class="form-group">
@@ -83,10 +83,10 @@
                 <input type="text" class="form-control persen" id="persen_populer" placeholder="Masukkan persen populer.." name="persen_populer" required>
                 <small>contoh: 40 </small>
                 <div class="valid-feedback">
-                    Looks good!
+                    Terlihat bagus!
                 </div>
                 <div class="invalid-feedback">
-                    Please fill out this field.
+                    Silahkan isi kolom ini.
                 </div>
             </div>
             <div class="form-group">
@@ -94,10 +94,10 @@
                 <input type="text" class="form-control persen" id="persen_umum" placeholder="Masukkan persen umum.." name="persen_umum" required>
                 <small>contoh: 40 </small>
                 <div class="valid-feedback">
-                    Looks good!
+                    Terlihat bagus!
                 </div>
                 <div class="invalid-feedback">
-                    Please fill out this field.
+                    Silahkan isi kolom ini.
                 </div>
             </div>
             <div class="form-group">
@@ -105,16 +105,16 @@
                 <input type="text" class="form-control persen" id="persen_unik" placeholder="Masukkan persen unik.." name="persen_unik" required>
                 <small>contoh: 40 </small>
                 <div class="valid-feedback">
-                    Looks good!
+                    Terlihat bagus!
                 </div>
                 <div class="invalid-feedback">
-                    Please fill out this field.
+                    Silahkan isi kolom ini.
                 </div>
             </div>
 
             <div class="mt-4">
                 <a href="{{ route('kategori.create') }}" class="btn btn-danger mr-2">Batal</a>
-                <button type="submit" id="btn-save" name="btnsave" class="btn btn-primary">Submit</button>
+                <button type="submit" id="btn-save" name="btnsave" class="btn btn-success">Simpan</button>
 
             </div>
 

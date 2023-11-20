@@ -13,7 +13,7 @@
         <div class="col-md-5">
             <div class="alert alert-success" role="alert">
                 <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                <strong>Success!</strong> {{ $message }}
+                <strong>Sukses!</strong> {{ $message }}
             </div>
         </div>
     </div>
@@ -26,7 +26,7 @@
         <div class="col-md-5">
             <div class="alert alert-danger" role="alert">
                 <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                <strong>Failed!</strong> {{ $message }}
+                <strong>Gagal!</strong> {{ $message }}
             </div>
         </div>
     </div>
@@ -94,10 +94,10 @@
                         <div class="modal fade" tabindex="-1" id="previewModal-{{ $result->id_kategori_utama }}">
                             <div class="modal-dialog">
                                 <div class="modal-content">
-                                    <div class="modal-header bg-warning dark">
-                                        <h5 class="modal-title w-100 text-dark">Hapus Data?</h5>
+                                    <div class="modal-header bg-danger">
+                                        <h5 class="modal-title w-100 text-light">Hapus Data?</h5>
                                         <!-- <button type="button" class="btn-close" data-dismiss="modal" aria-label="Close">&times;</button> -->
-                                        <a data-dismiss="modal" class="btn btn-secondary btn-circle">
+                                        <a data-dismiss="modal" class="btn btn-light btn-circle">
                                             <i class="fas fa-times"></i>
                                         </a>
                                     </div>

@@ -13,8 +13,7 @@
     <div class="row justify-content-center mt-5">
         <div class="col-md-5">
             <div class="alert alert-success" role="alert">
-                <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span
-                        aria-hidden="true">&times;</span></button>
+                <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
                 <strong>Success!</strong> {{ $message }}
             </div>
         </div>
@@ -27,8 +26,7 @@
     <div class="row justify-content-center mt-5">
         <div class="col-md-5">
             <div class="alert alert-danger" role="alert">
-                <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span
-                        aria-hidden="true">&times;</span></button>
+                <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
                 <strong>Failed!</strong> {{ $message }}
             </div>
         </div>
@@ -91,17 +89,14 @@
                         <td>{{\Illuminate\Support\Str::limit( html_entity_decode(strip_tags($result->durasi)), 50 )}}</td>
                         @can('program-edit')
                         <td class="text-center">
-                            <a href="{{ route('program.edit',['id' => $result->id_program]) }}"
-                                class="btn btn-success text-light btb-circle" id="edit-program">
+                            <a href="{{ route('program.edit',['id' => $result->id_program]) }}" class="btn btn-success text-light btb-circle" id="edit-program">
                                 <i class="fas fa-eye"></i>
                             </a>
                         </td>
                         @endcan
                         @can('program-delete')
                         <td class="text-center">
-                            <a data-id="{!! $result->id_program !!}"
-                                data-target="#previewModal-{{ $result->id_program }}" data-toggle="modal"
-                                class="btn btn-danger btn-circle">
+                            <a data-id="{!! $result->id_program !!}" data-target="#previewModal-{{ $result->id_program }}" data-toggle="modal" class="btn btn-danger btn-circle">
                                 <i class="fas fa-trash"></i>
                             </a>
                         </td>
@@ -110,10 +105,10 @@
                         <div class="modal fade" tabindex="-1" id="previewModal-{{ $result->id_program }}">
                             <div class="modal-dialog">
                                 <div class="modal-content">
-                                    <div class="modal-header bg-warning dark">
-                                        <h5 class="modal-title w-100 text-dark">Hapus Data?</h5>
+                                    <div class="modal-header bg-danger dark">
+                                        <h5 class="modal-title w-100 text-light">Hapus Data</h5>
                                         <!-- <button type="button" class="btn-close" data-dismiss="modal" aria-label="Close">&times;</button> -->
-                                        <a data-dismiss="modal" class="btn btn-secondary btn-circle">
+                                        <a data-dismiss="modal" class="btn btn-light btn-circle">
                                             <i class="fas fa-times"></i>
                                         </a>
                                     </div>
@@ -122,10 +117,8 @@
                                             kembali!</p>
                                     </div>
                                     <div class="modal-footer">
-                                        <button type="button" class="btn btn-secondary"
-                                            data-dismiss="modal">Batal</button>
-                                        <a href="{{ route('program.destroy',['id' => $result->id_program]) }}"
-                                            class="btn btn-danger text-light">
+                                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Batal</button>
+                                        <a href="{{ route('program.destroy',['id' => $result->id_program]) }}" class="btn btn-danger text-light">
                                             Hapus
                                         </a>
                                     </div>
@@ -161,36 +154,36 @@
 
 @section('footer-script')
 <script>
-// Call the dataTables jQuery plugin
-$(document).ready(function() {
-    var buttonCommon = {
-        exportOptions: {
-            format: {
-                body: function(data, row, column, node) {
-                    return data;
+    // Call the dataTables jQuery plugin
+    $(document).ready(function() {
+        var buttonCommon = {
+            exportOptions: {
+                format: {
+                    body: function(data, row, column, node) {
+                        return data;
+                    }
                 }
             }
-        }
-    };
-    
-    $('#dataTable').DataTable({
-        dom: 'Bfrtip',
-        lengthMenu: [
-            [ 10, 25, 50, -1 ],
-            [ '10 rows', '25 rows', '50 rows', 'Show all' ]
-        ],
-        buttons: [
-            'pageLength','copy', 'print', ,
-            $.extend(true, {}, buttonCommon, {
-                extend: 'excelHtml5',
-                exportOptions: {
-                    columns: [0, 1, 2, 3, 4, 5]
-                }
-            }), 'pdf'
-        ],
-        lengthChange: true
+        };
+
+        $('#dataTable').DataTable({
+            dom: 'Bfrtip',
+            lengthMenu: [
+                [10, 25, 50, -1],
+                ['10 rows', '25 rows', '50 rows', 'Show all']
+            ],
+            buttons: [
+                'pageLength', 'copy', 'print', ,
+                $.extend(true, {}, buttonCommon, {
+                    extend: 'excelHtml5',
+                    exportOptions: {
+                        columns: [0, 1, 2, 3, 4, 5]
+                    }
+                }), 'pdf'
+            ],
+            lengthChange: true
+        });
     });
-});
 </script>
 
 @endsection

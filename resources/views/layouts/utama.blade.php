@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="utf-8">
-    <title>SIPTKA - Find your kids course here!</title>
+    <title>SIPTKA - Temukan Kursus Anak Anda Disini!</title>
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
     <meta content="" name="keywords">
     <meta content="" name="description">
@@ -54,11 +54,11 @@
         <div class="container-fluid bg-dark text-white-50 footer pt-5 mt-5 wow fadeIn" data-wow-delay="0.1s">
             <div class="container py-5">
                 <div class="row g-5">
-                    <div class="col-lg-3 col-md-6">
-                        <h3 class="text-white mb-4">Get In Touch</h3>
-                        <p class="mb-2"><i class="fa fa-map-marker-alt me-3"></i>123 Street, New York, USA</p>
-                        <p class="mb-2"><i class="fa fa-phone-alt me-3"></i>+012 345 67890</p>
-                        <p class="mb-2"><i class="fa fa-envelope me-3"></i>info@example.com</p>
+                    <div class="col-lg-5 col-md-4">
+                        <h3 class="text-white mb-4">Hubungi</h3>
+                        <p class="mb-2"><i class="fa fa-map-marker-alt me-2"></i>Gg.Aster No 7 RTO3/RW01 Santren Catur Tunggal Depok Sleman Yogyakarta 55281</p>
+                        <p class="mb-2"><i class="fa fa-phone-alt me-2"></i>0822-7613-9661</p>
+                        <p class="mb-2"><i class="fa fa-envelope me-2"></i>Roitoniapanjaitan@gmail.com</p>
                         <div class="d-flex pt-2">
                             <a class="btn btn-outline-light btn-social" href=""><i class="fab fa-twitter"></i></a>
                             <a class="btn btn-outline-light btn-social" href=""><i class="fab fa-facebook-f"></i></a>
@@ -66,16 +66,16 @@
                             <a class="btn btn-outline-light btn-social" href=""><i class="fab fa-linkedin-in"></i></a>
                         </div>
                     </div>
-                    <div class="col-lg-3 col-md-6">
-                        <h3 class="text-white mb-4">Quick Links</h3>
-                        <a class="btn btn-link text-white-50" href="">About Us</a>
-                        <a class="btn btn-link text-white-50" href="">Contact Us</a>
-                        <a class="btn btn-link text-white-50" href="">Our Services</a>
-                        <a class="btn btn-link text-white-50" href="">Privacy Policy</a>
-                        <a class="btn btn-link text-white-50" href="">Terms & Condition</a>
+                    <div class=" col-md-4">
+                        <h3 class="text-white mb-4">Tautan</h3>
+                        <a class="btn btn-link text-white-50" href="">Tentang Kami</a>
+                        <a class="btn btn-link text-white-50" href="">Kontak</a>
+                        <a class="btn btn-link text-white-50" href="">Layanan Kami</a>
+                        <a class="btn btn-link text-white-50" href="">Kebijakan Privasi</a>
+                        <a class="btn btn-link text-white-50" href="">Syarat & Ketentuan</a>
                     </div>
-                    <div class="col-lg-3 col-md-6">
-                        <h3 class="text-white mb-4">Photo Gallery</h3>
+                    <div class="col-md-3">
+                        <h3 class="text-white mb-4">Galeri</h3>
                         <div class="row g-2 pt-2">
                             <div class="col-4">
                                 <img class="img-fluid rounded bg-light p-1" src="{{asset('utama/img/classes-1.jpg') }}" alt="">
@@ -97,7 +97,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="col-lg-3 col-md-6">
+                    <!-- <div class="col-lg-3 col-md-6">
                         <h3 class="text-white mb-4">Newsletter</h3>
                         <p>Dolor amet sit justo amet elitr clita ipsum elitr est.</p>
                         <div class="position-relative mx-auto" style="max-width: 400px;">
@@ -106,46 +106,46 @@
                         </div>
                     </div>
                 </div>
-            </div>
-            <div class="container">
-                <div class="copyright">
-                    <div class="row">
-                        <div class="col-md-6 text-center text-md-start mb-3 mb-md-0">
-                            &copy; <a class="border-bottom" href="#">SIPTKA</a>, All Right Reserved.
-                        </div>
-                        <div class="col-md-6 text-center text-md-end">
-                            <div class="footer-menu">
-                                <a href="">Home</a>
-                                <a href="">Cookies</a>
-                                <a href="">Help</a>
-                                <a href="">FQAs</a>
+            </div> -->
+                    <div class="container">
+                        <div class="copyright">
+                            <div class="row">
+                                <div class="col-md-6 text-center text-md-start mb-3 mb-md-0">
+                                    &copy; <a class="border-bottom" href="#">SIPTKA</a>, All Right Reserved.
+                                </div>
+                                <div class="col-md-6 text-center text-md-end">
+                                    <div class="footer-menu">
+                                        <a href="">Home</a>
+                                        <a href="">Cookies</a>
+                                        <a href="">Help</a>
+                                        <a href="">FQAs</a>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
+                <!-- Footer End -->
+
+
+                <!-- Back to Top -->
+                <a href="#" class="btn btn-lg btn-primary btn-lg-square back-to-top"><i class="bi bi-arrow-up"></i></a>
             </div>
-        </div>
-        <!-- Footer End -->
 
+            @yield('scripts')
 
-        <!-- Back to Top -->
-        <a href="#" class="btn btn-lg btn-primary btn-lg-square back-to-top"><i class="bi bi-arrow-up"></i></a>
-    </div>
+            <!-- JavaScript Libraries -->
+            <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+            <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
+            <script src="{{asset('utama/lib/wow/wow.min.js') }}"></script>
+            <script src="{{asset('utama/lib/easing/easing.min.js') }}"></script>
+            <script src="{{asset('utama/lib/waypoints/waypoints.min.js') }}"></script>
+            <script src="{{asset('utama/lib/owlcarousel/owl.carousel.min.js') }}"></script>
 
-    @yield('scripts')
+            <!-- Template Javascript -->
+            <script src="{{asset('utama/js/main.js') }}"></script>
 
-    <!-- JavaScript Libraries -->
-    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="{{asset('utama/lib/wow/wow.min.js') }}"></script>
-    <script src="{{asset('utama/lib/easing/easing.min.js') }}"></script>
-    <script src="{{asset('utama/lib/waypoints/waypoints.min.js') }}"></script>
-    <script src="{{asset('utama/lib/owlcarousel/owl.carousel.min.js') }}"></script>
-
-    <!-- Template Javascript -->
-    <script src="{{asset('utama/js/main.js') }}"></script>
-
-    @yield('footer-script')
+            @yield('footer-script')
 </body>
 
 </html>

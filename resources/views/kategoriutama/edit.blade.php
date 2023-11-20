@@ -6,7 +6,7 @@
         <div class="col-md-5">
             <div class="alert alert-success" role="alert">
                 <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                <strong>Success!</strong> {{ $message }}
+                <strong>Berhasil!</strong> {{ $message }}
             </div>
         </div>
     </div>
@@ -19,7 +19,7 @@
         <div class="col-md-5">
             <div class="alert alert-danger" role="alert">
                 <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                <strong>Failed!</strong> {{ $message }}
+                <strong>Gagal!</strong> {{ $message }}
             </div>
         </div>
     </div>
@@ -29,13 +29,13 @@
 <div class="row">
     <div class="col-sm-12 col-md-12">
         <div class="pull-left">
-            <h2>Edit Kategori Utama</h2>
+            <h2>Ubah Kategori Utama</h2>
         </div>
         <nav aria-label="breadcrumb" role="navigation">
             <ol class="breadcrumb">
-                <li class="breadcrumb-item"><a href="{{ route('home') }}">Home</a></li>
+                <li class="breadcrumb-item"><a href="{{ route('home') }}">Beranda</a></li>
                 <li class="breadcrumb-item"><a href="{{ route('kategoriutama.index') }}">Kategori Utama</a></li>
-                <li class="breadcrumb-item"><a href="#">Edit Kategori Utama</a></li>
+                <li class="breadcrumb-item"><a href="#">Ubah Kategori Utama</a></li>
             </ol>
         </nav>
     </div>
@@ -43,9 +43,9 @@
 @can('kategori-edit')
 <div class="row" style="margin-bottom: 30px;">
     <div class="col-sm-12 col-md-12">
-        <a href="{{ url()->previous() }}" class="btn btn-danger"> <i class="fas fa-fw fa-arrow-left"></i>
+        <a href="{{ url()->previous() }}" class="btn btn-secondary"> <i class="fas fa-fw fa-arrow-left"></i>
             Kembali</a>
-        <button id="btnEnableEdit" class="btn btn-info" onclick="enableInput();"> <i class="fas fa-fw fa-edit"></i> Edit
+        <button id="btnEnableEdit" class="btn btn-info" onclick="enableInput();"> <i class="fas fa-fw fa-edit"></i> Ubah
             Data</button>
     </div>
 </div>
@@ -61,12 +61,12 @@
                 <label for="nama_kategori_utama">Nama :</label>
                 <input type="text" class="form-control" id="nama_kategori_utama" placeholder="Masukkan nama kategori besar" name="nama_kategori_utama" required value="{{ $kategori->nama_kategori_utama }}" disabled=true>
                 <div class="valid-feedback">Valid.</div>
-                <div class="invalid-feedback">Please fill out this field.</div>
+                <div class="invalid-feedback">Silahkan isi kolom ini!</div>
             </div>
 
             <div class="" style="margin-top: 30px;">
                 <a href="{{ route('kategoriutama.edit', ['id' => $kategori->id_kategori_utama]) }}" id="btnBatal" class="btn btn-danger mr-2" style="display: none;">Batal</a>
-                <a href="#myModal" id="btnUpdate" data-toggle="modal" class="btn btn-success" style="display: none;">Update </a>
+                <a href="#myModal" id="btnUpdate" data-toggle="modal" class="btn btn-success" style="display: none;">Simpan</a>
             </div>
             <!-- Modal HTML -->
 
@@ -75,13 +75,13 @@
                 <div class="modal-dialog modal-confirm">
                     <div class="modal-content">
                         <div class="modal-header bg-info text-light">
-                            <h5 class="modal-title w-100">Edit Data?</h5>
-                            <a data-dismiss="modal" class="btn btn-secondary btn-circle">
+                            <h5 class="modal-title w-100">Ubah Data</h5>
+                            <a data-dismiss="modal" class="btn btn-light btn-circle">
                                 <i class="fas fa-times"></i>
                             </a>
                         </div>
                         <div class="modal-body">
-                            <p>Apakah anda yakin untuk mengedit data?</p>
+                            <p>Apakah anda yakin untuk mengubah data?</p>
                         </div>
                         <div class="modal-footer">
                             <button type="button" class="btn btn-secondary" data-dismiss="modal">Batal</button>

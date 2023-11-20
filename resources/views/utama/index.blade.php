@@ -32,7 +32,7 @@
 
     <div class="mySlides">
         <a href="{{ route('utama.jeniskategoriumum') }}" target="_blank" rel="noopener noreferrer">
-            <img src="utama/img/custom-carousel-1.png" style="width:100%">
+            <img src="utama/img/custom-carousel-3.png" style="width:100%">
             <div class="text"></div>
         </a>
     </div>
@@ -56,8 +56,8 @@
 <div class="container-xxl py-5">
     <div class="container">
         <div class="text-center mx-auto mb-5 wow fadeInUp" data-wow-delay="0.1s" style="max-width: 600px;">
-            <h1 class="mb-3">Kategori Kursus Populer</h1>
-            <p>Temukan kursus terbaik untuk anak Anda dengan mudah melalui SIPTKA. Di sini, kami menawarkan berbagai
+            <h1 class="mb-3">Rekomendasi Kursus</h1>
+            <p>Temukan kategori kursus populer dengan mudah hanya di SIPTKA. Di sini, kami menawarkan berbagai
                 kategori kursus yang dapat dipilih sesuai dengan kebutuhan anak Anda.</p>
         </div>
         <div class="row g-4">
@@ -75,20 +75,20 @@
             @endforeach
         </div>
 
-        {{-- <div class="text-center mt-4 wow fadeInUp" data-wow-delay="0.1s">
-                <a href="{{ route('utama.jeniskategoripopuler') }}" class="btn btn-primary">Lihat Selengkapnya</a>
-    </div> --}}
-</div>
+        <div class="text-center mt-4 wow fadeInUp" data-wow-delay="0.1s">
+            <a href="{{ route('utama.jeniskategoripopuler') }}" class="btn btn-primary">Lihat Selengkapnya</a>
+        </div>
+    </div>
 </div>
 <!-- Kategori Kursus End -->
 
 <!-- Classes Start -->
 <div class="container-xxxl py-5">
     <div class="container">
-        <div class="text-left mb-5 wow fadeInUp" data-wow-delay="0.1s" style="max-width: 600px;">
+        <div class="text-center mx-auto mb-5 wow fadeInUp" data-wow-delay="0.1s" style="max-width: 600px;">
             <h2 class="mb-3">Temukan Kursus Terbaik Anda</h2>
-            <p>Temukan kursus terbaik untuk anak Anda dengan mudah melalui SIPTKA. Di sini, kami menawarkan berbagai
-                kategori kursus yang dapat dipilih sesuai dengan kebutuhan anak Anda.</p>
+            <p>Temukan kursus anak terbaik dengan mudah melalui SIPTKA. Di sini, kami menawarkan berbagai
+                tempat kursus yang dapat dipilih sesuai dengan kebutuhan Anda.</p>
         </div>
         <div class="row g-4">
             @if ($tempat_kursus->count() > 0)

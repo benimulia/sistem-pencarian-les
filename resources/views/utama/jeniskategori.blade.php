@@ -9,6 +9,7 @@
             <ol class="breadcrumb">
                 <li class="breadcrumb-item"><a href="/">Beranda</a></li>
                 <li class="breadcrumb-item text-white active" aria-current="page">Kategori Kursus</li>
+                <li class="breadcrumb-item text-white active" aria-current="page">Kursus {{ ucfirst($namajeniskategori) }}</li>                
             </ol>
         </nav>
     </div>
@@ -20,7 +21,7 @@
 <div class="container-xxxl py-5">
     <div class="container">
         <div class="text-center mx-auto mb-5 wow fadeInUp" data-wow-delay="0.1s" style="max-width: 600px;">
-            <h1 class="mb-3">Kategori kursus {{ $namajeniskategori }}</h1>
+            <h1 class="mb-3">Kategori Kursus {{ ucfirst($namajeniskategori) }}</h1>
             <p>Berikut tempat kursus yang memiliki kategori {{ $namajeniskategori }}.</p>
         </div>
         <div class="row g-4">

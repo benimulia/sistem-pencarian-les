@@ -9,6 +9,7 @@
             <ol class="breadcrumb">
                 <li class="breadcrumb-item"><a href="/">Beranda</a></li>
                 <li class="breadcrumb-item text-white">Kategori Kursus </li>
+                <li class="breadcrumb-item text-white active" aria-current="page">Kursus {{ $breadcrumb_kategori }}</li>
                 <li class="breadcrumb-item text-white active" aria-current="page">{{ $kategori->nama_kategori }}</li>
             </ol>
         </nav>

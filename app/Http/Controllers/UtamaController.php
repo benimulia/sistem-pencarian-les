@@ -39,10 +39,26 @@ class UtamaController extends Controller
     public function kategori($id)
     {
         $kategori = Kategori::find($id);
+
+        // Mendapatkan nilai maksimum di antara persen_populer, persen_umum, dan persen_unik
+        $maksimum = max($kategori->persen_populer, $kategori->persen_umum, $kategori->persen_unik);
+
+        // Menentukan variabel berdasarkan nilai maksimum
+        $breadcrumb_kategori = '';
+
+        if ($maksimum == $kategori->persen_populer) {
+            $breadcrumb_kategori = 'Populer';
+        } elseif ($maksimum == $kategori->persen_umum) {
+            $breadcrumb_kategori = 'Umum';
+        } elseif ($maksimum == $kategori->persen_unik) {
+            $breadcrumb_kategori = 'Unik';
+        }
+
         $tempatkursus = $kategori->tempatkursus()->orderBy('jumlah_pengunjung', 'ASC')->get();
 
-        return view('utama.kategori', compact('tempatkursus', 'kategori'));
+        return view('utama.kategori', compact('tempatkursus', 'kategori', 'breadcrumb_kategori'));
     }
+
 
     public function kategoripopuler()
     {

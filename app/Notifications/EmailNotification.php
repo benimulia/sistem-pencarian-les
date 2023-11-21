@@ -41,9 +41,9 @@ class EmailNotification extends Notification
     public function toMail($notifiable)
     {
         return (new MailMessage)
-            ->line('Selamat datang di Notifikasi Email!')
-            ->action('Kunjungi Website', url('/'))
-            ->line('Ini adalah contoh notifikasi email sederhana.');
+            ->line('Selamat akun Anda telah aktif!')
+            ->action('Kunjungi Website', url('/login'))
+            ->line('Silahkan klik "Kunjungi Website" dan silahkan Login untuk mengiklankan tempat kursus Anda. Terima kasih!');
     }
 
     /**

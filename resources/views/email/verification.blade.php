@@ -7,7 +7,7 @@
 </head>
 
 <body>
-    <h1>Selamat datang di Notifikasi Email!</h1>
+    <h1>Selamat akun Anda telah aktif!</h1>
     <p>Ini adalah contoh notifikasi email sederhana.</p>
 </body>
 

@@ -89,24 +89,30 @@ class UtamaController extends Controller
         $selected_kategoris = $request->input('kategori', []);
         $selected_lokasis = $request->input('lokasi', []);
 
-        // Query 
+        // Query
         $tempat_kursus_query = TempatKursus::select('tempat_kursus.*')
             ->distinct()
             ->join('kategori_tempat_kursus', 'tempat_kursus.id_tempat_kursus', '=', 'kategori_tempat_kursus.tempat_kursus_id')
-            ->join('kategori', 'kategori_tempat_kursus.kategori_id', '=', 'kategori.id_kategori')
-            ->where('tempat_kursus.nama_tempat_kursus', 'LIKE', "%$query%")
-            ->orWhere('kategori.nama_kategori', 'LIKE', "%$query%");
+            ->join('kategori', 'kategori_tempat_kursus.kategori_id', '=', 'kategori.id_kategori');
+
+        // Filter berdasarkan teks query
+        if ($query) {
+            $tempat_kursus_query->where(function ($queryBuilder) use ($query) {
+                $queryBuilder->where('tempat_kursus.nama_tempat_kursus', 'LIKE', "%$query%")
+                    ->orWhere('kategori.nama_kategori', 'LIKE', "%$query%");
+            });
+        }
 
         // Filter berdasarkan kategori
         if (count($selected_kategoris) > 0) {
-            $tempat_kursus_query = $tempat_kursus_query->whereHas('kategori', function ($query) use ($selected_kategoris) {
+            $tempat_kursus_query->whereHas('kategori', function ($query) use ($selected_kategoris) {
                 $query->whereIn('id_kategori', $selected_kategoris);
             });
         }
 
         // Filter berdasarkan lokasi (alamat)
         if (count($selected_lokasis) > 0) {
-            $tempat_kursus_query = $tempat_kursus_query->where(function ($query) use ($selected_lokasis) {
+            $tempat_kursus_query->where(function ($query) use ($selected_lokasis) {
                 foreach ($selected_lokasis as $lokasi) {
                     $query->orWhere('alamat', 'LIKE', "%$lokasi%");
                 }
@@ -116,11 +122,12 @@ class UtamaController extends Controller
         // Eksekusi query
         $tempat_kursus = $tempat_kursus_query->get();
 
-        // Sekarang urutkan berdasarkan jumlah pengunjung
+        // urutkan berdasarkan jumlah pengunjung
         $tempat_kursus = $tempat_kursus->sortByDesc('jumlah_pengunjung');
 
         return view('utama.search', compact('tempat_kursus', 'query', 'kategori', 'selected_kategoris', 'selected_lokasis'));
     }
+
 
 
 
